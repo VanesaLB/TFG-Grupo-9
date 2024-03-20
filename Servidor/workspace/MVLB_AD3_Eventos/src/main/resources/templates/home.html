@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<!-- <link rel="stylesheet" th:href="@{/css/estilos.css}" /> -->
+	<title>HomeTitulo</title>
+</head>
+
+<body>
+
+<h1>Página principal</h1>
+
+	<!-- <h2>Bienvenido/a <spam sec:authentication="name"></spam></h2> -->
+	<h3>Te damos la bienvenida <span th:text="${nombreUsuario}"></span></h3>
+	<!-- <h3 th:text="${nombreUsuario}"></h3> -->
+	<!-- login y registro saldrán si no está autenticado -->
+	<h3>Usuario: <span th:text="${session.usuario == null ? 'invitado' : session.usuario.nombre}"></span></h3>
+	<!-- // "${session.usuario == null ? 'invitado' : session.usuario.nombre}" -->
+	
+	<!-- cerrar sesión y mis reservas saldrán cuando esté autenticado -->
+	<h4 sec:authorize="!isAuthenticated()"><a th:href="@{/login}">Login</a></h4>
+	<h4 sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Cerrar sesión</a></h4>
+	<h4 sec:authorize="!isAuthenticated()"><a th:href="@{/registro}">Registro</a></h4>
+	<h4 sec:authorize="isAuthenticated()"><a th:href="@{/reservas/misReservas}">Mis reservas</a></h4>
+	
+	<h2>Eventos</h2>
+	<h4>Mensaje : <span th:text="${mensaje}"></span></h4>
+	
+	<h4><a th:href="@{/eventos/destacados}">Destacados</a></h4>
+	<h4><a th:href="@{/eventos/activos}">Activos</a></h4>
+	
+	<h4>Eventos por tipo: <span> 
+		
+	<form th:action="@{/eventos/filtrarTipo}"  method="post">
+		<select name="tipoEvento">
+			<option value="0">Seleccionar :</option>	
+		    <option value="1">Concierto</option>
+		    <option value="2">Despedida</option>
+		    <option value="3">Cumpleaños</option>
+		    <option value="4">Boda</option>
+		</select>
+		<button type="submit" value="Enviar">Enviar</button>
+	</form>
+	
+	</span></h4>
+	 
+	<h2>Listado de EVENTOS</h2>
+	<table border="2" width=100%>
+		<tr>
+			<th>Nombre</th>
+			<th>Aforo Máximo</th>
+			<th>Fecha Inicio</th>
+			<th>Opciones</th>
+		</tr>
+
+		<tr th:each="evento : ${eventos}">
+			<td th:text="${evento.nombre}"></td>
+			<td th:text="${evento.aforoMaximo}"></td>
+			<td th:text="${evento.fechaInicio}"></td>
+			<td><a th:href="@{/eventos/detalle/{idEvento}(idEvento=${evento.idEvento})}">Detalle</a></td>
+		</tr>
+	</table>
+
+</body>
+</html>

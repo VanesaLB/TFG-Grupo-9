@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Mis reservas</title>
+</head>
+<body>
+
+	<h1>MIS RESERVAS</h1>
+	<h4>Mensaje : <span th:text="${mensaje}"></span></h4>
+	
+	<table border="2" width=100%>	
+		<tr>
+			<th>Id reserva</th>
+			<th>Id evento</th>
+			<th>username</th>
+			<th>PrecioVenta</th>
+			<th>Observaciones</th>
+			<th>Cantidad</th>
+			<th>Cancelar Reserva</th>
+		</tr>
+		
+		<tr th:each="reserva : ${reservas}">
+			<td th:text="${reserva.idReserva}"></td>
+			<td th:text="${reserva.evento.idEvento}"></td>
+			<td th:text="${reserva.usuario.username}"></td>
+			<td th:text="${reserva.precioVenta}"></td>
+			<td th:text="${reserva.observaciones}"></td>
+			<td th:text="${reserva.cantidad}"></td>
+			<td><a th:href="@{/reservas/cancelar/{idReserva}(idReserva=${reserva.idReserva})}">Eliminar la reserva</a></td>
+		</tr>
+	</table>
+
+	<a th:href="@{/}">Volver a la home</a>
+
+</body>
+</html>
+			
+			
+			

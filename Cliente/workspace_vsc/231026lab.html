@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        Ejercicio 1
+        Realiza una página web que realice la suma de dos números.
+        Para ello tendremos dos cajas de texto donde podremos poner
+        los dos números y otra caja de texto donde se mostrará el resultado.
+        Tendremos un botón “sumar” que al pulsarlo realice la operación.
+        Nota: Es posible que necesites usar la función “parseInt” para convertir
+        el texto en formato numérico.
+
+        Ejercicio 2
+        Añade la funcionalidad de restar, multiplicar y dividir al ejercicio anterior.
+        Para ello pondremos 3 botones mas que realicen las operaciones (restar,
+        multiplicar y dividir), pero reutilizaremos las 3 cajas de texto que tenemos.
+
+        Ejercicio 3
+        Realiza una pagina web que simule una página de login de usuario.
+        Solo podremos entrar cuando el usuario sea “pepe” y la contraseña sea “1234”.
+        Tendremos dos cajas de texto para cada entrada y un botón para comprobar
+        el usuario. En caso afirmativo, aparecerá el mensaje “Usuario y password correcto”
+        justo debajo, en caso contrario, aparecerá el mensaje “Algún campo no es correcto”.
+
+        Ejercicio 4
+        Repite el ejercicio anterior pero esta vez el usuario y el password tiene que
+        estar en un array de objetos Usuario. La clase Usuario debe tener los atributos
+        nombre y password, El array tendrá 3 objetos usuario creados al principio del programa.
+        */
+
+        //Ejercicio 1 y 2
+        function sumar(){
+            let inputNum1 = numero1.value;
+            let inputNum2 = numero2.value;
+
+            let intNum1 = parseInt(inputNum1);
+            let intNum2 = parseInt(inputNum2);
+            let suma = 0;
+
+            suma = intNum1 + intNum2;
+            resultado.value = suma;
+        }
+
+        function restar(){
+            let inputNum1 = numero1.value;
+            let inputNum2 = numero2.value;
+
+            let intNumero1 = parseInt(inputNum1);
+            let intNumero2 = parseInt(inputNum2);
+            let resta = 0;
+
+            resta = intNumero1 - intNumero2;
+            resultado.value = resta;
+        }
+
+        function multiplicar(){
+            let inputNum1 = numero1.value;
+            let inputNum2 = numero2.value;
+
+            let intNum1 = parseInt(inputNum1);
+            let intNum2 = parseInt(inputNum2);
+            let multiplicacion = 0;
+
+            multiplicacion = intNum1*intNum2;
+            resultado.value = multiplicacion;
+        }
+
+        function dividir(){
+            let inputNum1 = numero1.value;
+            let inputNum2 = numero2.value;
+
+            let intNum1 = parseInt(inputNum1);
+            let intNum2 = parseInt(inputNum2);
+            let division = 0;
+
+            division = intNum1/intNum2;
+            resultado.value = division;
+        }
+
+        //Ejercicio 3
+        function comprobarUsuario(){
+            let usuario = login.value;
+            let contrasena = password.value;
+            console.log("Entrando en comprobarUsuario()")
+            if(usuario == "pepe" && contrasena == "1234"){
+                mensaje = document.getElementById("mensajeValidacion")
+                //Con innerHTML nos introduce lo que pasamos entre los paréntesis al html, en este caso dentro del elemento cuyo id sea mensajeValidacion
+                mensaje.innerHTML = "Usuario y contraseña correctos";
+                console.log("correcto")
+            }else{
+                //mensajeValidacion.value = "Algún campo no es correcto";
+                mensajeValidacion.innerHTML = "Algún campo no es correcto";
+                console.log("incorrecto")
+            }
+
+        }
+
+        //Ejercicio 4
+        //Creamos constructor
+        class Usuario{
+            constructor(nombre, pass){
+                this.nombre = nombre;
+                this.pass = pass;
+            }
+        }
+
+        //Creamos nuevos usuarios
+        let usuario1 = new Usuario ("vanesa", "1111");
+        let usuario2 = new Usuario ("luis", "2222");
+        let usuario3 = new Usuario ("samex", "3333");
+
+        //Creamos el array e introducimos los usuarios
+        let arrayUsuarios = [];
+        arrayUsuarios.push(usuario1);
+        arrayUsuarios.push(usuario2);
+        arrayUsuarios.push(usuario3);
+
+        //Funcion para comprobar el usuario
+        function comprobarUsuarioArray(){
+            console.log("Entrando en comprobarUsuarioArray()")
+            //Creamos variables para almacenar el valor que nos pasan por el input
+            let usuario = login.value;
+            let contrasena = password.value;
+            //Variable booleano para indicar si lo ha encontrado o no
+            let encontrado = false;
+            //Recorremos el array
+            for (let user of arrayUsuarios){
+                //Si coinciden usuario y password con alguno de los usuarios del array
+                if(usuario == user.nombre && contrasena == user.pass){
+                    //Cambiamos el estado de encontrado a true
+                    encontrado = true;
+                }
+            }
+            //Mostramos el mensaje según si lo ha encontrado o no
+            if (encontrado){
+                mensaje = document.getElementById("mensajeValidacion")
+                mensaje.innerHTML = "Usuario y contraseña correctos";
+                console.log("correcto")
+            }else{
+                mensaje = document.getElementById("mensajeValidacion")
+                mensaje.innerHTML = "Usuario y contraseña incorrectos";
+                console.log("incorrecto")
+            }
+            
+        }
+
+
+    </script>
+</head>
+<body>
+    <h3>Ejercicio 1 y 2</h3>
+    <input id="numero1" name="numero1" type="number" placeholder="Escribe un número"/>
+    <input id="numero2" name="numero2" type="number" placeholder="Escribe un número"/>
+    <button id="sumarBt" onclick="sumar()">Sumar</button>
+    <button id="sumarBt" onclick="restar()">Restar</button>
+    <button id="sumarBt" onclick="multiplicar()">Multiplicar</button>
+    <button id="sumarBt" onclick="dividir()">Dividir</button>
+    <input id="resultado"/>
+
+    <br/>
+
+    <h3>Ejercicio 3 y 4</h3>
+    <input id="login" type="text" placeholder="Escribe tu login">
+    <input id="password" type="text" placeholder="Escribe tu contraseña">
+    <button id="comprobar" onclick="comprobarUsuario()">Comprobar ususario</button>
+    <button id="comprobarArray" onclick="comprobarUsuarioArray()">Comprobar ususario array</button>
+    <p id="mensajeValidacion" value=""></p>
+</body>
+</html>

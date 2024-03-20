@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+    <script src="funcionalidad.js"></script>
+    -->
+    <!--
+        Si ponemos el atributo 'defer' en la etiqueta script, dicho script NO
+        se ejecutará hasta que no se haya cargado completamente la página html
+        en el arbol DOM
+
+        Podriamos ahorrarnos de esta manera usar windows.onload
+    -->
+    <script src="funcionalidad.js" defer></script>
+</head>
+<body>
+    <form id="formularioPizza" action="ServicioRest" method="get">
+        <h1>BIENVENIDOS A LA PIZZERIA</h1>
+        <label>Nombre:</label>
+        <input type="text"/>
+        <br/>
+        <label>Direccion:</label>
+        <input type="text"/>
+        <br/>
+        <label>Email:</label>
+        <input type="email"/>
+        <br/>
+        <label>Telefono:</label>
+        <input type="tel"/>
+        <br/>    
+        <br/>
+        <div id="divTamaños">
+    
+        </div> 
+        <div id="divIngredientes">
+    
+        </div> 
+    </form>
+    <div id="divPrecioPizza">
+        <!--<h4>Precio: 6</h4>-->
+    </div>
+    <button id="botonCalcularPrecio">Calcular precio de la pizza</button>
+    <br/>
+    <button id="botonCalcularPrecioAjax">Calcular precio de la pizza con AJAX</button>
+    <br/>
+    <button id="botonActualizarDatos">Actualizar Datos</button>
+</body>
+
+</html>

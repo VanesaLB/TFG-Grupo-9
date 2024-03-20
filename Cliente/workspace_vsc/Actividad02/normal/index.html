@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+
+        function crearInputsIngredientes(arrayIngredientes){
+            console.log(arrayIngredientes)
+            // Crear el elemento h3
+            let cabeceraIngredientes = document.createElement("h3")
+            // Añadir texto al elemento h3
+            cabeceraIngredientes.textContent = "Lista de Ingredientes";
+            // Añadir el elemento h3 al contenedor que sería document.body, osea, la página
+            document.body.appendChild(cabeceraIngredientes);
+            divIngredientes.appendChild(cabeceraIngredientes);
+            /*let nodoTextoCabeceraIngredientes = document.createTextNode("Ingredientes")
+            divIngredientes.appendChild(nodoTextoCabeceraIngredientes);*/
+            let nodoSaltoDeLinea = document.createElement("br")
+            divIngredientes.appendChild(nodoSaltoDeLinea);
+
+            for(let ingrediente of arrayIngredientes){
+                let inputIngrediente = document.createElement("input")//<input/>
+                inputIngrediente.setAttribute("type", "checkbox")//<input type="checkbox"/>
+                //Seria totalmente equivalente hacer:
+                //inputIngrediente.type = "checkbos"
+                inputIngrediente.setAttribute("name", "ingredientes")//<input type="checkbox" name="ingredientes"/>
+                inputIngrediente.setAttribute("value", ingrediente.precio)//<input type="checkbox" name="ingredientes" value="1"/>
+                console.log(inputIngrediente)
+
+                let nodoTextoIngrediente = document.createTextNode(ingrediente.nombre)
+                console.log(nodoTextoIngrediente)
+
+                divIngredientes.appendChild(inputIngrediente);
+                divIngredientes.appendChild(nodoTextoIngrediente);
+
+                let nodoSaltoDeLinea = document.createElement("br")
+                divIngredientes.appendChild(nodoSaltoDeLinea);
+            }
+        }
+
+        function crearInputsTamaños(arrayTamaños){
+            console.log(arrayTamaños)
+            let cabeceraTamaños = document.createElement("h3")
+            let nodoTextoCabeceraTamaños = document.createTextNode("Tamaños")
+            divTamaños.appendChild(cabeceraTamaños);
+            divTamaños.appendChild(nodoTextoCabeceraTamaños);
+            let nodoSaltoDeLinea = document.createElement("br")
+            divTamaños.appendChild(nodoSaltoDeLinea);
+
+            for(let tamaño of arrayTamaños){
+                let inputRadio = document.createElement("input")//<input/>
+                inputRadio.setAttribute("type", "radio")//<input type="radio"/>
+                //Seria totalmente equivalente hacer:
+                inputRadio.type = "radio"
+                inputRadio.setAttribute("name", "tamaños")//<input type="radio" name="radios"/>
+                inputRadio.setAttribute("value", tamaño.precio)//<input type="radio" name="radios" value="5"/>
+                console.log(inputRadio)
+
+                let nodoTextoTamaño = document.createTextNode(tamaño.nombre)
+                console.log(nodoTextoTamaño)
+
+                divTamaños.appendChild(inputRadio);
+                divTamaños.appendChild(nodoTextoTamaño);
+
+                let nodoSaltoDeLinea = document.createElement("br")
+                divTamaños.appendChild(nodoSaltoDeLinea);
+            }
+        }
+
+        function procesarRespuesta(mensaje){
+            console.log(mensaje)
+            //Todo lo que se trabaje aquí será DOM
+            //El mensaje que llega es un String. Mejor convertirlo a objetos
+            var pizzeria = JSON.parse(mensaje)
+            console.log(pizzeria)
+            //Puedo acceder a los ingredientes
+            console.log(pizzeria.tamaños)
+            console.log(pizzeria.ingredientes)
+            //Creamos los inputs radio con los tamaños
+            crearInputsTamaños(pizzeria.tamaños)
+            //Creamos los inputs checkbox con los ingredientes
+            crearInputsIngredientes(pizzeria.ingredientes)
+
+
+        }
+        
+        function pedirDatosPizzeria(recurso,tipoPetion){
+            console.log("pedirDatosPizzeria -> Entrando con tipo de peticion " + tipoPetion)
+            let xmlHttp = new XMLHttpRequest()
+
+            xmlHttp.onreadystatechange = function(){        
+                if( this.readyState == 4){
+                    if(this.status == 200){//OK
+                        if(tipoPetion == 1){
+                            procesarRespuesta(this.responseText)//ESTO SE HARA MANIPULANDO EL DOM
+                        }else if(tipoPetion == 2){
+                            calcularPrecioAjax(this.responseText)
+                        }else{
+                            console.log("Tipo de peticion no reconocida")
+                        }                     
+                    }else if(this.status == 404){
+                        console.log("El recurso solicitado NO existe: 404")
+                        console.log(this.responseText)
+                    }else {
+                        alert("ZASCA!")
+                    }
+                }
+            }
+
+            //localhost:5500/Actividad02/pizzeria.json
+            xmlHttp.open('GET',recurso, true)//Accedemos de manera relativa
+            //readyState = 2, y se ejecutará la función de callback
+            xmlHttp.send(null)
+            console.log("pedirDatosPizzeria -> Saliendo")
+        }
+
+        function actualizarDatos(){            
+            console.log("actualizarDatos -> Actualizando la información...")
+            divTamaños.innerHTML = ""
+            divIngredientes.innerHTML = ""
+            pedirDatosPizzeria('pizzeria.json',1);
+        }
+
+        function calcularPrecio(){
+            console.log("calcularPrecio -> Calculando precio")
+            let precio = 0;
+            let tamaños = document.getElementsByName("tamaños")
+            for(tamaño of tamaños){
+                if(tamaño.checked){
+                    console.log(tamaño.name + "-" + tamaño.value)
+                    precio = parseInt(tamaño.value)
+                    break;
+                }
+            }
+
+            let ingredientes = document.getElementsByName("ingredientes")
+            for(ingrediente of ingredientes){
+                if(ingrediente.checked){
+                    console.log(ingrediente.name + "-" + ingrediente.value)
+                    precio += parseInt(ingrediente.value)
+                }
+            }
+            console.log("precio: " + precio)
+            let hPrecio = document.createElement("h4")//<h4></h4>
+            let tPrecio = document.createTextNode("Precio: " + precio)//Precio: 6
+            hPrecio.appendChild(tPrecio)//<h4>Precio: 6</h4>
+
+            divPrecioPizza.innerHTML = ""//Esta línea es para que cuando demos el botón limpie primero el div, si no se repetiría
+            divPrecioPizza.appendChild(hPrecio)
+        }
+
+        function calcularPrecioAjax(mensaje){
+            console.log(mensaje)
+
+            var pizzeria = JSON.parse(mensaje)
+
+            console.log("calcularPrecioAjax -> Calculando precio")
+            let precio = 0;
+            let tamaños = document.getElementsByName("tamaños")
+            let indice = 0;
+            for(tamaño of tamaños){
+                if(tamaño.checked){
+                    console.log(pizzeria.tamaños[indice].nombre + "-" + pizzeria.tamaños[indice].precio)
+                    precio = parseInt(pizzeria.tamaños[indice].precio)
+                    break;
+                }
+                indice++
+            }
+
+            indice = 0;
+            let ingredientes = document.getElementsByName("ingredientes")
+            console.log("Ingredientes AJAX" + JSON.stringify(pizzeria.ingredientes))
+            for(ingrediente of ingredientes){
+                if(ingrediente.checked){
+                    console.log(pizzeria.ingredientes[indice].nombre + "-" + pizzeria.ingredientes[indice].precio)
+                    precio += parseInt(pizzeria.ingredientes[indice].precio)
+                }
+                indice++
+            }
+            console.log("precio: " + precio)
+
+            let hPrecio = document.createElement("h4")//<h4></h4>
+            let tPrecio = document.createTextNode("Precio: " + precio)//Precio: 6
+            hPrecio.appendChild(tPrecio)//<h4>Precio: 6</h4>
+
+            divPrecioPizza.innerHTML = ""
+            divPrecioPizza.appendChild(hPrecio)
+        }
+
+        window.onload = function(){
+            pedirDatosPizzeria('pizzeria.json',1);
+            //Otra funcion...
+        }
+        
+    </script>
+</head>
+<body>
+    <form id="formularioPizza" action="ServicioRest" method="get">
+        <h1>BIENVENIDOS A LA PIZZERIA</h1>
+        <label>Nombre:</label>
+        <input type="text"/>
+        <br/>
+        <label>Direccion:</label>
+        <input type="text"/>
+        <br/>
+        <label>Email:</label>
+        <input type="email"/>
+        <br/>
+        <label>Telefono:</label>
+        <input type="tel"/>
+        <br/>    
+        <br/>
+        <div id="divTamaños">
+    
+        </div> 
+        <div id="divIngredientes">
+    
+        </div> 
+    </form>
+    <div id="divPrecioPizza">
+        <!--<h4>Precio: 6</h4>-->
+    </div>
+    <button onclick="calcularPrecio()">Calcular precio de la pizza</button>
+    <br/>
+    <button onclick="pedirDatosPizzeria('pizzeria.json',2)">Calcular precio de la pizza con AJAX</button>
+    <br/>
+    <button onclick="actualizarDatos()">Actualizar Datos</button>
+    <br/>
+    <button onclick="pedirDatosPizzeria('../README.md')">Prueba</button>   
+
+</body>
+</html>
