@@ -1,4 +1,4 @@
-create database orderyourfood;
+﻿create database orderyourfood;
 use orderyourfood;
 
 
@@ -8,7 +8,8 @@ CREATE TABLE Productos (
     ingredientes VARCHAR (255)not null,
     descripcion VARCHAR (255) not null,
     tipo VARCHAR (50)not null, CHECK (tipo IN ('ENTRANTE', 'PRINCIPAL', 'POSTRES','BEBIDAS')),
-    vegano VARCHAR (2) CHECK (tipo IN ('si', 'no')),
+    vegano VARCHAR (2) CHECK (tipo IN ('si', 'no')), 
+	Gluten  VARCHAR (2) CHECK (tipo IN ('si', 'no')),
     precio DOUBLE
 );
 
@@ -31,33 +32,35 @@ CREATE TABLE Pedidos (
     FOREIGN KEY (id_plato) REFERENCES Productos(id_plato)
 );
 
-INSERT INTO productos (id_plato, ingredientes, descripcion, tipo, vegano, precio) 
+INSERT INTO productos (id_plato, ingredientes, descripcion, tipo, vegano,Gluten, precio) 
 VALUES 
-    (1, 'Vino blanco', 'copa vino blanco Albariño', 'BEBIDAS', 'si', 3),
-    (2, 'Vino tinto', 'copa vino tinto Ribera de Duero', 'BEBIDAS', 'si', 3),
-    (3, 'Agua', 'agua mineral', 'BEBIDAS', 'si', 1.50),
-    (4, 'CocaCola', 'coca cola', 'BEBIDAS', 'no', 1.50),
-    (5, 'Naranja', 'naranja', 'BEBIDAS', 'no', 1.50),
-    (6, 'Limon', 'limon', 'BEBIDAS', 'no', 1.50),
-    (7, 'Cafe', 'cafe Colombia', 'BEBIDAS', 'no', 1),
-    (8, 'Canonigos ,tomates cherri ,chia ,naranja', 'ensalada de canonigos', 'ENTRANTE', 'si', 9),
-    (9, 'Salchichon , lomo , chorizo ', 'tabla de embutidos ibéricos', 'ENTRANTE', 'no', 11),
-    (10, 'Gouda,curado,roquefort,edam', 'tabla de quesos', 'ENTRANTE', 'no', 11),
-    (11, 'Gambas,aguacate,limon,pan', 'Tosta de gambas sobre cama de aguacate', 'ENTRANTE', 'no', 10),
-    (12, 'Salmon,queso,pan', 'Tosta de salmón sobre cama de philadelphia', 'ENTRANTE', 'no', 10),
-    (13, 'Chocolate,leche,huevo, harina de trigo,frambuesa', 'Brownie de chocolate', 'POSTRES', 'no', 5.50),
-    (14, 'Melon', 'melon', 'POSTRES', 'si', 3),
-    (15, 'Piña', 'Piña', 'POSTRES', 'si', 3),
-    (16, 'Sandia,agua,azucar', 'Smothie Sandia', 'POSTRES', 'si', 4),
-    (17, 'Leche,huevos,harina trigo', 'Tarta con merengue', 'POSTRES', 'no', 4),
-    (18, 'Cafe,huevos,leche ,harina trigo, chocolate', 'Tarta de tiramisu', 'POSTRES', 'no', 3),
-    (19, 'Chuleta ternera', 'Chuletón del Bierzo asado a la piedra', 'PRINCIPAL', 'no', 19),
-    (20, 'Ternera ,patatas,zanahoria,ajo ,cebolla, vino blanco', 'Goulash de ternera al estilo de la abuela', 'PRINCIPAL', 'no', 10),
-    (21, 'Lomo ternera ','Lomo de vaca vieja', 'PRINCIPAL', 'no', 20),
-    (22, 'Macarrones,tomate,nata ,tomates cherri,albahaca', 'Macarrones a la Amatriciana', 'PRINCIPAL', 'si', 6),
-    (23, 'Raviolis,tomate,espinacas,cebollino', 'Raviolis Provenzales a la auténtica receta italiana ', 'PRINCIPAL', 'si', 6),
-    (24, 'Lomos de salmón noruego,lechuga,limon', 'Lomos de salmón noruego a la plancha', 'PRINCIPAL', 'no', 8),
-    (25, 'Solomillos de cerdo,esparragos,tomates cherri','perejil', 'PRINCIPAL', 'no', 10);
+    (1, 'Vino blanco', 'copa vino blanco Albariño', 'BEBIDAS', 'si','no', 3),
+    (2, 'Vino tinto', 'copa vino tinto Ribera de Duero', 'BEBIDAS', 'si','no',3),
+    (3, 'Agua', 'agua mineral', 'BEBIDAS', 'si', 'no', 1.50),
+    (4, 'CocaCola', 'coca cola', 'BEBIDAS', 'no', 'no', 1.50),
+    (5, 'Naranja', 'naranja', 'BEBIDAS', 'no', 'no', 1.50),
+    (6, 'Limon', 'limon', 'BEBIDAS', 'no', 'no',1.50),
+    (7, 'café con leche', 'cafe Colombia, leche entera', 'BEBIDAS', 'no', 'no', 1),
+    (8, 'café solo', 'cafe Colombia', 'BEBIDAS', 'no', 'no', 1),
+    (9, 'café con leche de soja', 'cafe Colombia, leche de soja', 'BEBIDAS', 'no', 'no', 1),
+    (10, 'Canonigos ,tomates cherri ,chia ,naranja', 'ensalada de canonigos', 'ENTRANTE', 'si', 'no', 9),
+    (11, 'Salchichon, lomo, chorizo ', 'tabla de embutidos ibéricos', 'ENTRANTE', 'no', 'si', 11),
+    (12, 'Gouda,curado,roquefort,edam', 'tabla de quesos', 'ENTRANTE', 'no', 'no', 11),
+    (13, 'Gambas,aguacate,limon,pan', 'Tosta de gambas sobre cama de aguacate', 'ENTRANTE', 'no', 'si', 10),
+    (14, 'Salmon,queso,pan', 'Tosta de salmón sobre cama de philadelphia', 'ENTRANTE', 'no', 'si', 10),
+    (15, 'Chocolate,leche,huevo, harina de trigo,frambuesa', 'Brownie de chocolate', 'POSTRES', 'no', 'si', 5.50),
+    (16, 'Melon', 'melon', 'POSTRES', 'si', 'no', 3),
+    (17, 'Piña', 'Piña', 'POSTRES', 'si', 'no', 3),
+    (18, 'Sandia,agua,azucar', 'Smothie Sandia', 'POSTRES', 'si', 'no', 4),
+    (19, 'Leche,huevos,harina trigo', 'Tarta con merengue', 'POSTRES', 'no', 'si', 4),
+    (20, 'Cafe,huevos,leche ,harina trigo, chocolate', 'Tarta de tiramisu', 'POSTRES', 'no', 'si', 3),
+    (21, 'Chuleta ternera', 'Chuletón del Bierzo asado a la piedra', 'PRINCIPAL', 'no', 'no', 19),
+    (22, 'Ternera ,patatas,zanahoria,ajo ,cebolla, vino blanco', 'Goulash de ternera al estilo de la abuela', 'PRINCIPAL', 'no', 'si', 10),
+    (23, 'Lomo ternera ','Lomo de vaca vieja', 'PRINCIPAL', 'no', 'no', 20),
+    (24, 'Macarrones,tomate,nata ,tomates cherri,albahaca', 'Macarrones a la Amatriciana', 'PRINCIPAL', 'si', 'si', 6),
+    (25, 'Raviolis,tomate,espinacas,cebollino', 'Raviolis Provenzales a la auténtica receta italiana ', 'PRINCIPAL', 'si', 'si', 6),
+    (26, 'Lomos de salmón noruego,lechuga,limon', 'Lomos de salmón noruego a la plancha', 'PRINCIPAL', 'no', 'no', 8),
+    (27, 'Solomillos de cerdo,esparragos,tomates cherri','perejil', 'PRINCIPAL', 'no', 'no', 10);
 
   INSERT INTO mesas (id_mesa,area)
 VALUES
@@ -75,9 +78,3 @@ VALUES
     
 
     
-
-
-
-
-
-
