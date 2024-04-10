@@ -8,8 +8,8 @@ CREATE TABLE Productos (
     ingredientes VARCHAR (255)not null,
     descripcion VARCHAR (255) not null,
     tipo VARCHAR (50)not null, CHECK (tipo IN ('ENTRANTE', 'PRINCIPAL', 'POSTRES','BEBIDAS')),
-    vegano VARCHAR (2) CHECK (tipo IN ('si', 'no')), 
-	Gluten  VARCHAR (2) CHECK (tipo IN ('si', 'no')),
+    vegano VARCHAR (2) CHECK (vegano IN ('si', 'no')), 
+	Gluten  VARCHAR (2) CHECK (Gluten IN ('si', 'no')),
     precio DOUBLE
 );
 
