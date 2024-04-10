@@ -23,5 +23,19 @@ public class ProductoServiceImplMy8 implements ProductoService {
 		// TODO Auto-generated method stub
 		return productoRepository.findById(idPlato).orElse(null);
 	}
+	
+	@Override
+	public List<Producto> buscarProductosPorTipo(String tipo) {
+	    return productoRepository.findByTipo(tipo);
+	}
+	
+	@Override
+	public List<Producto> buscarProductosVeganos() {
+	    return productoRepository.findByVegano("si");
+	}
+	@Override
+	public List<Producto> buscarProductosSinGluten() {
+	    return productoRepository.findByGluten("no");
+	}
 
 }

@@ -10,4 +10,7 @@ public interface ProductoService {
 
 	List<Producto> buscarTodosLosProductos();
 	Producto buscarProducto(int idPlato);
+	List<Producto> buscarProductosPorTipo(String tipo);
+	List<Producto> buscarProductosVeganos();
+	List<Producto> buscarProductosSinGluten();
 }

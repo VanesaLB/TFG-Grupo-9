@@ -30,4 +30,20 @@ public class ProductoRestController {
 	 public Producto buscarUnEmpleado(@PathVariable int idPlato) {
 		 return productoService.buscarProducto(idPlato);
 	 }
+	
+	
+	@GetMapping("/buscarPorTipo/{tipo}")
+	public List<Producto> buscarPorTipo(@PathVariable String tipo) {
+	    return productoService.buscarProductosPorTipo(tipo);
+	}
+	
+	 @GetMapping("/buscarVeganos")
+	    public List<Producto> buscarProductosVeganos() {
+	        return productoService.buscarProductosVeganos();
+	    }
+	 @GetMapping("/buscarSinGluten")
+	    public List<Producto> buscarProductosSinGluten() {
+	        return productoService.buscarProductosSinGluten();
+	    }
+	
 }
