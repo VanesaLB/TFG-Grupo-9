@@ -1,5 +1,7 @@
 package com.api.restaurante.modelo.entities;
 
+import java.util.Objects;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,4 +22,33 @@ public class Mesa {
 	@Column(name="id_mesa")
 	private int idMesa;
 	private String area;
+	public int getIdMesa() {
+		return idMesa;
+	}
+	public void setIdMesa(int idMesa) {
+		this.idMesa = idMesa;
+	}
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = area;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(idMesa);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Mesa other = (Mesa) obj;
+		return idMesa == other.idMesa;
+	}
+	
+	
 }

@@ -13,4 +13,5 @@ public interface ProductoService {
 	List<Producto> buscarProductosPorTipo(String tipo);
 	List<Producto> buscarProductosVeganos();
 	List<Producto> buscarProductosSinGluten();
+	
 }
