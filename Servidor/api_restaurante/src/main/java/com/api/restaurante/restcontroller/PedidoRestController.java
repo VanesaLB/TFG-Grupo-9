@@ -47,10 +47,15 @@ public class PedidoRestController {
 	 		
 	 		for (PedidoDto dto : pedidosDto) {	
 	 	        Pedido pedidoAux  = new Pedido();
-	 	        modelMapper.map(dto, pedidoAux );
+	 	       
+	 	      // modelMapper.map(dto, pedidoAux );
 	 	       pedidoAux.setMesa(mesaService.buscarUna(dto.getIdMesa()));
 	 	       pedidoAux.setProducto(productoService.buscarProducto(dto.getIdProducto()));
-	 	       
+	 	       pedidoAux.setCantidad(dto.getCantidad());
+	 	       pedidoAux.setNumeroComensales(dto.getNumeroComensales());
+	 	       pedidoAux.setFecha(dto.getFecha());
+	 	       pedidoAux.setServido(dto.getServido());
+	 	      
 	 	        // Luego puedes realizar otras operaciones necesarias, como asignar el empleado y el proyecto
 	 	        // empleadoEnProyecto.setEmpleado(empleadoService.buscarEmpleado(dto.getIdEmpleado()));
 	 	        // empleadoEnProyecto.setProyecto(proyectoService.buscarProyecto(dto.getIdProyecto()));

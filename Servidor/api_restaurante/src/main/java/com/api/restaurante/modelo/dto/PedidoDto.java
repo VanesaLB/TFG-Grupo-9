@@ -16,7 +16,7 @@ public class PedidoDto {
 	private int cantidad;
 	private int numeroComensales;
 	private Date fecha;
-	private boolean servido;
+	private String servido;
 	public int getIdMesa() {
 		return idMesa;
 	}
@@ -47,12 +47,19 @@ public class PedidoDto {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	public boolean isServido() {
+	public int getIdPlato() {
+		return idPlato;
+	}
+	public void setIdPlato(int idPlato) {
+		this.idPlato = idPlato;
+	}
+	public String getServido() {
 		return servido;
 	}
-	public void setServido(boolean servido) {
+	public void setServido(String servido) {
 		this.servido = servido;
 	}
+	
 	
 	
 	
