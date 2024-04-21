@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formulario Order Your Food</title>
+    <LINK REL=StyleSheet HREF="/Cliente/css/home.css" TYPE="text/css">
+    <script type="text/javascript" src="/Cliente/js/home.js"></script>
+
+
+
+</head>
+
+<body>
+    <fieldset>
+        <legend>
+            <h1><B>Order Your Food</B></h1>
+        </legend>
+
+        <form id="pedidoForm">
+            
+            <br />
+           
+            <p>Platos:</p>
+            <div id="platosPrincipales"></div>
+            <!-- Aquí a través de js traeremos dinámicamente los checkboxs necesarios -->
+            </div>
+            <!-- Por js a este button le asignaremos un evento onclick para ejecutar una funcion
+            que recarga el formulario para que le introduzcamos de nuevo los datos -->
+            <input type="button" id="recargarDatosForm" class="boton" value="Recargar">
+            <!-- Por js a este button le asignaremos un evento onclick para ejecutar una funcion
+            que procese las opciones que hemos marcado en el formulario y nos devuelva el precio final 
+            del Pedido -->
+            <input type="button" id="procesarDiasTotales" class="boton" value="procesarPedido">
+            <input type="button" id="altaPedido" class="boton" value="Finalizar Pedido">
+        </form>
+    </fieldset>
+    <!-- En el div precioDelPedido pondremos el precio final del pedido-->
+    <div id="diasTotalesDiv"></div>
+    <div id="pedidoTerminado"></div>
+
+</body>
+
+</html>
