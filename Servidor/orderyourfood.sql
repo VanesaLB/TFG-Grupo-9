@@ -33,7 +33,7 @@ CREATE TABLE Comandas (
     id_producto INT not null,
     id_pedido INT not null,
     servido VARCHAR(2) NOT NULL DEFAULT 'no' CHECK (servido IN ('si', 'no')),
-    FOREIGN KEY (id_poducto) REFERENCES Productos(id_producto)
+    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto)
 );
 
 INSERT INTO productos (id_producto, ingredientes, descripcion, tipo, vegano,Gluten, precio) 
