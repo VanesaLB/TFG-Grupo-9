@@ -161,6 +161,8 @@ console.log(platosPorDarDeAlta)
     
 }
 
+
+
 //no funciona como debería
 function calcularDias() {
 
@@ -201,6 +203,84 @@ function calcularDias() {
     diasTotalesDiv.innerHTML = textoDiasFinal
 }
 
+/*
+var p2 = nueva Promise(function(resolver, rechazar) {
+  resolver(1);
+});
+
+p2.then(función(valor) {
+  console.log(valor); // 1
+  return valor + 1;
+}).then(function(value) {
+  console.log(valor + '- Este uso síncrono es prácticamente inútil'); // 2- Este uso síncrono es prácticamente inútil
+});
+
+p2.then(función(valor) {
+  console.log(valor); // 1
+});
+*/
+
+
+
+async function filtroPrincipales() {
+    borrarDatos();
+
+    try {
+        const principalestxt = await peticionPrincipales();
+        procesarPrincipales(principalestxt);
+    } catch (error) {
+        console.error("Error al obtener datos principales:", error);
+        alert("¡Hubo un problema al obtener los datos principales!");
+    }
+}
+
+function procesarPrincipales(principalestxt) {
+    console.log(principalestxt);
+    const arrayPrincipalesJson = JSON.parse(principalestxt);
+
+    for (let principal of arrayPrincipalesJson) {
+        let idPlato = principal.idPlato;
+        let precio = principal.precio;
+
+        let opcionplato = document.createElement("input");
+        opcionplato.type = "checkbox";
+        opcionplato.id = idPlato;
+        opcionplato.name = "plato";
+        opcionplato.value = precio;
+
+        platosPrincipales.appendChild(opcionplato);
+
+        let labelopcionplato = document.createElement("label");
+        let txtlabelopcionplato = document.createTextNode(" Este es el idPlato : " + idPlato);
+        labelopcionplato.appendChild(txtlabelopcionplato);
+        platosPrincipales.appendChild(labelopcionplato);
+
+        let br = document.createElement("br");
+        platosPrincipales.appendChild(br);
+    }
+}
+
+function peticionPrincipales() {
+    const URL_PRINCIPALES = "http://localhost:8088";
+    const RECURSO_PRINCIPALES = "/producto/buscarPorTipo/PRINCIPAL";
+
+    return new Promise((resolve, reject) => {
+        let xmlHttpPrincipales = new XMLHttpRequest();
+
+        xmlHttpPrincipales.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    resolve(this.responseText);
+                } else {
+                    reject(new Error("Error al obtener datos principales. Estado: " + this.status));
+                }
+            }
+        };
+
+        xmlHttpPrincipales.open('GET', URL_PRINCIPALES + RECURSO_PRINCIPALES, true);
+        xmlHttpPrincipales.send(null);
+    });
+}
 
 
 /**
@@ -260,7 +340,11 @@ window.onload = function () {
     xmlHttpAltaPedido.send(null)
 
 
+    function borrarDatos() {
+    platosPrincipales.innerHTML = ""
+    diasTotalesDiv.innerHTML = ""
 
+}
 /**
      * En esta parte le damos la funcionalidad al primer button
      * Funciona
@@ -268,8 +352,7 @@ window.onload = function () {
 
 recargarDatosForm.addEventListener("click", function () {
 
-    platosPrincipales.innerHTML = ""
-    diasTotalesDiv.innerHTML = ""
+    borrarDatos()
     procesarRespuesta(xmlHttpAltaPedido.responseText)
 
 })
@@ -292,6 +375,37 @@ altaPedido.addEventListener("click", function () {
 
     enviarPedido()
 })
+
+filtrarPrinciales.addEventListener("click", function () {
+
+    filtroPrincipales()
+})
+
+filtrarSegundos.addEventListener("click", function () {
+ 
+    filtroSegundos()
+})
+
+filtrarBebidas.addEventListener("click", function () {
+
+    filtroBebidas()
+})
+
+filtrarPostres.addEventListener("click", function () {
+
+    filtroPostres()
+})
+
+filtrarVeganos.addEventListener("click", function () {
+
+    filtroVeganos()
+})
+
+filtrarSinGluten.addEventListener("click", function () {
+
+    filtroSinGluten()
+})
+
 
 
 }
