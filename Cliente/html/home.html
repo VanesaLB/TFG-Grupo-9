@@ -16,14 +16,15 @@
             <h1><B>Order Your Food</B></h1>
         </legend>
 
-        <form id="pedidoForm">
+        <form name ="formularioPlatos" id="pedidoForm">
             
             <br />
             <h2>FILTRAR POR:</h2>
             
-            <div id="filtros"> 
+            <div id="filtros">
+                <input type="button" id="sinFiltro" class="boton" value="Todos"> 
                 <input type="button" id="filtrarPrincipales" class="boton" value="Principales">
-                <input type="button" id="filtrarSegundos" class="boton" value="Segundos Platos">
+                <input type="button" id="filtrarEntrantes" class="boton" value="Entrantes">
                 <input type="button" id="filtrarBebidas" class="boton" value="Bebidas">
                 <input type="button" id="filtrarPostres" class="boton" value="Postres">
                 <input type="button" id="filtrarVeganos" class="boton" value="Veganos">
@@ -32,11 +33,12 @@
 
             <p>Platos:</p>
             <div id="platosPrincipales"></div>
+            <div id="filtradoPrincipales"></div>
             <!-- Aquí a través de js traeremos dinámicamente los checkboxs necesarios -->
             </div>
             <!-- Por js a este button le asignaremos un evento onclick para ejecutar una funcion
             que recarga el formulario para que le introduzcamos de nuevo los datos -->
-            <input type="button" id="recargarDatosForm" class="boton" value="Recargar">
+            <input type="button" id="recargarDatosForm" class="boton" value="Descarmar Todo">
             <!-- Por js a este button le asignaremos un evento onclick para ejecutar una funcion
             que procese las opciones que hemos marcado en el formulario y nos devuelva el precio final 
             del Pedido -->

@@ -163,7 +163,7 @@ console.log(platosPorDarDeAlta)
 
 
 
-//no funciona como debería
+//no funciona como debería, y tampoco se lo que quiero con esto
 function calcularDias() {
 
 
@@ -221,73 +221,352 @@ p2.then(función(valor) {
 */
 
 
-
-async function filtroPrincipales() {
-    borrarDatos();
-
-    try {
-        const principalestxt = await peticionPrincipales();
-        procesarPrincipales(principalestxt);
-    } catch (error) {
-        console.error("Error al obtener datos principales:", error);
-        alert("¡Hubo un problema al obtener los datos principales!");
-    }
-}
+//Procesar las peticiones AJAX para filtros
 
 function procesarPrincipales(principalestxt) {
-    console.log(principalestxt);
-    const arrayPrincipalesJson = JSON.parse(principalestxt);
 
+
+    /*
+      Convertimos el XMLHttpRequest.responseText en un array de objetos JSON
+      Convertimos el XMLHttpRequest.responseText que nos llegue a un objeto JSON
+     
+*/
+    console.log(principalestxt)
+    arrayPrincipalesJson = JSON.parse(principalestxt)
+    console.log(arrayPrincipalesJson)
+    // EXTRA: Podemos hacer lo contrario con "JSON.stringify(obj)"ç
+
+
+   // let ArrayPlatosRecibidos = []
     for (let principal of arrayPrincipalesJson) {
-        let idPlato = principal.idPlato;
-        let precio = principal.precio;
 
-        let opcionplato = document.createElement("input");
-        opcionplato.type = "checkbox";
-        opcionplato.id = idPlato;
-        opcionplato.name = "plato";
-        opcionplato.value = precio;
 
-        platosPrincipales.appendChild(opcionplato);
+// Accedemos a los datos de cada objeto
+let idPlato = principal.idPlato;
+let ingredientes = principal.ingredientes;
+let descripcion = principal.descripcion;
+let tipo = principal.tipo;
+let vegano = principal.vegano;
+let gluten = principal.gluten;
+let precio = principal.precio;
 
-        let labelopcionplato = document.createElement("label");
-        let txtlabelopcionplato = document.createTextNode(" Este es el idPlato : " + idPlato);
-        labelopcionplato.appendChild(txtlabelopcionplato);
-        platosPrincipales.appendChild(labelopcionplato);
 
-        let br = document.createElement("br");
-        platosPrincipales.appendChild(br);
+
+
+
+
+        opcionplato = document.createElement("input")
+        opcionplato.type = "checkbox"
+        opcionplato.id = idPlato
+        opcionplato.name = "plato"
+        opcionplato.value = precio
+
+
+        platosPrincipales.appendChild(opcionplato)
+
+
+        let labelopcionplato = document.createElement("label")
+        let txtlabelopcionplato = document.createTextNode(" Este es el idPlato : " + idPlato)
+        labelopcionplato.appendChild(txtlabelopcionplato)
+        platosPrincipales.appendChild(labelopcionplato)
+
+
+        let br = document.createElement("br")
+        platosPrincipales.appendChild(br)
+       
+       
+
+
     }
+  //  console.log(ArrayPlatosRecibidos);
+       
+    }
+
+function procesarEntrantes(jsonDoc) {
+
+     /**
+     * // Convertimos el XMLHttpRequest.responseText en un array de objetos JSON
+     * Convertimos el XMLHttpRequest.responseText que nos llegue a un objeto JSON
+     */
+     console.log(jsonDoc)
+     arrayJson = JSON.parse(jsonDoc)
+     console.log(arrayJson)
+     // EXTRA: Podemos hacer lo contrario con "JSON.stringify(obj)"ç
+ 
+    // let ArrayPlatosRecibidos = []
+     for (let objetoJson of arrayJson) {
+ 
+ // Accedemos a los datos de cada objeto
+ let idPlato = objetoJson.idPlato;
+ let ingredientes = objetoJson.ingredientes;
+ let descripcion = objetoJson.descripcion;
+ let tipo = objetoJson.tipo;
+ let vegano = objetoJson.vegano;
+ let gluten = objetoJson.gluten;
+ let precio = objetoJson.precio;
+ 
+ /*let elPlato = {
+     id: idPlato,
+     ingredientes: ingredientes,
+     descripcion: descripcion,
+     tipo: tipo,
+     vegano: vegano,
+     gluten: gluten,
+     precio: precio
+     
+ }*/
+ 
+ //ArrayPlatosRecibidos.push(elPlato)
+ 
+ 
+ // Aquí puedes hacer lo que necesites con los datos, como imprimirlos en la consola
+ console.log("ID de la entrada:", idPlato);
+ console.log("ingredientes:", ingredientes);
+ console.log("Empleado:", descripcion);
+ console.log("Días previstos:", precio);
+ console.log("Fecha de incorporación:", tipo);
+ console.log("Fecha de incorporación:", vegano);
+ console.log("Fecha de incorporación:", gluten);
+ 
+ 
+ // Para acceder a los datos dentro de ingredientes y descripcion, puedes hacer lo siguiente
+ // let idingredientes = ingredientes.idingredientes;
+ // let descripcioningredientes = ingredientes.descripcion;
+ // let idEmpleado = descripcion.idEmpleado;
+ // let nombreEmpleado = descripcion.nombre;
+ // ... y así sucesivamente con los campos que necesites
+ 
+         opcionplato = document.createElement("input")
+         opcionplato.type = "checkbox"
+         opcionplato.id = idPlato
+         opcionplato.name = "plato"
+         opcionplato.value = precio
+ 
+         platosPrincipales.appendChild(opcionplato)
+ 
+         let labelopcionplato = document.createElement("label")
+         let txtlabelopcionplato = document.createTextNode(" Este es el idPlato : " + idPlato)
+         labelopcionplato.appendChild(txtlabelopcionplato)
+         platosPrincipales.appendChild(labelopcionplato)
+ 
+         let br = document.createElement("br")
+         platosPrincipales.appendChild(br)
+         
+         
+ 
+     }
 }
 
-function peticionPrincipales() {
-    const URL_PRINCIPALES = "http://localhost:8088";
-    const RECURSO_PRINCIPALES = "/producto/buscarPorTipo/PRINCIPAL";
+function procesarBebidas(jsonDoc) {
+   
+    
+     console.log(jsonDoc)
+     arrayJson = JSON.parse(jsonDoc)
+     console.log(arrayJson)
+    
+     for (let objetoJson of arrayJson) {
 
-    return new Promise((resolve, reject) => {
-        let xmlHttpPrincipales = new XMLHttpRequest();
+ let idPlato = objetoJson.idPlato;
+ let ingredientes = objetoJson.ingredientes;
+ let descripcion = objetoJson.descripcion;
+ let tipo = objetoJson.tipo;
+ let vegano = objetoJson.vegano;
+ let gluten = objetoJson.gluten;
+ let precio = objetoJson.precio;
+ 
 
-        xmlHttpPrincipales.onreadystatechange = function() {
-            if (this.readyState == 4) {
-                if (this.status == 200) {
-                    resolve(this.responseText);
-                } else {
-                    reject(new Error("Error al obtener datos principales. Estado: " + this.status));
-                }
-            }
-        };
+ console.log("ID de la entrada:", idPlato);
+ console.log("ingredientes:", ingredientes);
+ console.log("Empleado:", descripcion);
+ console.log("Días previstos:", precio);
+ console.log("Fecha de incorporación:", tipo);
+ console.log("Fecha de incorporación:", vegano);
+ console.log("Fecha de incorporación:", gluten);
+ 
+ 
+ opcionplato = document.createElement("input")
+ opcionplato.type = "checkbox"
+ opcionplato.id = idPlato
+ opcionplato.name = "plato"
+ opcionplato.value = precio
 
-        xmlHttpPrincipales.open('GET', URL_PRINCIPALES + RECURSO_PRINCIPALES, true);
-        xmlHttpPrincipales.send(null);
-    });
+ platosPrincipales.appendChild(opcionplato)
+
+ let labelopcionplato = document.createElement("label")
+ let txtlabelopcionplato = document.createTextNode(" Este es el idPlato : " + idPlato)
+ labelopcionplato.appendChild(txtlabelopcionplato)
+ platosPrincipales.appendChild(labelopcionplato)
+
+ let br = document.createElement("br")
+ platosPrincipales.appendChild(br)
+  }  
 }
+ 
+
+function procesarPostres(jsonDoc) {
+    console.log(jsonDoc)
+     arrayJson = JSON.parse(jsonDoc)
+     console.log(arrayJson)
+    
+     for (let objetoJson of arrayJson) {
+
+ let idPlato = objetoJson.idPlato;
+ let ingredientes = objetoJson.ingredientes;
+ let descripcion = objetoJson.descripcion;
+ let tipo = objetoJson.tipo;
+ let vegano = objetoJson.vegano;
+ let gluten = objetoJson.gluten;
+ let precio = objetoJson.precio;
+ 
+
+ console.log("ID de la entrada:", idPlato);
+ console.log("ingredientes:", ingredientes);
+ console.log("Empleado:", descripcion);
+ console.log("Días previstos:", precio);
+ console.log("Fecha de incorporación:", tipo);
+ console.log("Fecha de incorporación:", vegano);
+ console.log("Fecha de incorporación:", gluten);
+ 
+ 
+ opcionplato = document.createElement("input")
+ opcionplato.type = "checkbox"
+ opcionplato.id = idPlato
+ opcionplato.name = "plato"
+ opcionplato.value = precio
+
+ platosPrincipales.appendChild(opcionplato)
+
+ let labelopcionplato = document.createElement("label")
+ let txtlabelopcionplato = document.createTextNode(" Este es el idPlato : " + idPlato)
+ labelopcionplato.appendChild(txtlabelopcionplato)
+ platosPrincipales.appendChild(labelopcionplato)
+
+ let br = document.createElement("br")
+ platosPrincipales.appendChild(br)
+  } 
+}
+
+function procesarVeganos(jsonDoc) {
+    console.log(jsonDoc)
+    arrayJson = JSON.parse(jsonDoc)
+    console.log(arrayJson)
+   
+    for (let objetoJson of arrayJson) {
+
+let idPlato = objetoJson.idPlato;
+let ingredientes = objetoJson.ingredientes;
+let descripcion = objetoJson.descripcion;
+let tipo = objetoJson.tipo;
+let vegano = objetoJson.vegano;
+let gluten = objetoJson.gluten;
+let precio = objetoJson.precio;
+
+
+console.log("ID de la entrada:", idPlato);
+console.log("ingredientes:", ingredientes);
+console.log("Empleado:", descripcion);
+console.log("Días previstos:", precio);
+console.log("Fecha de incorporación:", tipo);
+console.log("Fecha de incorporación:", vegano);
+console.log("Fecha de incorporación:", gluten);
+
+
+opcionplato = document.createElement("input")
+opcionplato.type = "checkbox"
+opcionplato.id = idPlato
+opcionplato.name = "plato"
+opcionplato.value = precio
+
+platosPrincipales.appendChild(opcionplato)
+
+let labelopcionplato = document.createElement("label")
+let txtlabelopcionplato = document.createTextNode(" Este es el idPlato : " + idPlato)
+labelopcionplato.appendChild(txtlabelopcionplato)
+platosPrincipales.appendChild(labelopcionplato)
+
+let br = document.createElement("br")
+platosPrincipales.appendChild(br)
+ }   
+}
+
+function procesarSinGluten(jsonDoc) {
+    console.log(jsonDoc)
+    arrayJson = JSON.parse(jsonDoc)
+    console.log(arrayJson)
+   
+    for (let objetoJson of arrayJson) {
+
+let idPlato = objetoJson.idPlato;
+let ingredientes = objetoJson.ingredientes;
+let descripcion = objetoJson.descripcion;
+let tipo = objetoJson.tipo;
+let vegano = objetoJson.vegano;
+let gluten = objetoJson.gluten;
+let precio = objetoJson.precio;
+
+
+console.log("ID de la entrada:", idPlato);
+console.log("ingredientes:", ingredientes);
+console.log("Empleado:", descripcion);
+console.log("Días previstos:", precio);
+console.log("Fecha de incorporación:", tipo);
+console.log("Fecha de incorporación:", vegano);
+console.log("Fecha de incorporación:", gluten);
+
+
+opcionplato = document.createElement("input")
+opcionplato.type = "checkbox"
+opcionplato.id = idPlato
+opcionplato.name = "plato"
+opcionplato.value = precio
+
+platosPrincipales.appendChild(opcionplato)
+
+let labelopcionplato = document.createElement("label")
+let txtlabelopcionplato = document.createTextNode(" Este es el idPlato : " + idPlato)
+labelopcionplato.appendChild(txtlabelopcionplato)
+platosPrincipales.appendChild(labelopcionplato)
+
+let br = document.createElement("br")
+platosPrincipales.appendChild(br)
+ }  
+}
+ 
+         
+ 
+
+
+    
+
+
+    
+   
+    
+   
+    
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /**
  * Creamos 2 constantes que usaremos posteriormente
  */
-const URL_DESTINO = "http://localhost:8088"
-const RECURSO = "/producto/buscarTodos"
+
 
 /**
  * El window.onload lo usamos para que todo lo que se encuentra dentro de él se ejecute
@@ -320,7 +599,8 @@ const RECURSO = "/producto/buscarTodos"
 
 window.onload = function () {   
 
-
+const URL_DESTINO = "http://localhost:8088"
+const RECURSO = "/producto/buscarTodos"
     /**
      * En esta parte realizamos la peticion XMLHttpRequest
      */
@@ -344,6 +624,37 @@ window.onload = function () {
     platosPrincipales.innerHTML = ""
     diasTotalesDiv.innerHTML = ""
 
+   
+}
+
+/*
+function seleccionarTodo() {
+    for (let i=0; i < document.f1.elements.length; i++) {
+        if(document.f1.elements[i].type === "checkbox") {
+            document.f1.elements[i].checked = true;
+        }
+    }
+}
+
+function checkAll() {
+    document.querySelectorAll('#formElement input[type=checkbox]').forEach(function(checkElement) {
+        checkElement.checked = true;
+    });
+}
+
+
+function uncheckAll() {
+    document.querySelectorAll('#formElement input[type=checkbox]').forEach(function(checkElement) {
+        checkElement.checked = false;
+    });
+}
+*/
+function desmarcarTodo() {
+    for (let i=0; i<document.formularioPlatos.elements.length; i++) {
+        if(document.formularioPlatos.elements[i].type == "checkbox") {
+            document.formularioPlatos.elements[i].checked = false
+        }
+    }
 }
 /**
      * En esta parte le damos la funcionalidad al primer button
@@ -352,8 +663,7 @@ window.onload = function () {
 
 recargarDatosForm.addEventListener("click", function () {
 
-    borrarDatos()
-    procesarRespuesta(xmlHttpAltaPedido.responseText)
+    desmarcarTodo();
 
 })
 
@@ -376,34 +686,186 @@ altaPedido.addEventListener("click", function () {
     enviarPedido()
 })
 
-filtrarPrinciales.addEventListener("click", function () {
 
-    filtroPrincipales()
+//FILTROS
+sinFiltro.addEventListener("click", function() {
+    borrarDatos();
+
+    const URL_DESTINO_V2 = "http://localhost:8088"
+    const RECURSO_V2 = "/producto/buscarTodos"
+    /**
+     * En esta parte realizamos la peticion XMLHttpRequest
+     */
+    let xmlHttpAltaPedido = new XMLHttpRequest()
+
+    xmlHttpAltaPedido.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                procesarRespuesta(this.responseText)//Obtenemos el valor en texto
+            } else {
+                alert("ZASCA!")
+            }
+        }
+    }
+
+    xmlHttpAltaPedido.open('GET', URL_DESTINO_V2 + RECURSO_V2, true)
+    xmlHttpAltaPedido.send(null)
 })
 
-filtrarSegundos.addEventListener("click", function () {
+filtrarPrincipales.addEventListener("click", function () {
+    
+
+borrarDatos();
+
+        const URL_PRINCIPALES = "http://localhost:8088"
+        const RECURSO_PRINCIPALES = "/producto/buscarPorTipo/PRINCIPAL"
+        
+        
+            let xmlHttpPrincipales = new XMLHttpRequest()
+        
+        
+            xmlHttpPrincipales.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        procesarPrincipales(this.responseText)//Obtenemos el valor en texto
+                    } else {
+                        alert("ZASCA!")
+                    }
+                }
+            }
+           
+            xmlHttpPrincipales.open('GET', URL_PRINCIPALES + RECURSO_PRINCIPALES, true)
+            xmlHttpPrincipales.send(null)
+        
+    
+    
+})
+
+filtrarEntrantes.addEventListener("click", function () {
  
-    filtroSegundos()
+    borrarDatos();
+
+        const URL_ENTRANTES = "http://localhost:8088"
+        const RECURSO_URL_ENTRANTES = "/producto/buscarPorTipo/ENTRANTE"
+        
+        
+            let xmlHttpPrincipales = new XMLHttpRequest()
+        
+        
+            xmlHttpPrincipales.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        procesarEntrantes(this.responseText)//Obtenemos el valor en texto
+                    } else {
+                        alert("ZASCA!")
+                    }
+                }
+            }
+           
+            xmlHttpPrincipales.open('GET', URL_ENTRANTES + RECURSO_URL_ENTRANTES, true)
+            xmlHttpPrincipales.send(null)
+    
 })
 
 filtrarBebidas.addEventListener("click", function () {
 
-    filtroBebidas()
+    borrarDatos();
+
+        const URL_BEBIDAS = "http://localhost:8088"
+        const RECURSO_BEBIDAS = "/producto/buscarPorTipo/BEBIDAS"
+        
+        
+            let xmlHttpPrincipales = new XMLHttpRequest()
+        
+        
+            xmlHttpPrincipales.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        procesarBebidas(this.responseText)//Obtenemos el valor en texto
+                    } else {
+                        alert("ZASCA!")
+                    }
+                }
+            }
+           
+            xmlHttpPrincipales.open('GET', URL_BEBIDAS + RECURSO_BEBIDAS, true)
+            xmlHttpPrincipales.send(null)
 })
 
 filtrarPostres.addEventListener("click", function () {
 
-    filtroPostres()
+    borrarDatos();
+
+        const URL_POSTRES = "http://localhost:8088"
+        const RECURSO_POSTRES = "/producto/buscarPorTipo/POSTRES"
+        
+        
+            let xmlHttpPrincipales = new XMLHttpRequest()
+        
+        
+            xmlHttpPrincipales.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        procesarPostres(this.responseText)//Obtenemos el valor en texto
+                    } else {
+                        alert("ZASCA!")
+                    }
+                }
+            }
+           
+            xmlHttpPrincipales.open('GET', URL_POSTRES + RECURSO_POSTRES, true)
+            xmlHttpPrincipales.send(null)
 })
 
 filtrarVeganos.addEventListener("click", function () {
 
-    filtroVeganos()
+    borrarDatos();
+
+        const URL_VEGANOS = "http://localhost:8088"
+        const RECURSO_VEGANOS = "/producto/buscarVeganos"
+        
+        
+            let xmlHttpPrincipales = new XMLHttpRequest()
+        
+        
+            xmlHttpPrincipales.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        procesarVeganos(this.responseText)//Obtenemos el valor en texto
+                    } else {
+                        alert("ZASCA!")
+                    }
+                }
+            }
+           
+            xmlHttpPrincipales.open('GET', URL_VEGANOS + RECURSO_VEGANOS, true)
+            xmlHttpPrincipales.send(null)
+    
 })
 
 filtrarSinGluten.addEventListener("click", function () {
 
-    filtroSinGluten()
+    borrarDatos();
+
+        const URL_SINGLUTEN = "http://localhost:8088"
+        const RECURSO_SINGLUTEN = "/producto/buscarSinGluten"
+        
+        
+            let xmlHttpPrincipales = new XMLHttpRequest()
+        
+        
+            xmlHttpPrincipales.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        procesarSinGluten(this.responseText)//Obtenemos el valor en texto
+                    } else {
+                        alert("ZASCA!")
+                    }
+                }
+            }
+           
+            xmlHttpPrincipales.open('GET', URL_SINGLUTEN + RECURSO_SINGLUTEN, true)
+            xmlHttpPrincipales.send(null)
 })
 
 
