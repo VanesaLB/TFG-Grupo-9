@@ -21,8 +21,8 @@ public class Producto {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_plato")
-	private int idPlato;
+	@Column(name="id_producto")
+	private int idProducto;
 	private String ingredientes;
 	private String descripcion;
 	private String tipo;
@@ -30,10 +30,10 @@ public class Producto {
 	private String gluten;
 	private double precio;
 	public int getIdPlato() {
-		return idPlato;
+		return idProducto;
 	}
 	public void setIdPlato(int idPlato) {
-		this.idPlato = idPlato;
+		this.idProducto = idPlato;
 	}
 	public String getIngredientes() {
 		return ingredientes;
@@ -73,12 +73,12 @@ public class Producto {
 	}
 	@Override
 	public String toString() {
-		return "Producto [idPlato=" + idPlato + ", ingredientes=" + ingredientes + ", descripcion=" + descripcion
+		return "Producto [idPlato=" + idProducto + ", ingredientes=" + ingredientes + ", descripcion=" + descripcion
 				+ ", tipo=" + tipo + ", vegano=" + vegano + ", gluten=" + gluten + ", precio=" + precio + "]";
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(idPlato);
+		return Objects.hash(idProducto);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -89,7 +89,7 @@ public class Producto {
 		if (getClass() != obj.getClass())
 			return false;
 		Producto other = (Producto) obj;
-		return idPlato == other.idPlato;
+		return idProducto == other.idProducto;
 	}
 	
 	

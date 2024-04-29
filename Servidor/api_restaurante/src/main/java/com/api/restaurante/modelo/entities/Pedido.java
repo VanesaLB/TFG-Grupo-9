@@ -30,15 +30,13 @@ public class Pedido {
 	@ManyToOne
 	@JoinColumn(name="id_mesa")
 	private Mesa mesa;
-	@ManyToOne
-	@JoinColumn(name="id_plato")
-	private Producto producto;
-	private int cantidad;
-	@Column(name="numero_comensales")
-	private int numeroComensales;
+	@Column(name="cantidad_productos")
+	private int cantidadProductos;
+	@Column(name="precio_total")
+	private double precioTotal;
 //@Temporal(TemporalType.DATE)
 	private Date fecha;
-	private String servido;
+	
 	public int getIdPedido() {
 		return idPedido;
 	}
@@ -51,23 +49,18 @@ public class Pedido {
 	public void setMesa(Mesa mesa) {
 		this.mesa = mesa;
 	}
-	public Producto getProducto() {
-		return producto;
+	
+	public int getCantidadProductos() {
+		return cantidadProductos;
 	}
-	public void setProducto(Producto producto) {
-		this.producto = producto;
+	public void setCantidadProductos(int cantidadProductos) {
+		this.cantidadProductos = cantidadProductos;
 	}
-	public int getCantidad() {
-		return cantidad;
+	public double getPrecioTotal() {
+		return precioTotal;
 	}
-	public void setCantidad(int cantidad) {
-		this.cantidad = cantidad;
-	}
-	public int getNumeroComensales() {
-		return numeroComensales;
-	}
-	public void setNumeroComensales(int numeroComensales) {
-		this.numeroComensales = numeroComensales;
+	public void setPrecioTotal(double precioTotal) {
+		this.precioTotal = precioTotal;
 	}
 	public Date getFecha() {
 		return fecha;
@@ -75,12 +68,7 @@ public class Pedido {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	public String getServido() {
-		return servido;
-	}
-	public void setServido(String servido) {
-		this.servido = servido;
-	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(idPedido);
