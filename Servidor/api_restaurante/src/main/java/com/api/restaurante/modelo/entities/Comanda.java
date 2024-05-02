@@ -24,34 +24,56 @@ public class Comanda {
 	@JoinColumn(name="id_pedido")
 	private Producto pedido;
 	private String servido;
+	
+	public Comanda() {
+		super();
+	}
+
+	public Comanda(int idComanda, Producto producto, Producto pedido, String servido) {
+		super();
+		this.idComanda = idComanda;
+		this.producto = producto;
+		this.pedido = pedido;
+		this.servido = servido;
+	}
+
 	public int getIdComanda() {
 		return idComanda;
 	}
+
 	public void setIdComanda(int idComanda) {
 		this.idComanda = idComanda;
 	}
+
 	public Producto getProducto() {
 		return producto;
 	}
+
 	public void setProducto(Producto producto) {
 		this.producto = producto;
 	}
+
 	public Producto getPedido() {
 		return pedido;
 	}
+
 	public void setPedido(Producto pedido) {
 		this.pedido = pedido;
 	}
+
 	public String getServido() {
 		return servido;
 	}
+
 	public void setServido(String servido) {
 		this.servido = servido;
 	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(idComanda);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -62,6 +84,12 @@ public class Comanda {
 			return false;
 		Comanda other = (Comanda) obj;
 		return idComanda == other.idComanda;
+	}
+
+	@Override
+	public String toString() {
+		return "Comanda [idComanda=" + idComanda + ", producto=" + producto + ", pedido=" + pedido + ", servido="
+				+ servido + "]";
 	}
 	
 	

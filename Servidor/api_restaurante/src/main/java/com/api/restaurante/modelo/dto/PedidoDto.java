@@ -15,9 +15,11 @@ public class PedidoDto {
 	private int cantidadProductos;
 	private double precioTotal;
 	private Date fecha;
+	
 	public int getIdMesa() {
 		return idMesa;
 	}
+	
 	public void setIdMesa(int idMesa) {
 		this.idMesa = idMesa;
 	}

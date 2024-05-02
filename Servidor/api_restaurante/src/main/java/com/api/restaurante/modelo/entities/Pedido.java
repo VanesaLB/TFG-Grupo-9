@@ -37,42 +37,64 @@ public class Pedido {
 //@Temporal(TemporalType.DATE)
 	private Date fecha;
 	
+	public Pedido() {
+		super();
+	}
+
+	public Pedido(int idPedido, Mesa mesa, int cantidadProductos, double precioTotal, Date fecha) {
+		super();
+		this.idPedido = idPedido;
+		this.mesa = mesa;
+		this.cantidadProductos = cantidadProductos;
+		this.precioTotal = precioTotal;
+		this.fecha = fecha;
+	}
+
 	public int getIdPedido() {
 		return idPedido;
 	}
+
 	public void setIdPedido(int idPedido) {
 		this.idPedido = idPedido;
 	}
+
 	public Mesa getMesa() {
 		return mesa;
 	}
+
 	public void setMesa(Mesa mesa) {
 		this.mesa = mesa;
 	}
-	
+
 	public int getCantidadProductos() {
 		return cantidadProductos;
 	}
+
 	public void setCantidadProductos(int cantidadProductos) {
 		this.cantidadProductos = cantidadProductos;
 	}
+
 	public double getPrecioTotal() {
 		return precioTotal;
 	}
+
 	public void setPrecioTotal(double precioTotal) {
 		this.precioTotal = precioTotal;
 	}
+
 	public Date getFecha() {
 		return fecha;
 	}
+
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(idPedido);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -84,6 +106,14 @@ public class Pedido {
 		Pedido other = (Pedido) obj;
 		return idPedido == other.idPedido;
 	}
+
+	@Override
+	public String toString() {
+		return "Pedido [idPedido=" + idPedido + ", mesa=" + mesa + ", cantidadProductos=" + cantidadProductos
+				+ ", precioTotal=" + precioTotal + ", fecha=" + fecha + "]";
+	}
+	
+	
 	
 	
 	
