@@ -1,55 +1,176 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <title>Formulario Order Your Food</title>
-    <LINK REL=StyleSheet HREF="/Cliente/css/home.css" TYPE="text/css">
-    <script type="text/javascript" src="/Cliente/js/home.js"></script>
-
-
-
-</head>
-
-<body>
-    <fieldset>
-        <legend>
-            <h1><B>Order Your Food</B></h1>
-        </legend>
-
-        <form name ="formularioPlatos" id="pedidoForm">
-            
-            <br />
-            <h2>FILTRAR POR:</h2>
-            
-            <div id="filtros">
-                <input type="button" id="sinFiltro" class="boton" value="Todos"> 
-                <input type="button" id="filtrarPrincipales" class="boton" value="Principales">
-                <input type="button" id="filtrarEntrantes" class="boton" value="Entrantes">
-                <input type="button" id="filtrarBebidas" class="boton" value="Bebidas">
-                <input type="button" id="filtrarPostres" class="boton" value="Postres">
-                <input type="button" id="filtrarVeganos" class="boton" value="Veganos">
-                <input type="button" id="filtrarSinGluten" class="boton" value="Sin Gluten">   
+    <head>
+        <title>Formulario Order Your Food</title>
+        <LINK REL=StyleSheet HREF="/Cliente/css/home.css" TYPE="text/css">
+        <link rel="stylesheet" href="./global.css" />
+        <link rel="stylesheet" href="./index.css" />
+        <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto Condensed:wght@700&display=swap" />-->
+        <script type="text/javascript" src="/Cliente/js/home.js"></script>
+    
+    </head>
+    
+    <body>
+        <div class="header">
+            <div class="header1">
             </div>
-
-            <p>Platos:</p>
-            <div id="platosPrincipales"></div>
-            <div id="filtradoPrincipales"></div>
-            <!-- Aquí a través de js traeremos dinámicamente los checkboxs necesarios -->
+            <div class="navbar-parent">
+            <div class="navbar">
+            <img class="logo-color-icon" alt="" src="images/images_web/logo.png">
+            <div class="navbar1">
+            <div class="nosotros"><a href="nosotros.html">NOSOTROS</a></div>
+            <div class="nosotros"><a href="carta.html">CARTA</a></div>
+            <div class="nosotros"><a href="contacta.html">CONTACTA</a></div>
             </div>
-            <!-- Por js a este button le asignaremos un evento onclick para ejecutar una funcion
-            que recarga el formulario para que le introduzcamos de nuevo los datos -->
-            <input type="button" id="recargarDatosForm" class="boton" value="Descarmar Todo">
-            <!-- Por js a este button le asignaremos un evento onclick para ejecutar una funcion
-            que procese las opciones que hemos marcado en el formulario y nos devuelva el precio final 
-            del Pedido -->
-            <input type="button" id="procesarDiasTotales" class="boton" value="procesarPedido">
-            <input type="button" id="altaPedido" class="boton" value="Finalizar Pedido">
-        </form>
-    </fieldset>
-    <!-- En el div precioDelPedido pondremos el precio final del pedido-->
-    <div id="diasTotalesDiv"></div>
-    <div id="pedidoTerminado"></div>
+            </div>
+            <div class="lupa-y-mesa">
+            <div class="barra-bsqueda">
+            <div class="busqueda">
+            </div>
+            <img class="bisearch-icon" alt="" src="bi:search.svg">
+            </div>
+            <div class="parent">
+            <b class="nosotros">10</b>
+            <div class="mi-mesa">Mi mesa</div>
+            </div>
+            </div>
+            </div>
+        </div>
+        <div class="hero">
+            <img class="image-hero-icon" alt="" src="images/images_web/image_hero.jpg">
+            <div class="texto-hero">
+            <b class="experiencia-inolvidable-con">Experiencia inolvidable con sabores auténticos</b>
+            <div class="en-nuestra-carta">En nuestra carta, encontrarás una cuidadosa selección de platos que destacan la frescura y la calidad de los ingredientes locales. Desde entradas frescas hasta platos principales reconfortantes y postres indulgentes, cada opción refleja nuestro compromiso con la sostenibilidad. </div>
+            <div class="botones-primarios">
+            <div class="button"><a href="carta.html">Visita nuestra carta</a></div>
+            </div>
+            </div>
+     </div>
+     <div class="fondo-bienvenido">
+        <img class="ajos-1-icon" alt="" src="images/images_web/ajos 1.png ">
+        <div class="fondo-bienvenido-child">
+            <div class="bienvenido">
+                <div class="texto-imagen">
+                <div class="bienvenido-a-nuestro-restauran-parent">
+                <b class="bienvenido-a-nuestro">Bienvenido a nuestro restaurante</b>
+                <div class="en-nuestro-restaurante-container">
+                <p class="en-nuestro-restaurante">En nuestro restaurante, fusionamos la excelencia gastronómica con un compromiso con el medio ambiente. </p>
+                <p class="nuestra-innovadora-forma">Nuestra innovadora forma de tomar pedidos es un reflejo de nuestra filosofía. A través de tablets intuitivas, nuestros clientes realizan sus pedidos con facilidad y reduciendo el desperdicio de papel. Nos enorgullece decir que trabajamos con agricultores locales comprometidos con la agricultura sostenible. Cada ingrediente proviene de fuentes cercanas y se cultiva con respeto por el medio ambiente y las comunidades locales.</p>
+                </div>
+                </div>
+                <img class="image-sobre-nosotros-icon" alt="" src="images/images_web/image_sobre_nosostros.jpg">
+                </div>
+          </div>
+        </div>
+        
+     </div>
 
-</body>
+     
+     <div class="nuestros-platos">
+        <img class="carta-contacta"alt="" src="images/images_web/image_carta_contacta2.png ">
+        <b class="nuestros-platos1">Nuestros platos</b>
+       
+        <div class="car-nuestros-platos">
+        <div class="card-plato">
+        <img class="principal-chuletonpiedra-1-icon" alt="" src="images/images_web/platos/principal_chuletonPiedra.png">
+        <div class="chuletn-del-bierzo-container">
+        <p class="chuletn-del-bierzo">Chuletón del Bierzo.</p>
+        <p class="chuletn-del-bierzo">Asado a la piedra.</p>
+        <p class="chuletn-del-bierzo">19€.</p>
+        </div>
+        </div>
+        <div class="card-plato">
+        <img class="principal-salmon-1-icon" alt="" src="images/images_web/platos/principal_salmon.png">
+        <div class="chuletn-del-bierzo-container">
+        <p class="chuletn-del-bierzo">Tosta de salmón sobre</p>
+        <p class="chuletn-del-bierzo"> cama de queso philadelphia </p>
+        <p class="chuletn-del-bierzo">en pan tostado.</p>
+        <p class="chuletn-del-bierzo">10€</p>
+        </div>
+        </div>
+        <div class="card-plato">
+        <img class="principal-chuletonpiedra-1-icon" alt="" src="images/images_web/platos/postre_tartaMerengue.png">
+        <div class="chuletn-del-bierzo-container">
+        <p class="chuletn-del-bierzo">Deliciosa y esponjosa tarta</p>
+        <p class="chuletn-del-bierzo"> de merengue.</p>
+        <p class="chuletn-del-bierzo">4€.</p>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="contenedor-principal">
+         <img class="flor-limonero" alt="" src="images/images_web/flor_limonero 1.png ">
+          <div class="mapa-direccion-horario">
+            
+            <img class="direccin-1-icon" alt="" src="images/images_web/dirección 1.png">
+            <div class="dnde-encontrarnos-parent">
+            <b class="dnde-encontrarnos">Dónde encontrarnos</b>
+            
+            
+            <div class="calle-la-cruz-container">
+            <p class="calle-la-cruz">Calle La Cruz, 12</p>
+            <p class="calle-la-cruz">28791 - Soto del Real, Madrid</p>
+            <p class="calle-la-cruz">&nbsp;</p>
+            <p class="calle-la-cruz">Disfrutarás de un entorno natural inigualable, podrás disfrutar de tu comida sentado en nuestra terraza admirando lo hermosa que es la pedriza.</p>
+            </div>
+            <b class="dnde-encontrarnos">Nuestro horario</b>
+            <div class="calle-la-cruz-container">
+            <p class="de-martes-a">De martes a viernes 12:30 - 16:30 y 19:30 - 23:00</p>
+            <p class="de-martes-a">Sábado y domingo 12:30 - 17:00 y 19:00 - 00:00</p>
+            </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer">
+            <div class="frame-parent">
+            <div class="trminos-y-condiciones-parent">
+            <div class="trminos-y-condiciones">Términos y Condiciones</div>
+            <div class="poltica-de-privacidad">Política de Privacidad</div>
+            <div class="poltica-de-privacidad">Política de Cookies</div>
+            </div>
+            <div class="trminos-y-condiciones-parent">
+            <div class="trminos-y-condiciones">Mapa Web</div>
+            <div class="poltica-de-privacidad">FAQs</div>
+            <div class="poltica-de-privacidad">Tel. Ayuda: 695695695</div>
+            </div>
+            <div class="ver-carta-parent">
+            <div class="trminos-y-condiciones">Ver Carta</div>
+            <div class="poltica-de-privacidad">Sobre nosostros</div>
+            <div class="poltica-de-privacidad">Dónde estamos</div>
+            </div>
+            <div class="frame-group">
+            <div class="trminos-y-condiciones-parent">
+            <div class="email" id="emailContainer">
+            <img class="email-icon" alt="" src="images/images_web/Email (1).png">
+            <div class="orderyourfoodes">order@yourfood.es</div>
+            </div>
+            <div class="telefono">
+            <img class="telefono-icon" alt="" src="images/images_web/Telefono (1).png">
+            <div class="orderyourfoodes">637637637</div>
+            </div>
+            </div>
+            <div class="redes">
+            <div class="redes-sociales">
+            <img class="icon-circle-linkedin" alt="" src="images/images_web/🦆 icon _circle linkedin_ (1).png" id="iconCircleLinkedin">
+            <img class="icon-circle-linkedin" alt="" src="images/images_web/🦆 icon _rounded instagram_ (1).png" id="iconCircleLinkedin">
+            <img class="icon-circle-linkedin" alt="" src="images/images_web/🦆 icon _circle facebook_ (1).png" id="iconCircleLinkedin">
+            <img class="icon-circle-linkedin" alt="" src="images/images_web/twitter w (1).png" id="iconCircleLinkedin">
+            <img class="twitter-w-icon" alt="" src="images/images_web/🦆 icon _circle github_ (1).png" id="twitterWIcon">
+            </div>
+            </div>
+            </div>
+            </div>
+        </div>
+            
+        
 
+
+            
+            
+        
+    </body>
+
+                                                         
 </html>
