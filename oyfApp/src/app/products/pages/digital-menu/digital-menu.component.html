@@ -20,6 +20,7 @@
 <div>
   <div *ngFor="let product of products; let i = index">
     <div>
+      <img [alt]="product.idProducto" [src]="'../../../../../assets/images_web/platos/' + product.idProducto + '.png'">
       <h2>{{ product.descripcion | titlecase }}</h2>
       <p>{{ product.ingredientes }}</p>
       <p>{{ product.precio | currency: 'EUR' }}</p>
@@ -33,7 +34,5 @@
       </label>
   <!-- <input type="number" name="product{{product.idProducto}}Quantity" min="1" value="1"><br> -->
     </div>
-
-
   </div>
 </div>

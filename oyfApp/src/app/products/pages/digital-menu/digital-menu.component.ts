@@ -133,7 +133,7 @@ export class DigitalMenuComponent implements OnInit{
    * Este método carga los estados de los checkboxes desde el almacenamiento local y los asigna
    * al objeto isCheckedMap utilizando el idProducto como clave.
    */
-  loadCheckboxStateFromLocalStorage(): void {
+  public loadCheckboxStateFromLocalStorage(): void {
     /*Este es un bucle for que itera sobre cada elemento en el array products dentro de la clase.
     El bucle se ejecuta desde i = 0 hasta i < this.products.length, lo que significa que se ejecutará
     una vez por cada elemento en el array. */
@@ -152,5 +152,7 @@ export class DigitalMenuComponent implements OnInit{
       this.isCheckedMap[productId] = savedState ? JSON.parse(savedState) : false;
     }
   }
+
+  
 
 }
