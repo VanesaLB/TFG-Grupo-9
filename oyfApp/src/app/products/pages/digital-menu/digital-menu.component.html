@@ -1,25 +1,14 @@
 
 <h1>Lista productos</h1>
 
-<button
-  (click)="mostrarTodos()"
->
-  Todos
-</button>
-<button
-  (click)="filtrarPorSinGluten()"
->
-  Sin Gluten
-</button>
-<button
-  (click)="filtrarPorVeganos()"
->
-  Veganos
-</button>
+<button (click)="mostrarTodos()">Todos</button>
+<button (click)="filtrarPorSinGluten()">Sin Gluten</button>
+<button (click)="filtrarPorVeganos()">Veganos</button>
 
 <div>
+  <h2>ENTRANTES</h2>
   <div *ngFor="let product of products; let i = index">
-    <div>
+    <div *ngIf="product.tipo === 'ENTRANTE'">
       <img [alt]="product.idProducto" [src]="'../../../../../assets/images_web/platos/' + product.idProducto + '.png'">
       <h2>{{ product.descripcion | titlecase }}</h2>
       <p>{{ product.ingredientes }}</p>
@@ -35,4 +24,68 @@
   <!-- <input type="number" name="product{{product.idProducto}}Quantity" min="1" value="1"><br> -->
     </div>
   </div>
+
+
+  <h2>PRINCIPALES</h2>
+
+  <div *ngFor="let product of products; let i = index">
+    <div *ngIf="product.tipo === 'PRINCIPAL'">
+      <img [alt]="product.idProducto" [src]="'../../../../../assets/images_web/platos/' + product.idProducto + '.png'">
+      <h2>{{ product.descripcion | titlecase }}</h2>
+      <p>{{ product.ingredientes }}</p>
+      <p>{{ product.precio | currency: 'EUR' }}</p>
+      <label>
+      <input
+      type="checkbox"
+      name="product"
+      [checked]="isCheckedMap[product.idProducto]"
+      (change)="saveCheckLocalStorage($event, product.idProducto)"
+      > Producto
+      </label>
+  <!-- <input type="number" name="product{{product.idProducto}}Quantity" min="1" value="1"><br> -->
+    </div>
+  </div>
+
+
+  <h2>POSTRES</h2>
+
+  <div *ngFor="let product of products; let i = index">
+    <div *ngIf="product.tipo === 'POSTRES'">
+      <img [alt]="product.idProducto" [src]="'../../../../../assets/images_web/platos/' + product.idProducto + '.png'">
+      <h2>{{ product.descripcion | titlecase }}</h2>
+      <p>{{ product.ingredientes }}</p>
+      <p>{{ product.precio | currency: 'EUR' }}</p>
+      <label>
+      <input
+      type="checkbox"
+      name="product"
+      [checked]="isCheckedMap[product.idProducto]"
+      (change)="saveCheckLocalStorage($event, product.idProducto)"
+      > Producto
+      </label>
+  <!-- <input type="number" name="product{{product.idProducto}}Quantity" min="1" value="1"><br> -->
+    </div>
+  </div>
+
+
+  <h2>BEBIDAS</h2>
+
+  <div *ngFor="let product of products; let i = index">
+    <div *ngIf="product.tipo === 'BEBIDAS'">
+      <img [alt]="product.idProducto" [src]="'../../../../../assets/images_web/platos/' + product.idProducto + '.png'">
+      <h2>{{ product.descripcion | titlecase }}</h2>
+      <p>{{ product.ingredientes }}</p>
+      <p>{{ product.precio | currency: 'EUR' }}</p>
+      <label>
+      <input
+      type="checkbox"
+      name="product"
+      [checked]="isCheckedMap[product.idProducto]"
+      (change)="saveCheckLocalStorage($event, product.idProducto)"
+      > Producto
+      </label>
+  <!-- <input type="number" name="product{{product.idProducto}}Quantity" min="1" value="1"><br> -->
+    </div>
+  </div>
+
 </div>
