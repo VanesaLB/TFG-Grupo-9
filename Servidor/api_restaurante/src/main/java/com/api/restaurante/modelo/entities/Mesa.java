@@ -11,8 +11,8 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-@Data
+
+
 @Entity
 @Table(name="mesas")
 public class Mesa {
