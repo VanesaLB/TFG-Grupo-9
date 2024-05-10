@@ -1,10 +1,10 @@
-﻿create database orderyourfood;
+create database orderyourfood;
 use orderyourfood;
 
 
 
 CREATE TABLE Productos (
-    id_plato INT not null AUTO_INCREMENT PRIMARY KEY ,
+    id_producto INT not null AUTO_INCREMENT PRIMARY KEY ,
     ingredientes VARCHAR (255)not null,
     descripcion VARCHAR (255) not null,
     tipo VARCHAR (50)not null, CHECK (tipo IN ('ENTRANTE', 'PRINCIPAL', 'POSTRES','BEBIDAS')),
@@ -22,17 +22,21 @@ CREATE TABLE Mesas (
 
 CREATE TABLE Pedidos (
     id_pedido INT not null AUTO_INCREMENT PRIMARY KEY,
+    precio_total DOUBLE,
     id_mesa INT not null,
-    id_plato INT not null,
-    cantidad INT not null,
-    numero_comensales INT not null,
+    cantidad_productos INT not null,
     fecha DATE not null,
+    FOREIGN KEY (id_mesa) REFERENCES Mesas(id_mesa)
+);
+CREATE TABLE Comandas (
+    id_comanda INT not null AUTO_INCREMENT PRIMARY KEY,
+    id_producto INT not null,
+    id_pedido INT not null,
     servido VARCHAR(2) NOT NULL DEFAULT 'no' CHECK (servido IN ('si', 'no')),
-    FOREIGN KEY (id_mesa) REFERENCES Mesas(id_mesa),
-    FOREIGN KEY (id_plato) REFERENCES Productos(id_plato)
+    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto)
 );
 
-INSERT INTO productos (id_plato, ingredientes, descripcion, tipo, vegano,Gluten, precio) 
+INSERT INTO productos (id_producto, ingredientes, descripcion, tipo, vegano,Gluten, precio) 
 VALUES 
     (1, 'Vino blanco', 'copa vino blanco Albariño', 'BEBIDAS', 'si','no', 3),
     (2, 'Vino tinto', 'copa vino tinto Ribera de Duero', 'BEBIDAS', 'si','no',3),

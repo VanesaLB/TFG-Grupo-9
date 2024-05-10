@@ -30,9 +30,9 @@ public class ProductoRestController {
 		 return productoService.buscarTodosLosProductos();
 	 }
 	
-	@GetMapping("/buscarUno/{idPlato}")
-	 public Producto buscarUnEmpleado(@PathVariable int idPlato) {
-		 return productoService.buscarProducto(idPlato);
+	@GetMapping("/buscarUno/{idProducto}")
+	 public Producto buscarUnEmpleado(@PathVariable int idProducto) {
+		 return productoService.buscarProducto(idProducto);
 	 }
 	
 	

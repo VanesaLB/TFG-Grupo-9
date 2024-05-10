@@ -22,22 +22,38 @@ public class Mesa {
 	@Column(name="id_mesa")
 	private int idMesa;
 	private String area;
+	
+	public Mesa() {
+		super();
+	}
+
+	public Mesa(int idMesa, String area) {
+		super();
+		this.idMesa = idMesa;
+		this.area = area;
+	}
+
 	public int getIdMesa() {
 		return idMesa;
 	}
+
 	public void setIdMesa(int idMesa) {
 		this.idMesa = idMesa;
 	}
+
 	public String getArea() {
 		return area;
 	}
+
 	public void setArea(String area) {
 		this.area = area;
 	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(idMesa);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -49,6 +65,13 @@ public class Mesa {
 		Mesa other = (Mesa) obj;
 		return idMesa == other.idMesa;
 	}
+
+	@Override
+	public String toString() {
+		return "Mesa [idMesa=" + idMesa + ", area=" + area + "]";
+	}
+	
+	
 	
 	
 }

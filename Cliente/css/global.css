@@ -1,0 +1,35 @@
+
+
+
+body {
+    margin: 0;
+    line-height: normal;
+}
+
+
+:root {
+    
+    /* fonts */
+    --textos-texto-descripcin: Roboto;
+    --ttulos-hero: 'Roboto Condensed';
+    --textos-texto-tarjeta: Roboto;
+
+
+
+    
+    /* font sizes */
+    --textos-texto-descripcin-size: 20px;
+    --ttulos-hero-size: 58px;
+    --textos-texto-tarjeta-size: 16px;
+    --ttulos-ttulo-size: 48px;
+    /* Colors */
+    --brand-colors-brown-dark: #423f3f;
+    --contrast-colors-bronce: #b38f48;
+    --base-colors-white: #fff;
+    --brand-colors-chocolate: #6b5b5b;
+  /*  --brand-colors-beige: #f2eeee;*/
+    
+    /* Gaps */
+    --gap-3xs: 10px;
+    
+}

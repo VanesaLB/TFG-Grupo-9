@@ -9,7 +9,7 @@ import com.api.restaurante.modelo.entities.Producto;
 public interface ProductoService {
 
 	List<Producto> buscarTodosLosProductos();
-	Producto buscarProducto(int idPlato);
+	Producto buscarProducto(int idProducto);
 	List<Producto> buscarProductosPorTipo(String tipo);
 	List<Producto> buscarProductosVeganos();
 	List<Producto> buscarProductosSinGluten();

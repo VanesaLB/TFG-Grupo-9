@@ -1,0 +1,122 @@
+.header1 {
+  width: 100%;
+  position: relative;
+  box-shadow: 0px 2px 8px 3px rgba(0, 0, 0, 0.25);
+  background-color: var(--base-colors-white);
+  border-bottom: 3px solid var(--contrast-colors-bronce);
+  box-sizing: border-box;
+  height: 152px;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 0;
+}
+.logo-color-icon {
+  width: 81px;
+  position: relative;
+  height: 104px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.nosotros {
+  position: relative;
+  line-height: 140%;
+}
+.navbar1 {
+  height: 31px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 82px;
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 31px;
+}
+.busqueda {
+  width: 207px;
+  position: relative;
+  border-radius: 8px;
+  background-color: var(--base-colors-white);
+  border: 1px solid var(--brand-colors-brown-dark);
+  box-sizing: border-box;
+  height: 32px;
+  z-index: 0;
+}
+.bisearch-icon {
+  width: 20px;
+  position: absolute;
+  margin: 0 !important;
+  top: 6px;
+  left: 178px;
+  height: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.barra-bsqueda {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  gap: var(--gap-3xs);
+}
+.mi-mesa {
+  position: relative;
+  font-size: var(--textos-texto-descripcin-size);
+  line-height: 140%;
+  font-family: var(--textos-texto-descripcin);
+  color: var(--brand-colors-brown-dark);
+  text-align: left;
+}
+.parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.lupa-y-mesa {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 35px;
+  text-align: right;
+  font-size: var(--ttulos-hero-size);
+  color: var(--contrast-colors-bronce);
+  font-family: var(--ttulos-hero);
+}
+.navbar-parent {
+  margin: 0 !important;
+  position: absolute;
+  top: 27px;
+  left: 56px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 465px;
+  z-index: 1;
+}
+.header {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-3xs);
+  text-align: left;
+  font-size: var(--textos-texto-descripcin-size);
+  color: var(--brand-colors-brown-dark);
+  font-family: var(--textos-texto-descripcin);
+}
+a {
+  font-size: var(--textos-texto-descripcin-size) 20px;
+  color: var(--brand-colors-brown-dark);
+}

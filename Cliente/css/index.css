@@ -1,0 +1,552 @@
+.header1 {
+    width: 100%;
+    position: relative;
+    box-shadow: 0px 2px 8px 3px rgba(0, 0, 0, 0.25);
+    background-color: var(--base-colors-white);
+    border-bottom: 3px solid var(--contrast-colors-bronce);
+    box-sizing: border-box;
+    height: 152px;
+    overflow: hidden;
+    flex-shrink: 0;
+    z-index: 0;
+}
+.logo-color-icon {
+    width: 81px;
+    position: relative;
+    height: 104px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.nosotros {
+    position: relative;
+    line-height: 140%;
+}
+.navbar1 {
+    height: 31px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 82px;
+}
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 31px;
+}
+.busqueda {
+    width: 207px;
+    position: relative;
+    border-radius: 8px;
+    background-color: var(--base-colors-white);
+    border: 1px solid var(--brand-colors-brown-dark);
+    box-sizing: border-box;
+    height: 32px;
+    z-index: 0;
+}
+.bisearch-icon {
+    width: 20px;
+    position: absolute;
+    margin: 0 !important;
+    top: 6px;
+    left: 178px;
+    height: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+    z-index: 1;
+}
+.barra-bsqueda {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    gap: var(--gap-3xs);
+}
+.mi-mesa {
+    position: relative;
+    font-size: var(--textos-texto-descripcin-size);
+    line-height: 140%;
+    font-family: var(--textos-texto-descripcin);
+    color: var(--brand-colors-brown-dark);
+    text-align: left;
+}
+.parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+.lupa-y-mesa {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 35px;
+    text-align: right;
+    font-size: var(--ttulos-hero-size);
+    color: var(--contrast-colors-bronce);
+    font-family: var(--ttulos-hero);
+}
+.navbar-parent {
+    margin: 0 !important;
+    position: absolute;
+    top: 27px;
+    left: 56px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 465px;
+    z-index: 1;
+}
+.header {
+    position: relative;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-3xs);
+    text-align: left;
+    font-size: var(--textos-texto-descripcin-size);
+    color: var(--brand-colors-brown-dark);
+    font-family: var(--textos-texto-descripcin);
+}
+a {
+    font-size: var(--textos-texto-descripcin-size) 20px;
+    color: var(--brand-colors-brown-dark);
+}
+.image-hero-icon {
+    width: 100%;
+    position: relative;
+    height: 605px;
+    object-fit: cover;
+    z-index: 0;
+}
+.experiencia-inolvidable-con {
+    width: 656px;
+    position: relative;
+    font-size: var(--ttulos-hero-size);
+    line-height: 140%;
+    display: flex;
+    font-family: var(--ttulos-hero);
+    align-items: center;
+    height: 151px;
+    flex-shrink: 0;
+    z-index: 0;
+    color:var(--base-colors-white);
+}
+.en-nuestra-carta {
+    width: 656px;
+    position: relative;
+    line-height: 140%;
+    display: inline-block;
+    height: 224px;
+    flex-shrink: 0;
+    z-index: 1;
+    color:var(--base-colors-white);
+}
+.button a{
+    position: relative;
+    line-height: 140%;
+    font-size:var( --textos-texto-descripcin-size);
+    color:var(--base-colors-white);
+    text-decoration: none;
+
+}
+.botones-primarios {
+    width: 208px;
+    margin: 0 !important;
+    position: absolute;
+    top: 296px;
+    left: 448px;
+    box-shadow: var(--sombras-botones);
+    border-radius: 32px;
+    background-color: var(--contrast-colors-bronce);
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    z-index: 2;
+    text-align: left;
+    color: var(--base-colors-white);
+}
+.texto-hero {
+    margin: 0 !important;
+    position: absolute;
+    top: 112px;
+    left: 616px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1px;
+    z-index: 1;
+}
+.hero {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    text-align: right;
+    font-size: var(--textos-texto-descripcin-size);
+    color: var(--brand-colors-beige);
+    font-family: var(--textos-texto-descripcin);
+}
+.fondo-bienvenido-child {
+    position: absolute;
+    top: 85px;
+    left: 0px;
+    background-color: var(--brand-colors-beige);
+    width: 1440px;
+    height: 587px;
+}
+.ajos-1-icon {
+    position: absolute;
+    top: 0px;
+    left: 877px;
+    width: 675px;
+    height: 689px;
+    object-fit: cover;
+}
+.fondo-bienvenido {
+    width: 100%;
+    position: relative;
+    height: 689px;
+}
+.bienvenido-a-nuestro {
+    width: 543px;
+    position: relative;
+    display: inline-block;
+}
+.en-nuestro-restaurante {
+    margin: 0;
+}
+.nuestra-innovadora-forma {
+    margin: 0;
+    white-space: pre-wrap;
+}
+.en-nuestro-restaurante-container {
+    width: 544px;
+    position: relative;
+    font-size: var(--textos-texto-descripcin-size);
+    line-height: 140%;
+    font-family: var(--textos-texto-descripcin);
+    color: var(--brand-colors-brown-dark);
+    display: inline-block;
+}
+.bienvenido-a-nuestro-restauran-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-base);
+}
+.image-sobre-nosotros-icon {
+    width: 544px;
+    position: relative;
+    height: 335px;
+    object-fit: cover;
+}
+.texto-imagen {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-base);
+    color: var(--brand-colors-chocolate);
+}
+.bienvenido {
+   
+    
+        margin-left: 168px; 
+        margin-top: 123px;/* Esto centrará horizontalmente el contenedor */
+        position: relative; /* Añadido para otros estilos */
+        width: 100%; /* Ajusta el ancho si es necesario */
+        display: flex; /* Añadido para otros estilos */
+        flex-direction: row; /* Añadido para otros estilos */
+        align-items: center; /* Alinea el contenido verticalmente */
+        justify-content: flex-start; /* Ajusta la alineación horizontal */
+        text-align: left; /* Ajusta el texto a la izquierda */
+        font-size: 40px; /* Ajusta el tamaño de fuente */
+        color: var(--brand-colors-chocolate); /* Ajusta el color del texto */
+        font-family: var(--font-inter); /* Ajusta la fuente */
+       
+    
+    
+}
+
+.nuestros-platos1 {
+    width: 1440px;
+    position: relative;
+    line-height: 140%;
+    display: inline-block;
+}
+.principal-chuletonpiedra-1-icon {
+    width: 208px;
+    position: relative;
+    height: 208px;
+    object-fit: cover;
+}
+.chuletn-del-bierzo {
+    margin: 0;
+}
+.chuletn-del-bierzo-container {
+    position: relative;
+    line-height: 140%;
+}
+.card-plato {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-5xs);
+}
+.principal-salmon-1-icon {
+    width: 208px;
+    position: relative;
+    height: 207px;
+    object-fit: cover;
+}
+.car-nuestros-platos {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 102px;
+    gap: 180px;
+    text-align: left;
+    font-size: var(--textos-texto-tarjeta-size);
+    font-family: var(--textos-texto-tarjeta);
+    color:beige;
+    margin-top: 32px;
+    
+}
+.nuestros-platos {
+    width: 100%;
+    position: relative;
+    height: 481.4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 32px;
+    text-align: center;
+    font-size: var(--ttulos-ttulo-size);
+    color: var(--brand-colors-beige);
+    font-family: var(--ttulos-ttulo);
+    color:beige;
+    margin-top: 64px;
+}
+
+.carta-contacta {
+    width: 100%;
+    position: absolute;
+    max-width: 100%;
+    overflow: hidden;
+    height: 481.4px;
+    object-fit: cover;
+    z-index: -1;
+    object-fit: cover;
+}
+.direccin-1-icon {
+    width: 544px;
+    position: relative;
+    height: 368px;
+    object-fit: cover;
+}
+.dnde-encontrarnos {
+    width: 544px;
+    position: relative;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+}
+.calle-la-cruz {
+    margin: 0;
+}
+.calle-la-cruz-container {
+    width: 542px;
+    position: relative;
+    font-size: var(--textos-texto-descripcin-size);
+    line-height: 140%;
+    font-family: var(--textos-texto-descripcin);
+    color: var(--brand-colors-brown-dark);
+    display: inline-block;
+}
+.de-martes-a {
+    margin: 0;
+    white-space: pre-wrap;
+}
+.dnde-encontrarnos-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 6px;
+}
+.mapa-direccion-horario {
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 220px;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+    text-align: left;
+    font-size: var(--ttulos-ttulo-size);
+    color: var(--brand-colors-chocolate);
+    font-family: var(--ttulos-ttulo);
+    
+}
+.flor-limonero {
+    position: absolute; 
+    z-index: 1; 
+
+}
+.contenedor-principal {
+    position: relative;
+    margin-bottom: 680px;
+}
+.trminos-y-condiciones {
+    width: 208px;
+    position: relative;
+    line-height: 140%;
+    display: inline-block;
+    height: 17px;
+    flex-shrink: 0;
+    color: var(--base-colors-white);
+}
+.poltica-de-privacidad {
+    width: 208px;
+    position: relative;
+    line-height: 140%;
+    display: inline-block;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--base-colors-white);
+}
+.trminos-y-condiciones-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-5xs);
+}
+.ver-carta-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-5xs);
+    color: var(--base-colors-white);
+}
+.email-icon {
+    width: 24px;
+    position: relative;
+    height: 18px;
+}
+.orderyourfoodes {
+    position: relative;
+    line-height: 140%;
+}
+.email {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-5xs);
+    cursor: pointer;
+}
+.telefono-icon {
+    width: 24px;
+    position: relative;
+    height: 24px;
+}
+.telefono {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-5xs);
+    color: var(--brand-colors-beige);
+}
+.icon-circle-linkedin {
+    width: 35.5px;
+    position: relative;
+    height: 35.5px;
+    cursor: pointer;
+}
+.twitter-w-icon {
+    width: 35px;
+    position: relative;
+    height: 35px;
+    overflow: hidden;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+.redes-sociales {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-xs);
+}
+.redes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.frame-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-xs);
+    color: var(--base-colors-white);
+}
+.frame-parent {
+    width: 1263px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 130px;
+    margin-left: 80px;
+    margin-top: 33px;
+}
+.footer {
+    width: 100%;
+    position: relative;
+    background-color: var(--brand-colors-chocolate);
+    height: 160px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-14xl) 168px var(--padding-14xl) 80px;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: var(--textos-texto-tarjeta-size);
+    color: var(--brand-colors-beige);
+    font-family: var(--textos-texto-tarjeta);
+}
+

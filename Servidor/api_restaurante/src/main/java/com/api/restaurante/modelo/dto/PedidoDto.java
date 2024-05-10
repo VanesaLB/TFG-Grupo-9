@@ -12,34 +12,29 @@ import lombok.NoArgsConstructor;
 public class PedidoDto {
 
 	private int idMesa;
-	private int idPlato;
-	private int cantidad;
-	private int numeroComensales;
+	private int cantidadProductos;
+	private double precioTotal;
 	private Date fecha;
-	private String servido;
+	
 	public int getIdMesa() {
 		return idMesa;
 	}
+	
 	public void setIdMesa(int idMesa) {
 		this.idMesa = idMesa;
 	}
-	public int getIdProducto() {
-		return idPlato;
+	
+	public int getCantidadProductos() {
+		return cantidadProductos;
 	}
-	public void setIdProducto(int idProducto) {
-		this.idPlato	 = idProducto;
+	public void setCantidadProductos(int cantidadProductos) {
+		this.cantidadProductos = cantidadProductos;
 	}
-	public int getCantidad() {
-		return cantidad;
+	public double getPrecioTotal() {
+		return precioTotal;
 	}
-	public void setCantidad(int cantidad) {
-		this.cantidad = cantidad;
-	}
-	public int getNumeroComensales() {
-		return numeroComensales;
-	}
-	public void setNumeroComensales(int numeroComensales) {
-		this.numeroComensales = numeroComensales;
+	public void setPrecioTotal(double precioTotal) {
+		this.precioTotal = precioTotal;
 	}
 	public Date getFecha() {
 		return fecha;
@@ -47,18 +42,8 @@ public class PedidoDto {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	public int getIdPlato() {
-		return idPlato;
-	}
-	public void setIdPlato(int idPlato) {
-		this.idPlato = idPlato;
-	}
-	public String getServido() {
-		return servido;
-	}
-	public void setServido(String servido) {
-		this.servido = servido;
-	}
+	
+	
 	
 	
 	

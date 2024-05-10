@@ -1,0 +1,225 @@
+.fondo-historia-child {
+    position: absolute;
+    top: 85px;
+    left: 0px;
+    background-color: var(--brand-colors-beige);
+    width: 1440px;
+    height: 587px;
+}
+.ajos-1-icon {
+    position: absolute;
+    top: 0px;
+    left: 877px;
+    width: 675px;
+    height: 689px;
+    object-fit: cover;
+}
+.fondo-historia {
+    width: 100%;
+    position: relative;
+    height: 689px;
+    margin-left: 150px;
+}
+.conoce-nuestra-historia {
+    width: 543px;
+    position: relative;
+    line-height: 140%;
+    display: inline-block;
+}
+.en-nuestro-restaurante {
+    margin: 0;
+}
+.nuestra-innovadora-forma {
+    margin: 0;
+    white-space: pre-wrap;
+}
+.en-nuestro-restaurante-container {
+    width: 544px;
+    position: relative;
+    font-size: var(--textos-texto-descripcin-size);
+    line-height: 140%;
+    font-family: var(--textos-texto-descripcin);
+    color: var(--brand-colors-brown-dark);
+    display: inline-block;
+}
+.conoce-nuestra-historia-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-base);
+}
+.female-baker-shop-with-tablet-icon {
+    width: 543px;
+    position: relative;
+    height: 332px;
+    object-fit: cover;
+}
+.texto-imagen {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-base);
+    margin-top: 99px;
+    margin-left: 168px;
+}
+.historia {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    font-size: var(--ttulos-ttulo-size);
+    color: var(--brand-colors-chocolate);
+    font-family: var(--ttulos-ttulo);
+   
+}
+-------------------------------------------------------------------
+.estos-son-algunos {
+    width: 1440px;
+    position: relative;
+    line-height: 140%;
+    display: inline-block;
+    margin-top: 50px;
+   
+}
+.person-holding-green-heart-gra-icon {
+    width: 208px;
+    position: relative;
+    border-radius: var(--br-7xs);
+    height: 208px;
+    object-fit: cover;
+}
+.sostenibilidad {
+    width: 208px;
+    position: relative;
+    line-height: 140%;
+    display: inline-block;
+}
+.agricultura-sostenible-e {
+    width: 208px;
+    position: relative;
+    font-size: var(--textos-texto-tarjeta-size);
+    line-height: 140%;
+    font-family: var(--textos-texto-tarjeta);
+    display: inline-block;
+}
+.card-plato {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-5xs);
+}
+.cards-nuestros-platos {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 240px;
+    font-size: var(--ttulos-ttulo-de-tarjeta-size);
+}
+.nuestros-valores {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 32px;
+    text-align: center;
+    font-size: var(--ttulos-ttulo-size);
+    color: var(--brand-colors-beige);
+    font-family: var(--ttulos-ttulo-de-tarjeta);
+    margin-top: 4px;
+    color:beige;
+    
+}
+
+.carta-contacta {
+    width: 100%;
+    position: absolute;
+    max-width: 100%;
+    overflow: hidden;
+    height: 481.4px;
+    object-fit: cover;
+    z-index: -1;
+    object-fit: cover;
+}
+.nuestros-valores::before {
+    content: ""; /* Contenido del pseudo-elemento  con before nos referimos a el fondo que esta antes */
+    display: block; /* Hacer que el pseudo-elemento sea un bloque */
+    height: 10px; /* Altura del espacio deseado entre el título y el borde superior */
+}
+-------------------------------------------------------
+.fondo-mision-child {
+    position: absolute;
+    top: 0px;
+    left: 52px;
+    background-color: var(--brand-colors-beige);
+    width: 1440px;
+    height: 544px;
+}
+.flor-limonero-1-icon {
+    position: absolute;
+    top: 28px;
+    left: 0px;
+    width: 596px;
+    height: 786px;
+    object-fit: cover;
+}
+.fondo-mision {
+    width: 100%;
+    position: relative;
+    height: 814px;
+    display: flex;
+    align-items: center;
+}
+.nuestra-misin-imagen-icon {
+    width: 544px;
+    position: relative;
+    height: 336px;
+    object-fit: cover;
+    margin-left: 220px;
+}
+.tenemos-una-misin {
+   
+    width: 544px;
+    position: relative;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+}
+.texto-consultas {
+   
+    display: flex;
+    flex-direction: column;
+   /* align-items: flex-end;*/
+    justify-content: center;
+    gap: 6px;
+    margin-left: 128px;
+}
+.nuestra-misin-conteniso {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 128px;
+}
+.nuestra-misin {
+    flex: 1;
+   /* position: relative;
+    width: 100%;*/
+    display: flex;
+   /* flex-direction: column;*/
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    font-size: var(--ttulos-ttulo-size);
+    color: var(--brand-colors-chocolate);
+    font-family: var(--ttulos-ttulo);
+}
+

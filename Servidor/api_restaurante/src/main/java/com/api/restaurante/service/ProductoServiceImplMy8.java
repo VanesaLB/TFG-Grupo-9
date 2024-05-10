@@ -19,9 +19,9 @@ public class ProductoServiceImplMy8 implements ProductoService {
 	}
 	
 	@Override
-	public Producto buscarProducto(int idPlato) {
+	public Producto buscarProducto(int idProducto) {
 		// TODO Auto-generated method stub
-		return productoRepository.findById(idPlato).orElse(null);
+		return productoRepository.findById(idProducto).orElse(null);
 	}
 	
 	@Override
