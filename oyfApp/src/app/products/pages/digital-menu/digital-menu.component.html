@@ -22,7 +22,7 @@
       (change)="saveCheckLocalStorage($event, product.idProducto)"
       > Producto
       </label>
-      <input type="number" name="product{{product.idProducto}}Quantity" min="1" value="1"><br> 
+      <input type="number" name="product{{product.idProducto}}Quantity" min="1" value="1"><br>
     </div>
   </div>
    -->
@@ -36,13 +36,33 @@
         <p>{{ product.ingredientes }}</p>
         <p>{{ product.precio | currency: 'EUR' }}</p>
         <label>
-          <input type="checkbox" name="product" [checked]="isCheckedMap[product.idProducto]" (change)="saveCheckLocalStorage($event, product.idProducto)">
-          Producto
+          <!-- <input type="checkbox"
+                  name="product"
+                  value="product{{product.idProducto}}"
+                  [checked]="isCheckedMap[product.idProducto]"
+                  (change)="saveCheckQuantityLocalStorage($event, product.idProducto)"
+                  > -->
+          <input type="number"
+                name="product{{product.idProducto}}"
+                min="0"
+                value="{{ isQuantityMap[product.idProducto] }}"
+                step="1"
+                (change)="saveCheckQuantityLocalStorage($event, product.idProducto)">
+          <br>
         </label>
+
+        <!-- <label><input type="checkbox" name="element" value="element1"> Elemento 1</label> -->
+        <!-- <input type="number" name="element1Quantity" min="1" value="1"><br> -->
+
+        <!-- {{ counter }}
+        <button (click)="increaseBy(+1)">+1</button>
+        <button (click)="resetCounter()">Reset</button>
+        <button (click)="increaseBy(-1)">-1</button> -->
+
       </div>
     </div>
   </div>
-  
+
 
 
   <h2>PRINCIPALES</h2>
@@ -54,14 +74,18 @@
       <p>{{ product.ingredientes }}</p>
       <p>{{ product.precio | currency: 'EUR' }}</p>
       <label>
-      <input
+        <input type="number"
+        name="product{{product.idProducto}}"
+        min="0"
+        value="{{ isQuantityMap[product.idProducto] }}"
+        (change)="saveCheckQuantityLocalStorage($event, product.idProducto)">
+      <!-- <input
       type="checkbox"
       name="product"
       [checked]="isCheckedMap[product.idProducto]"
       (change)="saveCheckLocalStorage($event, product.idProducto)"
-      > Producto
+      >  -->
       </label>
-  <!-- <input type="number" name="product{{product.idProducto}}Quantity" min="1" value="1"><br> -->
     </div>
   </div>
 
@@ -75,14 +99,18 @@
       <p>{{ product.ingredientes }}</p>
       <p>{{ product.precio | currency: 'EUR' }}</p>
       <label>
-      <input
+      <input type="number"
+              name="product{{product.idProducto}}"
+              min="0"
+               value="{{ isQuantityMap[product.idProducto] }}"
+              (change)="saveCheckQuantityLocalStorage($event, product.idProducto)">
+      <!-- <input
       type="checkbox"
       name="product"
       [checked]="isCheckedMap[product.idProducto]"
       (change)="saveCheckLocalStorage($event, product.idProducto)"
-      > Producto
+      > -->
       </label>
-  <!-- <input type="number" name="product{{product.idProducto}}Quantity" min="1" value="1"><br> -->
     </div>
   </div>
 
@@ -96,15 +124,23 @@
       <p>{{ product.ingredientes }}</p>
       <p>{{ product.precio | currency: 'EUR' }}</p>
       <label>
-      <input
+      <input type="number"
+              name="product{{product.idProducto}}"
+              min="0"
+              value="{{ isQuantityMap[product.idProducto] }}"
+              (change)="saveCheckQuantityLocalStorage($event, product.idProducto)">
+      <!-- <input
       type="checkbox"
       name="product"
       [checked]="isCheckedMap[product.idProducto]"
       (change)="saveCheckLocalStorage($event, product.idProducto)"
-      > Producto
+      > -->
       </label>
-  <!-- <input type="number" name="product{{product.idProducto}}Quantity" min="1" value="1"><br> -->
     </div>
   </div>
+
+  <button type="submit" (click)="enviarMiPedido()">Enviar</button>
+
+
 
 </div>
