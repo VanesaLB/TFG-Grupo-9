@@ -6,7 +6,7 @@
 <button (click)="filtrarPorVeganos()">Veganos</button>
 
 <div>
-  
+
   <h2>ENTRANTES</h2>
   <div *ngFor="let product of products; let i = index">
     <div *ngIf="product.tipo === 'ENTRANTE'">
@@ -41,7 +41,7 @@
                   value="product{{product.idProducto}}"
                   [checked]="isCheckedMap[product.idProducto]"
                   (change)="saveCheckQuantityLocalStorage($event, product.idProducto)"
-                  > 
+                  >
           <input type="number"
                 name="product{{product.idProducto}}"
                 min="0"
@@ -51,13 +51,13 @@
           <br>
         </label>
 
-        -- <label><input type="checkbox" name="element" value="element1"> Elemento 1</label> 
-        -- <input type="number" name="element1Quantity" min="1" value="1"><br> 
+        -- <label><input type="checkbox" name="element" value="element1"> Elemento 1</label>
+        -- <input type="number" name="element1Quantity" min="1" value="1"><br>
 
         -- {{ counter }}
         <button (click)="increaseBy(+1)">+1</button>
         <button (click)="resetCounter()">Reset</button>
-        <button (click)="increaseBy(-1)">-1</button> 
+        <button (click)="increaseBy(-1)">-1</button>
 
       </div>
     </div>
@@ -84,7 +84,7 @@
       name="product"
       [checked]="isCheckedMap[product.idProducto]"
       (change)="saveCheckLocalStorage($event, product.idProducto)"
-      >  
+      >
       </label>
     </div>
   </div>
@@ -109,7 +109,7 @@
       name="product"
       [checked]="isCheckedMap[product.idProducto]"
       (change)="saveCheckLocalStorage($event, product.idProducto)"
-      > 
+      >
       </label>
     </div>
   </div>
@@ -134,7 +134,7 @@
       name="product"
       [checked]="isCheckedMap[product.idProducto]"
       (change)="saveCheckLocalStorage($event, product.idProducto)"
-      > 
+      >
       </label>
     </div>
   </div>
@@ -145,80 +145,135 @@
 
 </div>
 -->
-<body>
-  
-  
-  <div id="contenedor">
-      <div id="botones">
-      <h1>Lista productos</h1>
 
+
+
+  <div id="contenedor">
+    <div id="botones">
       <button (click)="mostrarTodos()">Todos</button>
       <button (click)="filtrarPorSinGluten()">Sin Gluten</button>
       <button (click)="filtrarPorVeganos()">Veganos</button>
+    </div>
+
+    <div id="contenedor_tarjetas" >
+
+      <!--ENTRANTES-->
+      <div *ngFor="let product of products">
+      <!-- <div *ngFor="let product of products; let i = index"> -->
+        <div class="tarjeta" *ngIf="product.tipo === 'ENTRANTE'">
+          <img class="principal-chuletonpiedra-1-icon" [alt]="product.idProducto" [src]="'assets/images_web/platos/' + product.idProducto + '.png'">
+          <div class="chuletn-del-bierzo-container">
+            <h2>{{ product.descripcion | titlecase }}</h2>
+            <p>{{ product.ingredientes }}</p>
+            <p>{{ product.precio | currency: 'EUR' }}</p>
+            <input type="number"
+              name="product{{product.idProducto}}"
+              min="0"
+              value="{{ isQuantityMap[product.idProducto] }}"
+              step="1"
+              (change)="saveCheckQuantityLocalStorage($event, product.idProducto)">
+          </div>
+        </div>
       </div>
-      <div id="contenedor_tarjetas">
-          <div class="tarjeta">
-            <img class="principal-chuletonpiedra-1-icon" alt="" src="../../../../../assets/images_web/platos/21.png">
-              <div class="chuletn-del-bierzo-container">
-                  <p class="chuletn-del-bierzo">Chuletón del Bierzo.</p>
-                  <p class="chuletn-del-bierzo">Asado a la piedra.</p>
-                  <p class="chuletn-del-bierzo">19€.</p>
-              </div>
+
+      <!--PRINCIPAL-->
+      <div *ngFor="let product of products">
+        <div class="tarjeta" *ngIf="product.tipo === 'PRINCIPAL'">
+          <img class="principal-chuletonpiedra-1-icon" [alt]="product.idProducto" [src]="'assets/images_web/platos/' + product.idProducto + '.png'">
+          <div class="chuletn-del-bierzo-container" class="card-body">
+            <h2>{{ product.descripcion | titlecase }}</h2>
+            <p>{{ product.ingredientes }}</p>
+            <p>{{ product.precio | currency: 'EUR' }}</p>
+            <input type="number"
+              name="product{{product.idProducto}}"
+              min="0"
+              value="{{ isQuantityMap[product.idProducto] }}"
+              step="1"
+              (change)="saveCheckQuantityLocalStorage($event, product.idProducto)">
           </div>
-          <div class="tarjeta">
-            <img class="principal-chuletonpiedra-1-icon" alt="" src="../../../../../assets/images_web/platos/21.png">
-              <div class="chuletn-del-bierzo-container">
-                  <p class="chuletn-del-bierzo">Chuletón del Bierzo.</p>
-                  <p class="chuletn-del-bierzo">Asado a la piedra.</p>
-                  <p class="chuletn-del-bierzo">19€.</p>
-              </div>
-          </div>
-          <div class="tarjeta">
-              <img class="principal-chuletonpiedra-1-icon" alt="" src="../../../../../assets/images_web/platos/21.png">
-              <div class="chuletn-del-bierzo-container">
-                  <p class="chuletn-del-bierzo">Chuletón del Bierzo.</p>
-                  <p class="chuletn-del-bierzo">Asado a la piedra.</p>
-                  <p class="chuletn-del-bierzo">19€.</p>
-              </div>
-          </div>
+        </div>
       </div>
-  
-      
-     <div id="contenedor_pedido">
-         
-      
+
+      <!--POSTRES-->
+      <div *ngFor="let product of products">
+        <div class="tarjeta" *ngIf="product.tipo === 'POSTRES'">
+          <img class="principal-chuletonpiedra-1-icon" [alt]="product.idProducto" [src]="'assets/images_web/platos/' + product.idProducto + '.png'">
+          <div class="chuletn-del-bierzo-container" class="card-body">
+            <h2>{{ product.descripcion | titlecase }}</h2>
+            <p>{{ product.ingredientes }}</p>
+            <p>{{ product.precio | currency: 'EUR' }}</p>
+            <input type="number"
+              name="product{{product.idProducto}}"
+              min="0"
+              value="{{ isQuantityMap[product.idProducto] }}"
+              step="1"
+              (change)="saveCheckQuantityLocalStorage($event, product.idProducto)">
+          </div>
+        </div>
+      </div>
+
+      <!--BEBIDAS-->
+      <div *ngFor="let product of products">
+        <div class="tarjeta" *ngIf="product.tipo === 'BEBIDAS'">
+          <img class="principal-chuletonpiedra-1-icon" [alt]="product.idProducto" [src]="'assets/images_web/platos/' + product.idProducto + '.png'">
+          <div class="chuletn-del-bierzo-container" class="card-body">
+            <h2>{{ product.descripcion | titlecase }}</h2>
+            <p>{{ product.ingredientes }}</p>
+            <p>{{ product.precio | currency: 'EUR' }}</p>
+            <input type="number"
+              name="product{{product.idProducto}}"
+              min="0"
+              value="{{ isQuantityMap[product.idProducto] }}"
+              step="1"
+              (change)="saveCheckQuantityLocalStorage($event, product.idProducto)">
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+      <div id="contenedor_pedido">
+
           <table>
               <caption>Mi pedido</caption>
-              
+
               <thead>
-                  <tr>
-                      <td ><p>Mi mesa: <span id="numeroMesa"></span></p></td>
-                  </tr>
                   <tr>
                       <th>Platos y bebidas</th>
                       <th>Cantidad</th>
                       <th>Importe</th>
-                      <th>Añadir</th>
-                      <th>Quitar</th>
-                  </tr>   
+                  </tr>
               </thead>
-              <tbody>
+              <tbody *ngFor="let product of productsMiPedido" (change)="mostrarMiPedido()">
                   <tr>
-                      <td>Cola cao</td>
-                      <td>1</td>
-                      <td >1.50€</td>
-                      <td class="enlace" onclick="aumentarProducto()">Aumentar</td>
-                      <td class="enlace" onclick="eliminarProducto()">Eliminar</td>
+                      <td>{{product.descripcion | titlecase}}</td>
+                      <td>{{productsLocalStNo[product.idProducto]}}</td>
+                      <!-- <td><input type="number"
+                        name="product{{product.idProducto}}"
+                        min="0"
+                        value="{{ isQuantityMap[product.idProducto] }}"
+                        step="1"
+                        (change)="saveCheckQuantityLocalStorage($event, product.idProducto)"></td> -->
+                      <td>{{ product.precio | currency: 'EUR' }}</td>
+                      <!-- <td class="enlace" onclick="aumentarProducto()">Aumentar</td>
+                      <td class="enlace" onclick="eliminarProducto()">Eliminar</td> -->
                   </tr>
               </tbody>
               <tfoot>
                   <tr>
-                      
-                      <td id="total">Importe</td>
+                      <td></td>
+                      <td></td>
+                      <td id="total">{{ mostrarTotal() | currency: 'EUR' }}</td>
                   </tr>
               </tfoot>
           </table>
-    </div>
+          <button type="submit" (click)="enviarMiPedido()">Enviar</button>
+
+      </div>
+
+
 
   </div>
-  </body>
+

@@ -20,7 +20,7 @@ export class DigitalMenuComponent implements OnInit{
   public product!: Product;
 
   public products: Product[] = []; //Array products para almacenar los productos
-  //public isChecked: boolean[] = []; // Array para mantener el estado de los checkboxes
+  public productsMiPedido: Product[] = []; // Array para mantener el estado de los checkboxes
 
   public selectedElements: number[] = []; //Array para almacenar cantidad
 
@@ -30,9 +30,7 @@ export class DigitalMenuComponent implements OnInit{
   //public isCheckedMap: { [idProducto: number]: boolean } = {};
 
   public isQuantityMap: { [idProducto: number]: number} = {};
-
-  //inicializamos contador
-  public counter: number = 0;
+  public productsLocalStNo: { [idProducto: number]: number} = {};
 
   //Inyectamos el ProductService que hemos importado en el constructor del componente
   constructor( private productService: ProductService ){ }
@@ -49,6 +47,8 @@ export class DigitalMenuComponent implements OnInit{
         products => {
           this.products = products;
           this.loadQuantityStateFromLocalStorage();
+          this.mostrarMiPedido();
+          //this.mostrarTotal();
         },
         error => {
           console.error('Error al cargar los productos:', error);
@@ -144,12 +144,15 @@ export class DigitalMenuComponent implements OnInit{
 
 
   public saveCheckQuantityLocalStorage(event: Event, productId: number): void {
+
     if (event.target instanceof HTMLInputElement) {
       const quantity = parseInt(event.target.value); // Obtener la cantidad del input
 
       // Verificar si la cantidad es válida (puedes agregar validaciones adicionales según tus necesidades)
 
       localStorage.setItem(`quantityState-${productId}`, quantity.toString()); // Guardar la cantidad en el almacenamiento local
+      this.mostrarMiPedido();
+      //this.mostrarTotal();
     }
   }
 
@@ -189,30 +192,65 @@ export class DigitalMenuComponent implements OnInit{
         para el producto actual. Se utiliza la clave única generada concatenando 'checkboxState-'
         con el productId del producto actual. */
         const savedQuantity = localStorage.getItem(`quantityState-${productId}`);
-        /*Aquí se asigna el estado recuperado del checkbox al objeto isCheckedMap. Si savedState es una cadena
-        no nula y no vacía (es decir, si el estado del checkbox fue guardado anteriormente en el almacenamiento
-        local), se utiliza JSON.parse() para convertir la cadena en un valor booleano. Este valor booleano se
-        asigna a isCheckedMap[productId]. Si savedState es nulo o vacío, se asigna false al isCheckedMap[productId]. */
-        //const quantity = ;
+        /*Aquí se asigna la cantidad recuperada al objeto isQuantityMap. Si savedQuantity es una cadena no nula
+        y no vacía (es decir, si la cantidad del producto fue guardada anteriormente en el almacenamiento local),
+        se convierte la cadena en un número entero utilizando parseInt() y se asigna a isQuantityMap[productId].
+        Si savedQuantity es nulo o vacío, se asigna 0 a isQuantityMap[productId]. */
         this.isQuantityMap[productId] = savedQuantity ? parseInt(savedQuantity) : 0;
       }
   }
 
 
+  mostrarMiPedido(): void {
+    //console.log("soy mostrar mi pedido");
+    for (let i = 0; i < this.products.length; i++) {
+      /*En cada iteración del bucle, se obtiene el identificador único (idProducto) del producto actual
+      en la posición i del array products y se almacena en la variable productId. */
+      const productId = this.products[i].idProducto;
+      /*Se utiliza el método getItem del objeto localStorage para recuperar el estado guardado del checkbox
+      para el producto actual. Se utiliza la clave única generada concatenando 'checkboxState-'
+      con el productId del producto actual. */
 
+      const cantidadPr = localStorage.getItem(`quantityState-${productId}`);
 
-  //CONTADOR
-  increaseBy( value: number ): void {
-    this.counter += value;
+      if (cantidadPr && parseInt(cantidadPr) !== 0) {
+        this.productsLocalStNo[productId] = cantidadPr ? parseInt(cantidadPr) : 0;
+      } else {
+        // Si no hay cantidad guardada o es cero, eliminar la entrada del objeto productsLocalStNo
+        delete this.productsLocalStNo[productId];
+      }
+    }
+    this.productsMiPedido = this.products.filter(pr => {
+      return this.productsLocalStNo[pr.idProducto] && this.productsLocalStNo[pr.idProducto] > 0;
+    });
+
+    this.mostrarTotal();
+
   }
-  resetCounter(): void {
-    this.counter = 0;
+
+  mostrarTotal(): number {
+    // for (let i = 0; i < this.productsMiPedido.length; i++){
+    //   console.log(this.productsMiPedido = this.products.filter(pr => {
+    //     return this.productsLocalStNo[pr.idProducto] && this.productsLocalStNo[pr.idProducto] > 0;
+    //   }));
+    // }
+    let total = 0;
+
+  // Filtrar los productos que tienen una cantidad en localStorage mayor que 0
+  this.productsMiPedido = this.products.filter(pr => {
+    return this.productsLocalStNo[pr.idProducto] && this.productsLocalStNo[pr.idProducto] > 0;
+  });
+
+  // Calcular el total sumando los precios multiplicados por las cantidades
+  for (let i = 0; i < this.productsMiPedido.length; i++) {
+    const product = this.productsMiPedido[i];
+    const cantidad = this.productsLocalStNo[product.idProducto];
+    if (product && product.precio && cantidad) {
+      total += product.precio * cantidad;
+    }
   }
 
-  mostrarMiPedido(event: Event, productId: number): void {
-
-    //const prevQuantityState = this.selectedElements.slice(0);
-    //this.selectedElements = prevQuantityState;
+  return total;
 
   }
 

@@ -17,9 +17,19 @@
   overflow: hidden;
   flex-shrink: 0;
 }
-.nosotros {
+.menu {
   position: relative;
   line-height: 140%;
+}
+.menu a{
+  text-decoration: none;
+  padding-bottom: 2px;
+}
+.menu a:hover{
+  border-bottom: 2px solid #B38F48;
+}
+.menu a:active{
+  color: #B38F48;
 }
 .navbar1 {
   height: 31px;
