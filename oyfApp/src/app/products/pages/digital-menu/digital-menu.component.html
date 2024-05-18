@@ -1,4 +1,4 @@
-
+<!--
 <h1>Lista productos</h1>
 
 <button (click)="mostrarTodos()">Todos</button>
@@ -6,7 +6,7 @@
 <button (click)="filtrarPorVeganos()">Veganos</button>
 
 <div>
-  <!--
+  
   <h2>ENTRANTES</h2>
   <div *ngFor="let product of products; let i = index">
     <div *ngIf="product.tipo === 'ENTRANTE'">
@@ -26,7 +26,7 @@
     </div>
   </div>
    -->
-  <!--prueba estefania-->
+  <!--prueba estefania
   <h2>ENTRANTES</h2>
   <div class="product-card" *ngFor="let product of products; let i = index">
     <div *ngIf="product.tipo === 'ENTRANTE'" class="card">
@@ -36,12 +36,12 @@
         <p>{{ product.ingredientes }}</p>
         <p>{{ product.precio | currency: 'EUR' }}</p>
         <label>
-          <!-- <input type="checkbox"
+          -- <input type="checkbox"
                   name="product"
                   value="product{{product.idProducto}}"
                   [checked]="isCheckedMap[product.idProducto]"
                   (change)="saveCheckQuantityLocalStorage($event, product.idProducto)"
-                  > -->
+                  > 
           <input type="number"
                 name="product{{product.idProducto}}"
                 min="0"
@@ -51,13 +51,13 @@
           <br>
         </label>
 
-        <!-- <label><input type="checkbox" name="element" value="element1"> Elemento 1</label> -->
-        <!-- <input type="number" name="element1Quantity" min="1" value="1"><br> -->
+        -- <label><input type="checkbox" name="element" value="element1"> Elemento 1</label> 
+        -- <input type="number" name="element1Quantity" min="1" value="1"><br> 
 
-        <!-- {{ counter }}
+        -- {{ counter }}
         <button (click)="increaseBy(+1)">+1</button>
         <button (click)="resetCounter()">Reset</button>
-        <button (click)="increaseBy(-1)">-1</button> -->
+        <button (click)="increaseBy(-1)">-1</button> 
 
       </div>
     </div>
@@ -79,12 +79,12 @@
         min="0"
         value="{{ isQuantityMap[product.idProducto] }}"
         (change)="saveCheckQuantityLocalStorage($event, product.idProducto)">
-      <!-- <input
+      -- <input
       type="checkbox"
       name="product"
       [checked]="isCheckedMap[product.idProducto]"
       (change)="saveCheckLocalStorage($event, product.idProducto)"
-      >  -->
+      >  
       </label>
     </div>
   </div>
@@ -104,12 +104,12 @@
               min="0"
                value="{{ isQuantityMap[product.idProducto] }}"
               (change)="saveCheckQuantityLocalStorage($event, product.idProducto)">
-      <!-- <input
+      -- <input
       type="checkbox"
       name="product"
       [checked]="isCheckedMap[product.idProducto]"
       (change)="saveCheckLocalStorage($event, product.idProducto)"
-      > -->
+      > 
       </label>
     </div>
   </div>
@@ -129,12 +129,12 @@
               min="0"
               value="{{ isQuantityMap[product.idProducto] }}"
               (change)="saveCheckQuantityLocalStorage($event, product.idProducto)">
-      <!-- <input
+      -- <input
       type="checkbox"
       name="product"
       [checked]="isCheckedMap[product.idProducto]"
       (change)="saveCheckLocalStorage($event, product.idProducto)"
-      > -->
+      > 
       </label>
     </div>
   </div>
@@ -144,3 +144,81 @@
 
 
 </div>
+-->
+<body>
+  
+  
+  <div id="contenedor">
+      <div id="botones">
+      <h1>Lista productos</h1>
+
+      <button (click)="mostrarTodos()">Todos</button>
+      <button (click)="filtrarPorSinGluten()">Sin Gluten</button>
+      <button (click)="filtrarPorVeganos()">Veganos</button>
+      </div>
+      <div id="contenedor_tarjetas">
+          <div class="tarjeta">
+            <img class="principal-chuletonpiedra-1-icon" alt="" src="../../../../../assets/images_web/platos/21.png">
+              <div class="chuletn-del-bierzo-container">
+                  <p class="chuletn-del-bierzo">Chuletón del Bierzo.</p>
+                  <p class="chuletn-del-bierzo">Asado a la piedra.</p>
+                  <p class="chuletn-del-bierzo">19€.</p>
+              </div>
+          </div>
+          <div class="tarjeta">
+            <img class="principal-chuletonpiedra-1-icon" alt="" src="../../../../../assets/images_web/platos/21.png">
+              <div class="chuletn-del-bierzo-container">
+                  <p class="chuletn-del-bierzo">Chuletón del Bierzo.</p>
+                  <p class="chuletn-del-bierzo">Asado a la piedra.</p>
+                  <p class="chuletn-del-bierzo">19€.</p>
+              </div>
+          </div>
+          <div class="tarjeta">
+              <img class="principal-chuletonpiedra-1-icon" alt="" src="../../../../../assets/images_web/platos/21.png">
+              <div class="chuletn-del-bierzo-container">
+                  <p class="chuletn-del-bierzo">Chuletón del Bierzo.</p>
+                  <p class="chuletn-del-bierzo">Asado a la piedra.</p>
+                  <p class="chuletn-del-bierzo">19€.</p>
+              </div>
+          </div>
+      </div>
+  
+      
+     <div id="contenedor_pedido">
+         
+      
+          <table>
+              <caption>Mi pedido</caption>
+              
+              <thead>
+                  <tr>
+                      <td ><p>Mi mesa: <span id="numeroMesa"></span></p></td>
+                  </tr>
+                  <tr>
+                      <th>Platos y bebidas</th>
+                      <th>Cantidad</th>
+                      <th>Importe</th>
+                      <th>Añadir</th>
+                      <th>Quitar</th>
+                  </tr>   
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>Cola cao</td>
+                      <td>1</td>
+                      <td >1.50€</td>
+                      <td class="enlace" onclick="aumentarProducto()">Aumentar</td>
+                      <td class="enlace" onclick="eliminarProducto()">Eliminar</td>
+                  </tr>
+              </tbody>
+              <tfoot>
+                  <tr>
+                      
+                      <td id="total">Importe</td>
+                  </tr>
+              </tfoot>
+          </table>
+    </div>
+
+  </div>
+  </body>

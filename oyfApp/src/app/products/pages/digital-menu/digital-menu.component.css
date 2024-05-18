@@ -1,46 +1,147 @@
-.product-card {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; /* Distribuye las tarjetas horizontalmente */
-    gap: 128px;
-  }
-  
-  .card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-bottom: 20px; /* Margen inferior entre las filas de tarjetas */
-    width: 208px; /* Ancho de cada tarjeta */
-    height: 302px; /* Alto de cada tarjeta */
-    box-sizing: border-box; /* Incluye el borde en el cálculo del tamaño */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
-    display: flex;
+/*contenedor_ppal*/
+#contenedor{
+  /* background-color: #b38f48;*/
+   background-image: url("/assets/images_web/image_carta_contacta.jpg");
+   /*background-image:url("../../../../../assets/images_web/image_carta_contacta.jpg");*/
+   display:flex;
+   background-size: cover; /*Ajusta el tamaño de la imagen para cubrir todo el contenedor */
+   background-position: center;
+   padding: 10px;
+   z-index: 3;
+   min-height: 1300px;
+   flex-direction: row;
+   position: relative;
+   
+}
+#botones{
+   position: absolute;
+   
+  /* border:solid white;*/
+   top: 0; /* Lo coloca en la parte superior */
+   left: 10%; /* Lo coloca en el centro horizontal */
+   transform: translateX(-50%); /* Lo centra exactamente en el centro horizontal */
+   z-index: 1; /* Asegura que esté encima del contenedor de tarjetas */
+  /* background-color: white; /* Cambia el color de fondo según lo necesites */
+   padding: 10px; /* Añade un poco de espacio alrededor de los botones */
+   border-radius: 5px;
+   font-family: var(--textos-texto-descripcin);
+   font-size: var(--textos-texto-descripcin-size);
+   color:var(--base-colors-white);
+   margin-left: 30px;
+   
+
+}
+#contenedor_botones button {
+   margin: 0 5px; 
+
+}
+button{
+   width: 91px;
+   height: 44px;
+   background-color: var(--contrast-colors-bronce);
+   border-radius: 32px;
+   box-shadow: var(--sombras-botones);
+}
+#contenedor_tarjetas{
+   border: solid yellow;
+   display:flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   width: 50%;
+   margin: 0 auto;
+   row-gap: 60px;
+   column-gap: 128px;
+   min-height: 1300px;
+   margin-left: 30px;
+   margin-top: 180px;
+   margin-bottom: 30px;
+   
+
+}
+.tarjeta{
+   width: 208px;
+   height: 400px;
+   display: flex;
    flex-direction: column;
    align-items: flex-start;
    justify-content: flex-start;
-   gap: var(--gap-5xs);
-  }
   
-  .card img {
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-  }
   
-  .card-body {
-    padding: 10px;
-  }
+   border:solid black;
+   font-size: var(--textos-texto-tarjeta-size);
+   font-family: var(--textos-texto-tarjeta);
+   color:beige;
+   margin-bottom: -80px;
   
-  .card-body h2 {
-    font-size: 20px;
-    margin-bottom: 5px;
-  }
-  
-  .card-body p {
-    margin-bottom: 10px;
-  }
-  
-  .card-body label {
-    display: block;
-    margin-top: 10px;
-  }
-  
+  /* margin-bottom: 30px;*/
+   margin-left:100px;
+}
+.principal-chuletonpiedra-1-icon {
+   width: 208px;
+   position: relative;
+   height: 208px;
+   object-fit: cover;
+}
+   
+ /*Mi pedido*/
+
+#contenedor_pedido {
+           background-color:#BBA7A7;/* Color de fondo */
+           display: flex;
+           flex-direction: column;
+           align-items: center; /* Centrar los elementos dentro del contenedor */
+           justify-content: flex-start;
+           background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
+           background-position: center;
+           padding: 20px;
+           z-index: 3;
+           width: auto;
+           height:min-content;
+          /* min-height: 534px;*/
+           margin-left: 30px; /* Ajustar el margen izquierdo */
+           margin-top: 100px; /* Ajustar el margen superior */
+       }
+
+       /* Estilo para la tabla */
+       table {
+           border-collapse: separate; /* Separar los bordes de las celdas */
+           border-spacing: 10px; /* Establecer el espacio entre las celdas */
+           width: 100%;
+           
+       }
+       /* Estilo para las celdas */
+       th, td {
+           font-family: var(--ttulos-ttulo-de-tarjeta);
+           font-size: var(--textos-texto-tarjeta-size);
+           padding: 10px; /* Añadir un relleno interno a las celdas */
+           text-align: center; /* Centramos el texto en las celdas */
+       }
+       /* Estilo para los encabezados */
+       th {
+           background-color: var(--brand-colors-brown-medium); /* Color de fondo para los encabezados */
+           color: black; 
+       }
+       .enlace:hover {
+           cursor: pointer;
+           text-decoration: underline; 
+       }
+       caption{
+           color: black;
+           font-family: var(--ttulos-hero);
+          
+           font-size: var(--ttulos-ttulo-size);
+
+       }
+       #numeroMesa{
+           font-weight: bold;
+           column-span: 4;
+           font-size: var(--textos-texto-tarjeta-size);
+           font-family: var(--ttulos-ttulo-de-tarjeta);
+           color: black; 
+          
+       }
+       #total{
+           column-span: 2;
+           color: black;
+           font-weight: bold;
+       }
