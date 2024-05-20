@@ -32,4 +32,10 @@ public class PedidoServiceImplMy8 implements PedidoService {
 		return pedidoRepository.saveAll(pedidosAlta);
 	}
 
+	@Override
+    public Pedido save(Pedido pedido) {
+        return pedidoRepository.save(pedido);
+    }
+
+
 }

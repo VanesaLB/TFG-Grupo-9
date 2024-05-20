@@ -8,5 +8,6 @@ public interface ComandaService {
 	
 	Comanda buscarUno(int idComanda);
 	List<Comanda> buscarTodos();
+	Comanda save(Comanda comanda);
 	
 }

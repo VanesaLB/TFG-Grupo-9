@@ -10,5 +10,6 @@ public interface PedidoService {
 	Pedido buscarUno(int idPedido);
 	List<Pedido> buscarTodos();
 	List<Pedido> altaMuchos(List<Pedido> pedidosAlta);
+	Pedido save(Pedido pedido);
 	
 }

@@ -23,19 +23,24 @@ public class Comanda {
 	private Producto producto;
 	@ManyToOne
 	@JoinColumn(name="id_pedido")
-	private Producto pedido;
+	private Pedido pedido;
 	private String servido;
+	@ManyToOne
+	@JoinColumn(name="id_mesa")
+	private Mesa mesa;
+
 	
 	public Comanda() {
 		super();
 	}
 
-	public Comanda(int idComanda, Producto producto, Producto pedido, String servido) {
+	public Comanda(int idComanda, Producto producto, Pedido pedido, String servido,Mesa mesa) {
 		super();
 		this.idComanda = idComanda;
 		this.producto = producto;
 		this.pedido = pedido;
 		this.servido = servido;
+		this.mesa=mesa;
 	}
 
 	public int getIdComanda() {
@@ -54,11 +59,11 @@ public class Comanda {
 		this.producto = producto;
 	}
 
-	public Producto getPedido() {
+	public Pedido getPedido() {
 		return pedido;
 	}
 
-	public void setPedido(Producto pedido) {
+	public void setPedido(Pedido pedido) {
 		this.pedido = pedido;
 	}
 
@@ -68,6 +73,12 @@ public class Comanda {
 
 	public void setServido(String servido) {
 		this.servido = servido;
+	}
+	public Mesa getMesa() {
+		return mesa;
+	}
+	public void setMesa(Mesa mesa) {
+		this.mesa=mesa;
 	}
 
 	@Override
@@ -90,7 +101,7 @@ public class Comanda {
 	@Override
 	public String toString() {
 		return "Comanda [idComanda=" + idComanda + ", producto=" + producto + ", pedido=" + pedido + ", servido="
-				+ servido + "]";
+				+ servido + ", mesa=" + mesa + "]";
 	}
 	
 	
