@@ -1,0 +1,83 @@
+#Comandas {
+    position: absolute;
+    display: flex;
+    top: 268px;
+    left: 168px;
+    font-size: var(--ttulos-hero-size);
+    line-height: 140%;
+    display: inline-block;
+    font-family: var(--ttulos-hero);
+    color: var(--brand-colors-chocolate);/*no se aplican los colores por que falta globas.css*/
+    text-align: left;
+    width: 300px;
+    
+    }
+table{
+    border:solid black 2px;
+    position: absolute;
+    top: 400px;
+    left: 168px;
+    border-collapse: collapse;
+
+}
+tbody{
+    border:solid black 2px;
+    border-collapse: separate;
+
+}
+thead{
+    border:solid black 2px;
+    border-collapse: separate;
+    background-color: var(--brand-colors-brown-medium);
+}
+.enlace:hover {
+    cursor: pointer;
+    text-decoration: underline; 
+}
+td{
+    padding: 10px; 
+    border: 1px solid black;
+
+}
+section{
+    width: 100%;
+    height: 700px;
+}
+/*Media query tablet comandas*/
+@media screen and (max-width: 992px) {
+    #Comandas {
+        top: 150px;
+        left: 20px;
+        position: static;
+        margin-top: 20px;
+    }
+
+    table {
+        position: static;
+        margin: 20px 0;
+        width: 100%;
+    }
+/*media query movil */
+@media screen and (max-width: 575px) {
+    #Comandas {
+        display: flex;
+        position: absolute;
+        top: 100px;
+        left: 10px;
+        position: static;
+        margin-top: 10px;
+        font-size: var(--ttulos-ttulo-de-tarjeta-size);
+
+        line-height: 100%;
+        width: auto;
+    }
+
+    table {
+        position: static;
+        margin: 10px 0;
+        font-size: var(--textos-texto-tarjeta-size);
+        width: auto;
+    }
+}
+
+}

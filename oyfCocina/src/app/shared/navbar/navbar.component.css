@@ -1,0 +1,246 @@
+.header1 {
+    width: 100%;
+    position: relative;
+    box-shadow: 0px 2px 8px 3px rgba(0, 0, 0, 0.25);
+    background-color: var(--base-colors-white);
+    border-bottom: 3px solid var(--contrast-colors-bronce);
+    box-sizing: border-box;
+    height: 152px;
+    overflow: hidden;
+    flex-shrink: 0;
+    z-index: 0;
+}
+.logo-color-icon {
+    width: 81px;
+    position: relative;
+    height: 104px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.nosotros {
+    position: relative;
+    line-height: 140%;
+}
+.navbar1 {
+    height: 31px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 82px;
+}
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 31px;
+}
+.busqueda {
+    width: 207px;
+    position: relative;
+    border-radius: 8px;
+    background-color: var(--base-colors-white);
+    border: 1px solid var(--brand-colors-brown-dark);
+    box-sizing: border-box;
+    height: 32px;
+    z-index: 0;
+}
+.bisearch-icon {
+    width: 20px;
+    position: absolute;
+    margin: 0 !important;
+    top: 6px;
+    left: 178px;
+    height: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+    z-index: 1;
+}
+.barra-bsqueda {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    gap: var(--gap-3xs);
+}
+.parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+.lupa-y-mesa {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 35px;
+    text-align: right;
+    font-size: var(--textos-texto-descripcin-size) ;
+    color: var(--brand-colors-brown-dark);
+    line-height: 140%;
+
+}
+.navbar-parent {
+    margin: 0 !important;
+    position: absolute;
+    top: 27px;
+    left: 56px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 465px;
+    z-index: 1;
+}
+.header {
+    position: relative;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-3xs);
+    text-align: left;
+    font-size: var(--textos-texto-descripcin-size);
+    color: var(--brand-colors-brown-dark);
+    font-family: var(--textos-texto-descripcin);
+}
+a {
+    font-size: var(--textos-texto-descripcin-size) 20px;
+    color: var(--brand-colors-brown-dark);
+}
+.cerrar:hover{
+    cursor: pointer;
+    text-decoration: underline; 
+}
+/*Media query tablet header*/
+@media screen and (max-width: 992px) {
+    .header {
+        padding: 20px; /* Agregar espacio alrededor del header */
+    }
+
+    .header1 {
+        display:flex;
+        height: auto;
+    }
+
+    .logo-color-icon {
+        width: 60px;
+        height: 80px;
+    }
+
+    .navbar-parent {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        left: 0;
+        top: 0;
+        position: static;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 200px;
+        gap: 8px;
+    }
+
+    .navbar1 {
+        gap: 4px;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .lupa-y-mesa {
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+    }
+    .busqueda {
+        width: 200px;
+        position: relative;
+        border-radius: 8px;
+        background-color: var(--base-colors-white);
+        border: 1px solid var(--brand-colors-brown-dark);
+        box-sizing: border-box;
+        height: 32px;
+        margin-left: 200px;
+       
+        z-index: 0;
+    }
+    .cerrar{
+        margin-left: 200px;
+    }
+}
+/*media query movil */
+@media screen and (max-width: 575px) {
+    /*header movil*/
+    .header {
+        padding: 10px; /* Agregar espacio alrededor del header */
+    }
+
+    .header1 {
+        display: flex;
+        height: auto; /* Ajustar altura automática para adaptarse al contenido */
+        padding: 10px; /* Añadir padding alrededor del header1 */
+        text-align: center;
+                          /* Centrar el contenido dentro de header1 */
+    }
+
+    .logo-color-icon {
+        width: 40px; /* Ajustar tamaño del logo */
+        height: 40px;
+    }
+
+    .navbar-parent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-left: 100px;
+    }
+
+    .navbar1 {
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;     
+    }
+
+    .nosotros {
+        margin: 5px 0; /* Ajustar margen de los enlaces */
+    
+    }
+
+    .lupa-y-mesa {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .busqueda {
+        width: 100px;
+        position: absolute;
+        border-radius: 8px;
+        background-color: var(--base-colors-white);
+        border: 1px solid var(--brand-colors-brown-dark);
+        box-sizing: border-box;
+        height: 32px;
+        margin-left: 150px;
+       
+        z-index: 0;
+    }
+    .cerrar{
+        margin-left: 100px;
+    }
+}
