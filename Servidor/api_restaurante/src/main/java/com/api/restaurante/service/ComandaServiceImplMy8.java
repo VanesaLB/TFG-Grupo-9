@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.api.restaurante.modelo.entities.Comanda;
+import com.api.restaurante.modelo.entities.Pedido;
 import com.api.restaurante.repository.ComandaRepository;
 import com.api.restaurante.repository.PedidoRepository;
 @Service
@@ -29,6 +30,10 @@ public class ComandaServiceImplMy8 implements ComandaService{
 		return comandaRepository.findAll();
 	}
 
+	@Override
+	public List<Comanda> altaMuchos(List<Comanda> comandasAlta) {
+		return comandaRepository.saveAll(comandasAlta);
+	}
 	
 	@Override
     public Comanda save(Comanda comanda) {

@@ -24,10 +24,10 @@ public class Comanda {
 	@ManyToOne
 	@JoinColumn(name="id_pedido")
 	private Pedido pedido;
-	private String servido;
 	@ManyToOne
 	@JoinColumn(name="id_mesa")
 	private Mesa mesa;
+	private String servido;
 
 	
 	public Comanda() {
