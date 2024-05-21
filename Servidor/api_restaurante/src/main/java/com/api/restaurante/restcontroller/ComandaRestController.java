@@ -2,7 +2,9 @@ package com.api.restaurante.restcontroller;
 
 
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.restaurante.modelo.dto.ComandaDto;
+import com.api.restaurante.modelo.dto.PedidoDto;
 import com.api.restaurante.modelo.entities.Comanda;
 import com.api.restaurante.modelo.entities.Mesa;
 import com.api.restaurante.modelo.entities.Pedido;
@@ -82,5 +85,63 @@ public class ComandaRestController {
 	        }
 	    }
 
+	
+	
+	@PostMapping("/altaMuchos")
+	 public List<Comanda> darDeAltaMuchos(@RequestBody List<ComandaDto> comandasDto) {
+	 		
+	 		
+	 		List<Comanda> comandas = new ArrayList<>();
+	 		
+	 		for (ComandaDto dto : comandasDto) {	
+	 	        Comanda comandaAux  = new Comanda();
+	 	       
+	 	      // modelMapper.map(dto, pedidoAux );
+	 	       
+	 	      comandaAux.setProducto(productoService.buscarProducto(dto.getIdProducto()));
+	 	      comandaAux.setPedido(pedidoService.buscarUno(dto.getIdPedido()));
+	 	      comandaAux.setMesa(mesaService.buscarUna(dto.getIdMesa()));
+	 	      comandaAux.setServido(dto.getServido());
+	 	    
+	 	     
+	 	      
+	 	        // Luego puedes realizar otras operaciones necesarias, como asignar el empleado y el proyecto
+	 	        // empleadoEnProyecto.setEmpleado(empleadoService.buscarEmpleado(dto.getIdEmpleado()));
+	 	        // empleadoEnProyecto.setProyecto(proyectoService.buscarProyecto(dto.getIdProyecto()));
+	 	        
+	 	        // Agrega cada objeto EmpleadoEnProyecto mapeado a la lista
+	 	     comandas.add(comandaAux);
+	 	        
+	 	
+	 	}
+	 		return comandaService.altaMuchos(comandas); 
+	 }
+	 	/*
+	 	 * PARA POSTMAN:
+	 	 * [
+
+	 {
+	     "idProducto": 1,
+	     "idPedido": 1,
+	     "idMesa": 2,
+	     "servido": "si"
+	 },
+
+	 {
+	     "idProducto": 1,
+	     "idPedido": 1,
+	     "idMesa": 2,
+	     "servido": "si"
+	 },
+
+	 {
+	     "idProducto": 1,
+	     "idPedido": 1,
+	     "idMesa": 2,
+	     "servido": "si"
+	 }
+	 ]
+	 	 */
+	
 
 }

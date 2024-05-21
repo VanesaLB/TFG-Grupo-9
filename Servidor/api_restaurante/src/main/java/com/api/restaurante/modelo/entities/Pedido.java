@@ -28,16 +28,16 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_pedido")
 	private int idPedido;
+	@Column(name="precio_total")
+	private double precioTotal;
 	@ManyToOne
 	@JoinColumn(name="id_mesa")
 	private Mesa mesa;
 	@Column(name="cantidad_productos")
 	private int cantidadProductos;
-	@Column(name="precio_total")
-	private double precioTotal;
-   @Temporal(TemporalType.DATE)
-   @Column(name="fecha")
-   private Date fecha;
+	@Temporal(TemporalType.DATE)
+    @Column(name="fecha")
+    private Date fecha;
 	
 	public Pedido() {
 		super();
