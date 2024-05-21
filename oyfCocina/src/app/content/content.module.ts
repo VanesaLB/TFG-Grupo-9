@@ -6,6 +6,7 @@ import { ComandasPageComponent } from './pages/comandas-page/comandas-page.compo
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProductosPageComponent } from './pages/productos-page/productos-page.component';
 import { ContentRoutingModule } from './content-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -19,7 +20,8 @@ import { ContentRoutingModule } from './content-routing.module';
   ],
   imports: [
     CommonModule,
-    ContentRoutingModule
+    ContentRoutingModule,
+    HttpClientModule
   ],
   exports: [
 

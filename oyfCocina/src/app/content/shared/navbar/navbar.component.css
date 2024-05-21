@@ -17,9 +17,19 @@
     overflow: hidden;
     flex-shrink: 0;
 }
-.nosotros {
-    position: relative;
-    line-height: 140%;
+.menu {
+  position: relative;
+  line-height: 140%;
+}
+.menu a{
+  text-decoration: none;
+  padding-bottom: 2px;
+}
+.menu a:hover{
+  border-bottom: 2px solid #B38F48;
+}
+.menu a:active{
+  color: #B38F48;
 }
 .navbar1 {
     height: 31px;
@@ -116,7 +126,7 @@ a {
 }
 .cerrar:hover{
     cursor: pointer;
-    text-decoration: underline; 
+    text-decoration: underline;
 }
 /*Media query tablet header*/
 @media screen and (max-width: 992px) {
@@ -170,7 +180,7 @@ a {
         box-sizing: border-box;
         height: 32px;
         margin-left: 200px;
-       
+
         z-index: 0;
     }
     .cerrar{
@@ -215,12 +225,12 @@ a {
         gap: 10px;
         flex-direction: column;
         align-items: center;
-        gap: 10px;     
+        gap: 10px;
     }
 
-    .nosotros {
+    .menu {
         margin: 5px 0; /* Ajustar margen de los enlaces */
-    
+
     }
 
     .lupa-y-mesa {
@@ -237,7 +247,6 @@ a {
         box-sizing: border-box;
         height: 32px;
         margin-left: 150px;
-       
         z-index: 0;
     }
     .cerrar{

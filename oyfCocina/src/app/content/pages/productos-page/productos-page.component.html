@@ -1,14 +1,14 @@
 <section>
-    <div id ="Comandas">
+    <div id="comandas">
       <p>Productos</p>
     </div>
     <table>
-        
+
         <thead>
             <tr>
                 <th>Producto</th>
                 <th>Ingredientes</th>
-                <th class="plato">Descripción</th>
+                <th>Descripción</th>
                 <th>Tipo</th>
                 <th>Vegano</th>
                 <th>Gluten</th>
@@ -16,26 +16,28 @@
                 <th>Modificar</th>
                 <th>Eliminar</th>
                 <th>Alta</th>
-                
+
 
             </tr>
         </thead>
-        
-        <tbody>
-            <tr>
-                <td>hbjhb</td>
-                <td>2jhjh</td>
-                <td>albondiga</td>
-                <td>ser</td>
-                <td>kbkj</td>
-                <td>kjkj</td>
-                <td>jbkjbk</td>
-                <td  class ="enlace" onclick="Modificar()">Modificar</td>
-                <td  class ="enlace" onclick="Eliminar()">Eliminar</td>
-                <td  class ="enlace" onclick="Alta()">Alta</td>
-                
 
-                
+        <tbody *ngFor="let product of products">
+            <tr>
+                <td>{{ product.idProducto }}</td>
+                <td>{{ product.ingredientes }}</td>
+                <td>{{ product.descripcion | titlecase }}</td>
+                <td>{{ product.tipo }}</td>
+                <td>{{ product.vegano }}</td>
+                <td>{{ product.gluten }}</td>
+                <td>{{ product.precio | currency: 'EUR' }}</td>
+                <!-- <td class ="enlace">Modificar</td>
+                <td class ="enlace">Eliminar</td>
+                <td class ="enlace">Alta</td> -->
+                <td>Modificar</td>
+                <td>Eliminar</td>
+                <td>Alta</td>
+
+
             </tr>
         </tbody>
     </table>
