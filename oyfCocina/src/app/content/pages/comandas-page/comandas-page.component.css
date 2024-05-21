@@ -3,11 +3,11 @@
     display: flex;
     top: 268px;
     left: 168px;
-    font-size: var(--ttulos-hero-size);
+    font-size: 58px;
     line-height: 140%;
     display: inline-block;
-    font-family: var(--ttulos-hero);
-    color: var(--brand-colors-chocolate);/*no se aplican los colores por que falta globas.css*/
+    font-family:'Roboto Condensed';
+    color: #6b5b5b;/*no se aplican los colores por que falta globas.css*/
     text-align: left;
     width: 300px;
     
@@ -18,6 +18,10 @@ table{
     top: 400px;
     left: 168px;
     border-collapse: collapse;
+    font-family:'Roboto ';
+    font-size: 16px;
+    color:000000;
+
 
 }
 tbody{
@@ -28,7 +32,7 @@ tbody{
 thead{
     border:solid black 2px;
     border-collapse: separate;
-    background-color: var(--brand-colors-brown-medium);
+    background-color:#BBA7A7;
 }
 .enlace:hover {
     cursor: pointer;

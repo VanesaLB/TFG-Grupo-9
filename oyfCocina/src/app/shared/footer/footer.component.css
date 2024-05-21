@@ -5,7 +5,7 @@
     display: inline-block;
     height: 17px;
     flex-shrink: 0;
-    color: var(--base-colors-white);
+    color: #fff;
 }
 .poltica-de-privacidad {
     width: 208px;
@@ -14,22 +14,22 @@
     display: inline-block;
     height: 18px;
     flex-shrink: 0;
-    color: var(--base-colors-white);
+    color: #fff;
 }
 .trminos-y-condiciones-parent {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: var(--gap-5xs);
+    gap: 8px;
 }
 .ver-carta-parent {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: var(--gap-5xs);
-    color: var(--base-colors-white);
+    gap: 8px;
+    color: #fff;
 }
 .email-icon {
     width: 24px;
@@ -58,8 +58,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    gap: var(--gap-5xs);
-    color: var(--brand-colors-beige);
+    gap: 8px;
+    
 }
 .icon-circle-linkedin {
     width: 35.5px;
@@ -94,7 +94,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     gap: var(--gap-xs);
-    color: var(--base-colors-white);
+    color: #fff;
 }
 .frame-parent {
     width: 1263px;
@@ -109,7 +109,7 @@
 footer {
     width: 100%;
     position: relative;
-    background-color: var(--brand-colors-chocolate);
+    background-color: #6b5b5b;
     height: 160px;
     overflow: hidden;
     display: flex;
@@ -119,9 +119,9 @@ footer {
     padding: var(--padding-14xl) 168px var(--padding-14xl) 80px;
     box-sizing: border-box;
     text-align: left;
-    font-size: var(--textos-texto-tarjeta-size);
-    color: var(--brand-colors-beige);
-    font-family: var(--textos-texto-tarjeta);
+    font-size: 16px;
+    color: beige;
+    font-family: 'Roboto';
 }
 /*media query tablet*/
 @media screen and (max-width: 992px) {
