@@ -1,0 +1,42 @@
+.cocina{
+    background-image: url("../../../../assets/images_web/image_carta_contacta.jpg");
+    display: flex;
+    
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
+    background-position: center;
+    width: 100%;
+    height: 704px;
+}
+.button a{
+    position: relative;
+    line-height: 140%;
+    text-decoration: none;
+    font-size: var(--textos-texto-descripcin-size);
+    color: var(--base-colors-white);
+    font-family: var(--textos-texto-descripcin);
+}
+.botones-primarios {
+    width: 208px;
+    position: absolute;
+    margin: 0 !important;
+    top: 480px;
+    left: 700px;
+    box-shadow: var(--sombras-botones);
+    border-radius: 32px;
+    background-color: var(--contrast-colors-bronce);
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    text-align: left;
+   
+    
+}
+.a {
+   font-size: var(--textos-texto-descripcin-size);
+   color: var(--base-colors-white);
+    
+}
