@@ -88,6 +88,8 @@
     background-color: var(--brand-colors-beige);
     width: 1440px;
     height: 587px;
+    overflow: hidden;
+    
 }
 .ajos-1-icon {
     position: absolute;
@@ -96,11 +98,13 @@
     width: 675px;
     height: 689px;
     object-fit: cover;
+    z-index: -1;
 }
 .fondo-bienvenido {
     width: 100%;
     position: relative;
     height: 689px;
+    overflow: hidden;
 }
 .bienvenido-a-nuestro {
     width: 543px;
@@ -118,6 +122,7 @@
     width: 544px;
     position: relative;
     font-size: var(--textos-texto-descripcin-size);
+   
     line-height: 140%;
     font-family: var(--textos-texto-descripcin);
     color: var(--brand-colors-brown-dark);
@@ -347,7 +352,7 @@
 
 }
 
-/*  para móvil */
+/* hero para móvil */
 @media screen and (max-width: 575px) {
     .image-hero-icon {
         height: 400px;
@@ -383,5 +388,99 @@
         margin-top: 800px;
         margin-right: 200px;
         transform: translateX(-160%);
-    }
+    }  
 }
+
+/*Bienvenido resposive*/
+/*tablet*/
+/* Estilos para tablet */
+@media screen and (max-width: 992px) {
+    .fondo-bienvenido-child {
+        top: 50px;
+        height: auto;
+        padding: 15px;
+        font-size:12px;
+    }
+
+    .ajos-1-icon {
+        width: 40%;
+        max-width: none;
+        height: auto;
+    }
+
+    .bienvenido {
+        margin-left: 0;
+        margin-top: 80px;
+        font-size: 24px;
+        margin-left: 20px;
+        
+
+    }
+
+    .bienvenido-a-nuestro {
+        max-width: 90%;
+        margin-left: 20px;
+        
+    }
+
+    .en-nuestro-restaurante-container, .image-sobre-nosotros-icon {
+        max-width: 90%;
+        font-size: 16px;
+        margin-left: 20px;
+    }
+
+    .texto-imagen {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+    }
+   
+}
+
+/* Estilos para móvil bienvenido */
+@media screen and (max-width: 575px) {
+    .fondo-bienvenido-child {
+        top: 30px;
+        height: auto;
+        padding: 10px;
+        font-size:12px;
+        
+    }
+
+    .ajos-1-icon {
+        width: 100%;
+       /* max-width: none;*/
+        height: auto;
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-bottom: 20px;
+    }
+
+    .bienvenido {
+        margin-left: 0;
+        margin-top: 40px;
+        font-size: 1.2em;
+    }
+
+    .bienvenido-a-nuestro {
+        max-width: 100%;
+        margin-left: 6px;
+    }
+
+    .en-nuestro-restaurante-container, .image-sobre-nosotros-icon {
+        max-width: 100%;
+        font-size: 12px;
+        margin-left: 6px;
+    }
+
+    .texto-imagen {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+       /* text-align: center;*/
+    }
+    
+}
+
