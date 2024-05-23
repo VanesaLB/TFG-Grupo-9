@@ -301,3 +301,87 @@
     position: relative;
     margin-bottom: 680px;
 }
+/*hero responsive*/
+/* para tablet*/
+@media screen and (max-width: 992px) {
+    .experiencia-inolvidable-con, .en-nuestra-carta {
+        width: 90%;
+        font-size:var(--textos-texto-descripcin-size);
+       
+        
+
+    }
+    .botones-primarios{
+       
+        margin-top: 800px;
+        margin-right: 200px;
+        transform: translateX(-80%);
+    }
+    .button {
+        width: 180px;
+        top: 350px;
+        left: 50%;
+        margin-left: 30px;
+        
+       
+       
+    }
+
+    .texto-hero {
+        top: 50px;
+        left: 50px;
+        font-size:var(--textos-texto-tarjeta-size);
+        font-family: var(--textos-texto-tarjeta);
+    }
+    .button a{
+        font-size: 12px;
+    }
+
+    .hero {
+        text-align: left;
+    }
+    .texto-hero {
+        top: 50px;
+        left: 50px;
+    }
+
+}
+
+/*  para móvil */
+@media screen and (max-width: 575px) {
+    .image-hero-icon {
+        height: 400px;
+    }
+
+    .experiencia-inolvidable-con, .en-nuestra-carta {
+        width: 100%;
+        font-size: var(--textos-texto-tarjeta-size) ;
+        text-align: center;
+    }
+
+    .button {
+        width: 150px;
+        top: 300px;
+        left: 50%;
+        margin-left: 40px;
+    }
+
+    .texto-hero {
+        top: 20px;
+        left: 20px;
+        align-items: center;
+        font-size:var(--textos-texto-tarjeta-size);
+        font-family: var(--textos-texto-tarjeta);
+    }
+
+    .hero {
+        text-align: center;
+        align-items: center;
+    }
+    .botones-primarios{
+       
+        margin-top: 800px;
+        margin-right: 200px;
+        transform: translateX(-160%);
+    }
+}

@@ -6,7 +6,7 @@
     display: inline-block;
     height: 17px;
     flex-shrink: 0;
-    color: var(--base-colors-white);
+    color: #fff;
 }
 .poltica-de-privacidad {
     width: 208px;
@@ -15,22 +15,22 @@
     display: inline-block;
     height: 18px;
     flex-shrink: 0;
-    color: var(--base-colors-white);
+    color: #fff;
 }
 .trminos-y-condiciones-parent {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: var(--gap-5xs);
+    gap: 8px;
 }
 .ver-carta-parent {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: var(--gap-5xs);
-    color: var(--base-colors-white);
+    gap: 8px;
+    color: #fff;
 }
 .email-icon {
     width: 24px;
@@ -59,8 +59,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    gap: var(--gap-5xs);
-    color: var(--brand-colors-beige);
+    gap: 8px;
+    
 }
 .icon-circle-linkedin {
     width: 35.5px;
@@ -95,7 +95,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     gap: var(--gap-xs);
-    color: var(--base-colors-white);
+    color: #fff;
 }
 .frame-parent {
     width: 1263px;
@@ -110,7 +110,7 @@
 footer {
     width: 100%;
     position: relative;
-    background-color: var(--brand-colors-chocolate);
+    background-color: #6b5b5b;
     height: 160px;
     overflow: hidden;
     display: flex;
@@ -120,8 +120,70 @@ footer {
     padding: var(--padding-14xl) 168px var(--padding-14xl) 80px;
     box-sizing: border-box;
     text-align: left;
-    font-size: var(--textos-texto-tarjeta-size);
-    color: var(--brand-colors-beige);
-    font-family: var(--textos-texto-tarjeta);
+    font-size: 16px;
+    color: beige;
+    font-family: 'Roboto';
 }
-
+/* media query tablet */
+@media screen and (max-width: 992px) {
+    footer {
+      padding: 10px;
+      height: auto;
+       /* Ajuste del padding para el footer */
+    }
+  
+    .frame-parent {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+      margin-left: 280px; /* Ajustar para centrar el contenido */
+      margin-top: 20px;
+    }
+  
+    .trminos-y-condiciones-parent,
+    .ver-carta-parent,
+    .frame-group {
+      width: 100%;
+      gap: 10px;
+      margin-left: 40px; /* Ajuste del espacio entre elementos */
+    }
+    .redes{
+        margin-left: 20px;
+    }
+  }
+  
+  /* media query móvil */
+  @media screen and (max-width: 575px) {
+    footer {
+      display: flex;
+      padding: 20px;
+      height: auto;
+      width: 100%; /* Ajustar altura automáticamente */
+       
+    }
+  
+    .frame-parent {
+      flex-direction: column; /* Cambiar a disposición de columna en dispositivos móviles */
+      align-items: center; /* Centrar elementos en dispositivos móviles */
+      text-align: center;
+      margin-left: 90px;
+    }
+  
+    .trminos-y-condiciones-parent,
+    .ver-carta-parent,
+    .frame-group {
+      width: 100%; /* Ocupar todo el ancho disponible en dispositivos móviles */
+    }
+  
+    .email,
+    .telefono {
+      flex-direction: row; /* Cambiar a disposición de fila para ícono y texto en dispositivos móviles */
+      justify-content: center; /* Centrar elementos en dispositivos móviles */
+    }
+  
+    .redes-sociales {
+      justify-content: center; /* Centrar íconos de redes sociales en dispositivos móviles */
+    }
+  }
+  
