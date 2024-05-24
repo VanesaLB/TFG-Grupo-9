@@ -537,13 +537,113 @@
     }
 
     .nuestros-platos1 {
-        font-size: 1.5em; /* Ajusta el tamaño de fuente */
+        font-size: 24px; /* Ajusta el tamaño de fuente */
     }
 
     .chuletn-del-bierzo {
         font-size: 0.8em; /* Ajusta el tamaño de fuente */
     }
+    .nuestros-platos{
+        height: 900px;
+    }
+    .carta-contacta{
+        display: flex;
+        height: 900px;
+        
+        
+    }
+    .principal-chuletonpiedra-1-icon{
+        width: 120px;
+        height: 120px;
+
+    }
+    .principal-salmon-1-icon{
+        width: 120px;
+        height: 120px;
+        margin-top: 40px;
+
+    }
 }
+/* Tablet stilos mapa */
+@media screen and (max-width: 992px) {
+    .mapa-direccion-horario {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .direccin-1-icon {
+        width: 80%;
+        max-width: 300px;
+        width: 260px;
+        height: 260px;
+        margin-right:-480px;
+    }
+
+    .dnde-encontrarnos{
+        width: 400px;
+        display: flex;
+        text-align: center;
+        font-size: 24px;
+        margin-left:-260px;
+       
+        
+
+    }
+    .calle-la-cruz-container {
+        width: 400px;
+        display: flex;
+        text-align: center;
+        font-size: 24px;
+        margin-left:-260px;
+        font-size: 16px;
+    }
+    
+    .contenedor-principal{
+        
+        height:auto;
+
+
+    }
+    .flor-limonero{
+        height: 400px;
+        width: 100%;
+    }
+    .dnde-encontrarnos-parent{
+        margin-top: -320px;
+    }
+}
+
+/*  movil estilos mapa*/
+@media screen and (max-width: 575px) {
+    .mapa-direccion-horario {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-left: 0;
+        width: 100%;
+        margin-top: 40px; /* Reduce the top margin for smaller screens */
+    }
+
+    .direccin-1-icon {
+        width: 100%;
+        max-width: 200px; /* Further reduce the maximum width */
+    }
+
+    .dnde-encontrarnos,
+    .calle-la-cruz-container {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contenedor-principal {
+        margin-bottom: 340px; /* Adjust the bottom margin for smaller screens */
+    }
+}
+
 
     
 
