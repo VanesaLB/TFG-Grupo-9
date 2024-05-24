@@ -481,6 +481,70 @@
         justify-content: center;
        /* text-align: center;*/
     }
-    
 }
+
+/* Estilos para tablet nuestros platos*/
+@media screen and (max-width: 992px ) {
+    .car-nuestros-platos {
+        flex-direction: row;
+        position: relative;
+       /* flex-wrap: wrap;*/
+        gap: 40px;
+        
+        
+        /* Ajuste del espacio entre tarjetas */
+    }
+    .principal-chuletonpiedra-1-icon{
+        width: 160px;
+        height: 160px;
+
+    }
+    .principal-salmon-1-icon{
+        width: 160px;
+        height: 160px;
+        margin-top: 60px;
+
+    }
+
+    .card-plato {
+        width:160px;/* Dos tarjetas por fila */
+        
+        margin-top: 10px;
+    }
+
+    .nuestros-platos1 {
+        font-size: 24px;
+         /* Ajusta el tamaño de fuente */
+    }
+
+    .chuletn-del-bierzo {
+        font-size: 16px; /* Ajusta el tamaño de fuente */
+    }
+
+}
+
+/* Estilos para móvil nuestros platos*/
+@media screen and (max-width: 575px) {
+    .car-nuestros-platos {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; /* Ajuste del espacio entre tarjetas */
+    }
+
+    .card-plato {
+        width: 100%; /* Una tarjeta por fila */
+        margin-bottom: 20px; /* Espacio inferior entre tarjetas */
+    }
+
+    .nuestros-platos1 {
+        font-size: 1.5em; /* Ajusta el tamaño de fuente */
+    }
+
+    .chuletn-del-bierzo {
+        font-size: 0.8em; /* Ajusta el tamaño de fuente */
+    }
+}
+
+    
+
 
