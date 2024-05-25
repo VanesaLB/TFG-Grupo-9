@@ -1,6 +1,7 @@
 package com.api.restaurante.restcontroller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -16,10 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.api.restaurante.modelo.dto.PedidoDto;
 import com.api.restaurante.modelo.entities.Pedido;
-import com.api.restaurante.modelo.entities.Producto;
+
 import com.api.restaurante.service.MesaService;
 import com.api.restaurante.service.PedidoService;
 import com.api.restaurante.service.ProductoService;
+
 
 
 @RestController
@@ -46,17 +48,17 @@ public class PedidoRestController {
 		 return pedidoService.buscarUno(idPedido);
 	 }
 	
-	@DeleteMapping("/eliminar/{idProyecto}")
-	public String eliminarElProyecto(@PathVariable int idProyecto) {
+	@DeleteMapping("/eliminar/{idPedido}")
+	public String eliminarElProyecto(@PathVariable int idPedido) {
 	
-		switch (pedidoService.eliminarPedido(idProyecto)) {
+		switch (pedidoService.eliminarPedido(idPedido)) {
 		
-		case 1: return "Proyecto eliminado correctamente";
-		case 0: return "No se pudo eliminar el proyecto porque FK en otra tabla";
-		case -1: return "No se pudo eliminar el proyecto porque NO existe";
+		case 1: return "Pedido eliminado correctamente";
+		case 0: return "No se pudo eliminar el Pedido porque FK en otra tabla";
+		case -1: return "No se pudo eliminar el Pedido porque NO existe";
 		
 		default:
-			throw new IllegalArgumentException("Unexpected value: " + pedidoService.eliminarPedido(idProyecto));
+			throw new IllegalArgumentException("Unexpected value: " + pedidoService.eliminarPedido(idPedido));
 		}
 		
 	}
@@ -68,9 +70,16 @@ public class PedidoRestController {
 		}
 	
 	@PostMapping("/altaPedidoId")
-	public int altaDelPedidoId(@RequestBody Pedido pedido) {
+	public int altaDelPedidoId(@RequestBody PedidoDto pedidoDto) {
 		
-		return pedidoService.altaPedidoId(pedido);
+		
+		Pedido pedidoAux = new Pedido();
+		pedidoAux.setMesa(mesaService.buscarUna(pedidoDto.getIdMesa()));
+		pedidoAux.setCantidadProductos(pedidoDto.getCantidadProductos());
+		pedidoAux.setPrecioTotal(pedidoDto.getPrecioTotal());
+		pedidoAux.setFecha(pedidoDto.getFecha());
+		
+		return pedidoService.altaPedidoId(pedidoAux);
 		}
 	@PostMapping("/altaMuchos")
 	 public List<Pedido> darDeAltaMuchos(@RequestBody List<PedidoDto> pedidosDto) {

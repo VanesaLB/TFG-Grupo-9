@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.restaurante.modelo.entities.Mesa;
-import com.api.restaurante.modelo.entities.Pedido;
+
 import com.api.restaurante.service.MesaService;
 import com.api.restaurante.service.PedidoService;
 import com.api.restaurante.service.ProductoService;
@@ -42,18 +42,18 @@ public class MesaRestController {
 		 }
 		
 		@GetMapping("/buscarUno/{idMesa}")
-		 public Mesa buscarUnEmpleado(@PathVariable int idMesa) {
+		 public Mesa buscarUnaMesa(@PathVariable int idMesa) {
 			 return mesaService.buscarUna(idMesa);
 		 }
 		
 		@DeleteMapping("/eliminar/{idMesa}")
-		public String eliminarElProyecto(@PathVariable int idMesa) {
+		public String eliminarMesa(@PathVariable int idMesa) {
 		
 			switch (mesaService.eliminarMesa(idMesa)) {
 			
-			case 1: return "Proyecto eliminado correctamente";
-			case 0: return "No se pudo eliminar el proyecto porque FK en otra tabla";
-			case -1: return "No se pudo eliminar el proyecto porque NO existe";
+			case 1: return "Mesa eliminado correctamente";
+			case 0: return "No se pudo eliminar el Mesa porque FK en otra tabla";
+			case -1: return "No se pudo eliminar el Mesa porque NO existe";
 			
 			default:
 				throw new IllegalArgumentException("Unexpected value: " + mesaService.eliminarMesa(idMesa));
@@ -61,7 +61,7 @@ public class MesaRestController {
 			
 		}
 		
-		@PostMapping("/alta")
+		@PostMapping("/altaMesa")
 		public Mesa altaDelPedido(@RequestBody Mesa mesa) {
 			
 			return mesaService.altaUno(mesa);

@@ -42,7 +42,7 @@ public class ProductoRestController {
 		return productoService.altaUno(producto);
 		}
 	
-	@DeleteMapping("/eliminar/{idProyecto}")
+	@DeleteMapping("/eliminar/{idProducto}")
 	public String eliminarElProyecto(@PathVariable int idProducto) {
 	
 		switch (productoService.eliminarProducto(idProducto)) {
