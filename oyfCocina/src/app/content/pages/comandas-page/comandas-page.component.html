@@ -16,11 +16,11 @@
             </tr>
         </thead>
 
-        <tbody *ngFor="let comanda of comandas">
-            <tr>
+        <tbody>
+            <tr *ngFor="let comanda of comandas">
                 <td>{{comanda.idComanda}}</td>
-                <td>{{comanda.idPedido.idPedido}}</td>
-                <td>{{comanda.idProducto.descripcion}}</td>
+                <td>{{comanda.pedido.idPedido}}</td>
+                <td>{{comanda.producto.descripcion}}</td>
                 <td>{{comanda.servido}}</td>
                 <!-- <td  class ="enlace" onclick="Servido()">Marcar servido</td>
                 <td  class ="enlace" onclick="Eliminar()">Eliminar</td> -->

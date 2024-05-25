@@ -23,10 +23,11 @@ export class ComandasPageComponent implements OnInit{
     this.comandaService.getComandas()
       .subscribe(
         comandas => {
-          this.comandas = comandas;
-          //this.loadQuantityStateFromLocalStorage();
-          //this.mostrarMiPedido();
-          //this.mostrarTotal();
+          console.log('Comandas recibidas:', comandas);
+          //this.comandas = comandas;
+          // Filtrar comandas inválidas si es necesario
+          this.comandas = comandas.filter(comanda => comanda.producto && comanda.pedido);
+          console.log('Comandas filtradas:', this.comandas);
         },
         error => {
           console.error('Error al cargar las comandas:', error);

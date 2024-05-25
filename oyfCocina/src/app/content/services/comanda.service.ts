@@ -17,7 +17,7 @@ export class ComandaService {
   //Propiedad privada que almacena la URL base del backend donde se encuentran los recursos de los productos. Endpoint del Backend.
   private backendURL: string = "http://localhost:8088/comanda";
   //Propiedad pública que almacenará los productos obtenidos del backend
-  public comandas: Comanda[] = [];
+  private comandas: Comanda[] = [];
 
   //Inicializa el servicio con el cliente HTTP (httpClient), que se utilizará para realizar solicitudes HTTP al backend y obtener los datos de los productos.
   constructor(
