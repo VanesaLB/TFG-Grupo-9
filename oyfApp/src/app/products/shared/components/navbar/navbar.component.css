@@ -120,7 +120,6 @@ color: #B38F48;
 }
 .header {
   position: relative;
-  border: 1px solid #000;
   box-sizing: border-box;
   width: 100%;
   display: flex;
@@ -183,12 +182,12 @@ a {
       flex-direction: column;
       align-items: center;
       gap: 2px;
-     
+
   }
   .parent{
     margin-left: 200px;
   }
- 
+
   .busqueda {
       width: 200px;
       position: relative;

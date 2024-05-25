@@ -20,7 +20,8 @@ export class DigitalMenuComponent implements OnInit{
   public product!: Product;
 
   public products: Product[] = []; //Array products para almacenar los productos
-  public productsMiPedido: Product[] = []; // Array para mantener el estado de los checkboxes
+  public productsTodos: Product[] = [];
+  public productsMiPedido: Product[] = []; // Array para mantener el estado de los type number
 
   public selectedElements: number[] = []; //Array para almacenar cantidad
 
@@ -46,9 +47,9 @@ export class DigitalMenuComponent implements OnInit{
       .subscribe(
         products => {
           this.products = products;
+          this.productsTodos = products;
           this.loadQuantityStateFromLocalStorage();
           this.mostrarMiPedido();
-          //this.mostrarTotal();
         },
         error => {
           console.error('Error al cargar los productos:', error);
@@ -74,7 +75,8 @@ export class DigitalMenuComponent implements OnInit{
   filtrarPorVeganos(): void {
     // Mantener una copia de los estados de los checkboxes antes de filtrar
     //const prevCheckboxState = this.isChecked.slice(0);
-    this.loadQuantityStateFromLocalStorage();
+    //ESTA LINEA DE ABAJO LA QUITO PORQUE PARECE QUE AHORA NO HACE NADA
+    //this.loadQuantityStateFromLocalStorage();
     //const prevQuantityState = this.selectedElements.slice(0);
 
     this.productService.getVeganos()
@@ -93,7 +95,8 @@ export class DigitalMenuComponent implements OnInit{
     //Esta línea crea una copia del estado actual de los checkboxes antes de aplicar el filtro por sin gluten.
     //Se utiliza slice(0) para realizar una copia profunda de la matriz isChecked.
     //const prevCheckboxState = this.isChecked.slice(0);
-    this.loadQuantityStateFromLocalStorage();
+    //ESTA LINEA DE ABAJO LA QUITO PORQUE PARECE QUE AHORA NO HACE NADA
+    //this.loadQuantityStateFromLocalStorage();
     //const prevQuantityState = this.selectedElements.slice(0);
 
     /*Esta línea llama al método getSinGluten() del servicio ProductService para obtener los productos sin gluten.
@@ -184,10 +187,10 @@ export class DigitalMenuComponent implements OnInit{
       /*Este es un bucle for que itera sobre cada elemento en el array products dentro de la clase.
       El bucle se ejecuta desde i = 0 hasta i < this.products.length, lo que significa que se ejecutará
       una vez por cada elemento en el array. */
-      for (let i = 0; i < this.products.length; i++) {
+      for (let i = 0; i < this.productsTodos.length; i++) {
         /*En cada iteración del bucle, se obtiene el identificador único (idProducto) del producto actual
         en la posición i del array products y se almacena en la variable productId. */
-        const productId = this.products[i].idProducto;
+        const productId = this.productsTodos[i].idProducto;
         /*Se utiliza el método getItem del objeto localStorage para recuperar el estado guardado del checkbox
         para el producto actual. Se utiliza la clave única generada concatenando 'checkboxState-'
         con el productId del producto actual. */
@@ -202,24 +205,27 @@ export class DigitalMenuComponent implements OnInit{
 
 
   mostrarMiPedido(): void {
+    // Carga los estados de cantidad desde localStorage
     this.loadQuantityStateFromLocalStorage();
-    //console.log("soy mostrar mi pedido");
-    for (let i = 0; i < this.products.length; i++) {
+    // Itera sobre cada producto en el array de productos
+    for (let i = 0; i < this.productsTodos.length; i++) {
       /*En cada iteración del bucle, se obtiene el identificador único (idProducto) del producto actual
       en la posición i del array products y se almacena en la variable productId. */
-      const productId = this.products[i].idProducto;
-
+      // Obtiene el identificador único del producto actual
+      const productId = this.productsTodos[i].idProducto;
+      // Recupera el estado de cantidad guardado en localStorage para el producto actual
       const cantidadPr = localStorage.getItem(`quantityState-${productId}`);
-
+      // Si hay una cantidad guardada y no es 0
       if (cantidadPr && parseInt(cantidadPr) !== 0) {
+        // Asigna la cantidad al objeto productsLocalStNo, convirtiéndola a entero
         this.productsLocalStNo[productId] = cantidadPr ? parseInt(cantidadPr) : 0;
       } else {
         // Si no hay cantidad guardada o es cero, eliminar la entrada del objeto productsLocalStNo
         delete this.productsLocalStNo[productId];
       }
     }
-
-    this.productsMiPedido = this.products.filter(pr => {
+    // Filtra los productos para obtener solo aquellos con cantidades mayores a 0 en localStorage
+    this.productsMiPedido = this.productsTodos.filter(pr => {
       return this.productsLocalStNo[pr.idProducto] && this.productsLocalStNo[pr.idProducto] > 0;
     });
 
@@ -227,19 +233,13 @@ export class DigitalMenuComponent implements OnInit{
     this.cdr.detectChanges();
 
     this.mostrarTotal();
-
   }
 
   mostrarTotal(): number {
-    // for (let i = 0; i < this.productsMiPedido.length; i++){
-    //   console.log(this.productsMiPedido = this.products.filter(pr => {
-    //     return this.productsLocalStNo[pr.idProducto] && this.productsLocalStNo[pr.idProducto] > 0;
-    //   }));
-    // }
     let total = 0;
 
   // Filtrar los productos que tienen una cantidad en localStorage mayor que 0
-  this.productsMiPedido = this.products.filter(pr => {
+  this.productsMiPedido = this.productsTodos.filter(pr => {
     return this.productsLocalStNo[pr.idProducto] && this.productsLocalStNo[pr.idProducto] > 0;
   });
 

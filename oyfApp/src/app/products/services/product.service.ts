@@ -17,7 +17,7 @@ export class ProductService {
   //Propiedad privada que almacena la URL base del backend donde se encuentran los recursos de los productos. Endpoint del Backend.
   private backendURL: string = "http://localhost:8088/producto";
   //Propiedad pública que almacenará los productos obtenidos del backend
-  public products: Product[] = [];
+  private products: Product[] = [];
 
   //Inicializa el servicio con el cliente HTTP (httpClient), que se utilizará para realizar solicitudes HTTP al backend y obtener los datos de los productos.
   constructor(
