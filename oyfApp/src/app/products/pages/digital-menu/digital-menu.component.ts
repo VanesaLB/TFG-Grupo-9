@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 import { ProductService } from '../../services/product.service';
 
@@ -33,7 +33,7 @@ export class DigitalMenuComponent implements OnInit{
   public productsLocalStNo: { [idProducto: number]: number} = {};
 
   //Inyectamos el ProductService que hemos importado en el constructor del componente
-  constructor( private productService: ProductService ){ }
+  constructor( private productService: ProductService, private cdr: ChangeDetectorRef ){ }
 
   /**
    * Implementa el método ngOnInit(). Aquí se inicializan los productos llamando al método getProducts()
@@ -202,14 +202,12 @@ export class DigitalMenuComponent implements OnInit{
 
 
   mostrarMiPedido(): void {
+    this.loadQuantityStateFromLocalStorage();
     //console.log("soy mostrar mi pedido");
     for (let i = 0; i < this.products.length; i++) {
       /*En cada iteración del bucle, se obtiene el identificador único (idProducto) del producto actual
       en la posición i del array products y se almacena en la variable productId. */
       const productId = this.products[i].idProducto;
-      /*Se utiliza el método getItem del objeto localStorage para recuperar el estado guardado del checkbox
-      para el producto actual. Se utiliza la clave única generada concatenando 'checkboxState-'
-      con el productId del producto actual. */
 
       const cantidadPr = localStorage.getItem(`quantityState-${productId}`);
 
@@ -220,9 +218,13 @@ export class DigitalMenuComponent implements OnInit{
         delete this.productsLocalStNo[productId];
       }
     }
+
     this.productsMiPedido = this.products.filter(pr => {
       return this.productsLocalStNo[pr.idProducto] && this.productsLocalStNo[pr.idProducto] > 0;
     });
+
+    // Asegurarse de que Angular detecte los cambios
+    this.cdr.detectChanges();
 
     this.mostrarTotal();
 

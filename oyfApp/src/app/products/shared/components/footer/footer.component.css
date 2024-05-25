@@ -60,7 +60,7 @@
     align-items: center;
     justify-content: flex-start;
     gap: 8px;
-    
+
 }
 .icon-circle-linkedin {
     width: 35.5px;
@@ -107,6 +107,10 @@
     margin-left: 80px;
     margin-top: 33px;
 }
+a {
+  text-decoration: none;
+  color: #fff;
+}
 footer {
     width: 100%;
     position: relative;
@@ -131,7 +135,7 @@ footer {
       height: auto;
        /* Ajuste del padding para el footer */
     }
-  
+
     .frame-parent {
       flex-direction: column;
       align-items: center;
@@ -140,7 +144,7 @@ footer {
       margin-left: 280px; /* Ajustar para centrar el contenido */
       margin-top: 20px;
     }
-  
+
     .trminos-y-condiciones-parent,
     .ver-carta-parent,
     .frame-group {
@@ -152,7 +156,7 @@ footer {
         margin-left: 20px;
     }
   }
-  
+
   /* media query móvil */
   @media screen and (max-width: 575px) {
     footer {
@@ -160,30 +164,29 @@ footer {
       padding: 20px;
       height: auto;
       width: 100%; /* Ajustar altura automáticamente */
-       
+
     }
-  
+
     .frame-parent {
       flex-direction: column; /* Cambiar a disposición de columna en dispositivos móviles */
       align-items: center; /* Centrar elementos en dispositivos móviles */
       text-align: center;
       margin-left: 90px;
     }
-  
+
     .trminos-y-condiciones-parent,
     .ver-carta-parent,
     .frame-group {
       width: 100%; /* Ocupar todo el ancho disponible en dispositivos móviles */
     }
-  
+
     .email,
     .telefono {
       flex-direction: row; /* Cambiar a disposición de fila para ícono y texto en dispositivos móviles */
       justify-content: center; /* Centrar elementos en dispositivos móviles */
     }
-  
+
     .redes-sociales {
       justify-content: center; /* Centrar íconos de redes sociales en dispositivos móviles */
     }
   }
-  

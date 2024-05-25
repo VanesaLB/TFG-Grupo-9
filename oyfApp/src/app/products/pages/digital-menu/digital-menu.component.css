@@ -3,7 +3,7 @@
   /* background-color: #b38f48;*/
    background-image: url("/assets/images_web/image_carta_contacta.jpg");
    /*background-image:url("../../../../../assets/images_web/image_carta_contacta.jpg");*/
-   display:flex;
+   display: flex;
    background-size: cover; /*Ajusta el tamaño de la imagen para cubrir todo el contenedor */
    background-position: center;
    padding: 10px;
@@ -15,10 +15,13 @@
 }
 #botones{
    position: absolute;
-
+   /* position: fixed; */
+  height: auto;
+  background-color: #F2EEEE;
+  width: 50%;
   /* border:solid white;*/
-   top: 0; /* Lo coloca en la parte superior */
-   left: 10%; /* Lo coloca en el centro horizontal */
+   top: 0px; /* Lo coloca en la parte superior */
+   /* left: 10%; Lo coloca en el centro horizontal */
    transform: translateX(-50%); /* Lo centra exactamente en el centro horizontal */
    z-index: 1; /* Asegura que esté encima del contenedor de tarjetas */
   /* background-color: white; /* Cambia el color de fondo según lo necesites */
@@ -27,7 +30,7 @@
    font-family: var(--textos-texto-descripcin);
    font-size: var(--textos-texto-descripcin-size);
    color:var(--base-colors-white);
-   margin-left: 30px;
+   margin-left: 360px;
 
 }
 #contenedor_botones button {
