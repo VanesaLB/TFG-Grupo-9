@@ -1,6 +1,10 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 import { ProductService } from '../../services/product.service';
+import { PedidoService } from '../../services/pedido.service';
+import { tap } from 'rxjs';
+import { ComandaService } from '../../services/comanda.service';
+
 
 //Decorador que proporciona metadatos sobre el componente
 @Component({
@@ -19,6 +23,11 @@ export class DigitalMenuComponent implements OnInit{
   @Input()
   public product!: Product;
 
+  //@Output()
+  //public crearPedido: EventEmitter<number> = new EventEmitter<number>();
+  @Output()
+  public idDelPedido: number = 0;
+
   public products: Product[] = []; //Array products para almacenar los productos
   public productsTodos: Product[] = [];
   public productsMiPedido: Product[] = []; // Array para mantener el estado de los type number
@@ -34,7 +43,12 @@ export class DigitalMenuComponent implements OnInit{
   public productsLocalStNo: { [idProducto: number]: number} = {};
 
   //Inyectamos el ProductService que hemos importado en el constructor del componente
-  constructor( private productService: ProductService, private cdr: ChangeDetectorRef ){ }
+  constructor(
+    private productService: ProductService,
+    private pedidoService: PedidoService,
+    private comandaService: ComandaService,
+    private cdr: ChangeDetectorRef
+   ){ }
 
   /**
    * Implementa el método ngOnInit(). Aquí se inicializan los productos llamando al método getProducts()
@@ -202,6 +216,33 @@ export class DigitalMenuComponent implements OnInit{
         this.isQuantityMap[productId] = savedQuantity ? parseInt(savedQuantity) : 0;
       }
   }
+  
+
+  public updateLocalStorageWithNewData(): void {
+    // Obtén los datos actuales del local storage
+
+    for (let p in this.productsLocalStNo) {
+
+      localStorage.setItem((`quantityState-${p}`), "0"); // Cambia 'keyForStoredData' por la clave correcta
+      //let data = "0";
+      // localStorage.removeItem(p);
+    }
+
+    // this.loadQuantityStateFromLocalStorage();
+    //let storedData = localStorage.getItem('keyForStoredData'); // Cambia 'keyForStoredData' por la clave correcta
+
+    // Parsear los datos si existen
+    //let data = storedData ? JSON.parse(storedData) : {};
+
+    // Actualiza los datos con la nueva información del pedido
+    //data.idDelPedido = this.idDelPedido; // Actualiza o añade la nueva información según sea necesario
+
+    // Vuelve a guardar los datos en el local storage
+    // localStorage.setItem('keyForStoredData', JSON.stringify(data)); // Cambia 'keyForStoredData' por la clave correcta
+
+    // Opcional: Recargar el estado desde el local storage para reflejar los cambios en la aplicación
+    
+ }
 
 
   mostrarMiPedido(): void {
@@ -258,15 +299,137 @@ export class DigitalMenuComponent implements OnInit{
 
   enviarMiPedido(): void {
 
+
+    /*
+    
+Depende del flujo de tu aplicación y de la lógica específica que necesites. Aquí hay algunas consideraciones:
+
+Ejecutar Más Peticiones a Backend:
+Dentro de subscribe:
+
+Si necesitas realizar más peticiones al backend después de que la primera petición haya tenido éxito, 
+es posible hacerlo dentro de la función que maneja el éxito (subscribe). 
+Esto garantiza que las peticiones adicionales se ejecuten secuencialmente 
+después de que la primera haya finalizado correctamente.
+
+Fuera de subscribe:
+Si las peticiones adicionales no dependen del resultado de la primera petición, 
+o si necesitas ejecutarlas en paralelo, puedes hacerlo fuera de subscribe. 
+En este caso, puedes simplemente agregar más llamadas a métodos que manejen 
+las peticiones adicionales.
+
+    */
     //const prevQuantityState = this.selectedElements.slice(0);
     //this.selectedElements = prevQuantityState;
 
-    //Una vez enviado mi pedido con esto limpia el local storage
-    localStorage.clear();
+    //let idPedido = 0;
+    //this.productsMiPedido
+    let numeroProductos = 0;
+    for (let p in this.productsLocalStNo) {
 
-  }
+    const numeroCantidad = localStorage.getItem((`quantityState-${p}`)); // Cambia 'keyForStoredData' por la clave correcta
+
+    numeroProductos += parseInt(numeroCantidad!);
+      //let data = "0";
+      // localStorage.removeItem(p);
+    }
 
 
 
 
+
+    let miPedido = {
+      idMesa: 1,
+      cantidadProductos: numeroProductos,
+      precioTotal: this.mostrarTotal(),
+      fecha: new Date()
+    };
+
+    this.pedidoService.crearPedido(miPedido).pipe(
+      tap(idPedido => {
+          console.log(`ID del pedido recibido: ${idPedido}`);
+          this.idDelPedido = idPedido;  // Asigna el valor recibido a una variable de clase
+      })
+  ).subscribe(
+      () => {
+          
+        //for (let p of this.productsMiPedido ) {
+
+          //localStorage.setItem((`quantityState-${p}`), "0"); // Cambia 'keyForStoredData' por la clave correcta
+          //let data = "0";
+          // localStorage.removeItem(p);
+        //}
+    
+
+        let comandasParaBack = [];
+
+        //let miproductoaux: Product
+        for (let p in this.productsLocalStNo) {
+    
+          const numeroCantidad = localStorage.getItem((`quantityState-${p}`)); // Cambia 'keyForStoredData' por la clave correcta
+        
+          if (numeroCantidad !== null) {
+            // Usar `find` para obtener el primer producto que cumple la condición
+            //let miproductoaux = this.productsTodos.find(pr => pr.idProducto === parseInt(p) && this.productsLocalStNo[pr.idProducto] > 0);
+          
+            for (let i = 0; i < parseInt(numeroCantidad!); i++) {
+              
+              let comanda = {
+                idProducto: parseInt(p),
+                idPedido: this.idDelPedido,
+                idMesa: 1,
+                servido: "no",
+              }
+            
+              comandasParaBack.push(comanda)
+            }
+            
+            }
+        }
+       
+        this.comandaService.crearComandas(comandasParaBack).subscribe(
+          () => {  
+
+          },
+                
+               
+          (error) => {
+              console.error('Error al crear la comanda:', error);
+          }
+        );   
+        // Una vez enviado el pedido, limpia el local storage
+          
+        this.updateLocalStorageWithNewData();
+        // this.loadQuantityStateFromLocalStorage();
+        //localStorage.clear();
+        location.reload();
+        window.alert("El pedido con sus comandas se ha dado de alta correctamente! Espere sentado mientras le traemos la comida :)");
+        
+      },
+      
+      (error) => {
+          console.error('Error al crear el pedido:', error);
+      }
+  );  
+ }
 }
+          
+  
+
+    
+        
+        
+        
+       
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+       
+  
