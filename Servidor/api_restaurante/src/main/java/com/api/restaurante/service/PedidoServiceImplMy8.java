@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.api.restaurante.modelo.entities.Comanda;
 import com.api.restaurante.modelo.entities.Pedido;
 import com.api.restaurante.modelo.entities.Producto;
 import com.api.restaurante.repository.PedidoRepository;
@@ -24,7 +25,7 @@ public class PedidoServiceImplMy8 implements PedidoService {
 	@Override
 	public List<Pedido> buscarTodos() {
 		// TODO Auto-generated method stub
-		return null;
+		return pedidoRepository.findAll();
 	}
 
 	@Override
@@ -32,10 +33,38 @@ public class PedidoServiceImplMy8 implements PedidoService {
 		return pedidoRepository.saveAll(pedidosAlta);
 	}
 
+	
 	@Override
-    public Pedido save(Pedido pedido) {
-        return pedidoRepository.save(pedido);
-    }
+	public int eliminarPedido(int idPedido) {
+		if (buscarUno(idPedido)!= null)
+			try {
+				pedidoRepository.deleteById(idPedido);
+				return 1;
+			} catch (Exception e) {
+				return 0;
+			}else
+				return -1;
+	}
+
+	@Override
+	public Pedido altaUno(Pedido pedido) {
+		if (buscarUno(pedido.getIdPedido()) == null)
+			return pedidoRepository.save(pedido);
+			else
+				return null;
+	}
+
+	@Override
+	public int altaPedidoId(Pedido pedido) {
+		Pedido pedidoaux = new Pedido();
+		int idPedidoAux = 0;
+		if (buscarUno(pedido.getIdPedido()) == null)
+			pedidoaux = pedidoRepository.save(pedido);
+		idPedidoAux = pedidoaux.getIdPedido();
+		return idPedidoAux;
+				
+			
+	}
 
 
 }

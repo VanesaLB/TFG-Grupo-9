@@ -9,6 +9,8 @@ import com.api.restaurante.modelo.entities.Comanda;
 import com.api.restaurante.modelo.entities.Pedido;
 import com.api.restaurante.repository.ComandaRepository;
 import com.api.restaurante.repository.PedidoRepository;
+
+
 @Service
 public class ComandaServiceImplMy8 implements ComandaService{
 	
@@ -36,8 +38,11 @@ public class ComandaServiceImplMy8 implements ComandaService{
 	}
 	
 	@Override
-    public Comanda save(Comanda comanda) {
-        return comandaRepository.save(comanda);
-    }
+	public Comanda altaUno(Comanda comanda) {
+		if (buscarUno(comanda.getIdComanda()) == null)
+			return comandaRepository.save(comanda);
+			else
+				return null;
+	}
 
 }

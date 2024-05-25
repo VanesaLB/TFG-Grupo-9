@@ -6,6 +6,7 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ import com.api.restaurante.modelo.entities.Producto;
 import com.api.restaurante.service.MesaService;
 import com.api.restaurante.service.PedidoService;
 import com.api.restaurante.service.ProductoService;
+
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -43,6 +45,33 @@ public class PedidoRestController {
 	 public Pedido buscarUnEmpleado(@PathVariable int idPedido) {
 		 return pedidoService.buscarUno(idPedido);
 	 }
+	
+	@DeleteMapping("/eliminar/{idProyecto}")
+	public String eliminarElProyecto(@PathVariable int idProyecto) {
+	
+		switch (pedidoService.eliminarPedido(idProyecto)) {
+		
+		case 1: return "Proyecto eliminado correctamente";
+		case 0: return "No se pudo eliminar el proyecto porque FK en otra tabla";
+		case -1: return "No se pudo eliminar el proyecto porque NO existe";
+		
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + pedidoService.eliminarPedido(idProyecto));
+		}
+		
+	}
+	
+	@PostMapping("/alta")
+	public Pedido altaDelPedido(@RequestBody Pedido pedido) {
+		
+		return pedidoService.altaUno(pedido);
+		}
+	
+	@PostMapping("/altaPedidoId")
+	public int altaDelPedidoId(@RequestBody Pedido pedido) {
+		
+		return pedidoService.altaPedidoId(pedido);
+		}
 	@PostMapping("/altaMuchos")
 	 public List<Pedido> darDeAltaMuchos(@RequestBody List<PedidoDto> pedidosDto) {
 	 		

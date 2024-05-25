@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.api.restaurante.modelo.entities.Pedido;
 import com.api.restaurante.modelo.entities.Producto;
 import com.api.restaurante.repository.ProductoRepository;
 
@@ -36,6 +37,26 @@ public class ProductoServiceImplMy8 implements ProductoService {
 	@Override
 	public List<Producto> buscarProductosSinGluten() {
 	    return productoRepository.findByGluten("no");
+	}
+	
+	@Override
+	public Producto altaUno(Producto producto) {
+		if (buscarProducto(producto.getIdProducto()) == null)
+			return productoRepository.save(producto);
+			else
+				return null;
+	}
+
+	@Override
+	public int eliminarProducto(int idProducto) {
+		if (buscarProducto(idProducto)!= null)
+			try {
+				productoRepository.deleteById(idProducto);
+				return 1;
+			} catch (Exception e) {
+				return 0;
+			}else
+				return -1;
 	}
 
 	

@@ -1,18 +1,19 @@
 package com.api.restaurante.restcontroller;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.restaurante.modelo.dto.PedidoDto;
-import com.api.restaurante.modelo.entities.Pedido;
+
 import com.api.restaurante.modelo.entities.Producto;
 import com.api.restaurante.service.ProductoService;
 
@@ -34,6 +35,27 @@ public class ProductoRestController {
 	 public Producto buscarUnEmpleado(@PathVariable int idProducto) {
 		 return productoService.buscarProducto(idProducto);
 	 }
+	
+	@PostMapping("/alta")
+	public Producto altaDelProducto(@RequestBody Producto producto) {
+		
+		return productoService.altaUno(producto);
+		}
+	
+	@DeleteMapping("/eliminar/{idProyecto}")
+	public String eliminarElProyecto(@PathVariable int idProducto) {
+	
+		switch (productoService.eliminarProducto(idProducto)) {
+		
+		case 1: return "Proyecto eliminado correctamente";
+		case 0: return "No se pudo eliminar el proyecto porque FK en otra tabla";
+		case -1: return "No se pudo eliminar el proyecto porque NO existe";
+		
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + productoService.eliminarProducto(idProducto));
+		}
+		
+	}
 	
 	
 	@GetMapping("/buscarPorTipo/{tipo}")

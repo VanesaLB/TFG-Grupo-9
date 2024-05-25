@@ -10,6 +10,6 @@ public interface ComandaService {
 	Comanda buscarUno(int idComanda);
 	List<Comanda> buscarTodos();
 	List<Comanda> altaMuchos(List<Comanda> comandasAlta);
-	Comanda save(Comanda comanda);
+	Comanda altaUno(Comanda comanda);
 	
 }

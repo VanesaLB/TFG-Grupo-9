@@ -70,7 +70,7 @@ public class ComandaRestController {
 	            nuevoPedido.setMesa(mesa);
 	            nuevoPedido.setFecha(new Date());
 	            // Guardo el nuevo pedido 
-	            Pedido savedPedido = pedidoService.save(nuevoPedido);
+	            Pedido savedPedido = pedidoService.altaUno(nuevoPedido);
 	            
 	            // Creo una nueva comanda asociada al pedido recién creado
 	            Comanda nuevaComanda = new Comanda();
@@ -82,7 +82,7 @@ public class ComandaRestController {
 	            nuevaComanda.setPedido(savedPedido); // Asigno el pedido creado
 	            
 	            // Guardo la nueva comanda
-	            Comanda savedComanda = comandaService.save(nuevaComanda);
+	            Comanda savedComanda = comandaService.altaUno(nuevaComanda);
 	            return ResponseEntity.ok(savedComanda);
 	        } catch (Exception e) {
 	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
