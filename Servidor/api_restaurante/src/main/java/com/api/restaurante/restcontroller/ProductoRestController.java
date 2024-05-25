@@ -26,7 +26,7 @@ public class ProductoRestController {
 	private ProductoService productoService;
 	
 	@GetMapping("/buscarTodos")
-	 public List<Producto> buscarTodosLosEmpleados() {
+	 public List<Producto> buscarTodosLosProductos() {
 		 return productoService.buscarTodosLosProductos();
 	 }
 	

@@ -46,6 +46,10 @@ public class ComandaRestController {
     @Autowired
     private MesaService mesaService; // Servicio para gestionar mesas
 
+    @GetMapping("/buscarTodos")
+	 public List<Comanda> buscarTodosLasComandas() {
+		 return comandaService.buscarTodos();
+	 }
 	
 	
 	@GetMapping("/buscarUno/{idComanda}")

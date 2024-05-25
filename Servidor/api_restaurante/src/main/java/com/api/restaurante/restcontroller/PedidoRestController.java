@@ -34,6 +34,10 @@ public class PedidoRestController {
 	@Autowired
 	private ModelMapper modelMapper;
 	
+	@GetMapping("/buscarTodos")
+	 public List<Pedido> buscarTodosLosPedidos() {
+		 return pedidoService.buscarTodos();
+	 }
 	
 	@GetMapping("/buscarUno/{idPedido}")
 	 public Pedido buscarUnEmpleado(@PathVariable int idPedido) {
