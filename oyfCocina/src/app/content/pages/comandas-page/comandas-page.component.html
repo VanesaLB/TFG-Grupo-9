@@ -10,20 +10,20 @@
                 <th>Pedido</th>
                 <th class="plato">Plato</th>
                 <th>Estado</th>
-                <th>Servido</th>
-                <th>Eliminar</th>
+                <!-- <th>Servido</th>
+                <th>Eliminar</th> -->
 
             </tr>
         </thead>
 
-        <tbody>
+        <tbody *ngFor="let comanda of comandas">
             <tr>
-                <td>1</td>
-                <td>23</td>
-                <td>albondigas con tomate</td>
-                <td>servido</td>
-                <td  class ="enlace" onclick="Servido()">Marcar servido</td>
-                <td  class ="enlace" onclick="Eliminar()">Eliminar</td>
+                <td>{{comanda.idComanda}}</td>
+                <td>{{comanda.idPedido.idPedido}}</td>
+                <td>{{comanda.idProducto.descripcion}}</td>
+                <td>{{comanda.servido}}</td>
+                <!-- <td  class ="enlace" onclick="Servido()">Marcar servido</td>
+                <td  class ="enlace" onclick="Eliminar()">Eliminar</td> -->
 
             </tr>
         </tbody>

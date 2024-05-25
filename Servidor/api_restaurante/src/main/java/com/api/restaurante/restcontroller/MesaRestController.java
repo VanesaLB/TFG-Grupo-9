@@ -1,5 +1,7 @@
 package com.api.restaurante.restcontroller;
 
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,6 +33,10 @@ public class MesaRestController {
 		@Autowired
 		private ModelMapper modelMapper;
 		
+		@GetMapping("/buscarTodos")
+		 public List<Mesa> buscarTodasLasMesas() {
+			 return mesaService.buscarTodos();
+		 }
 		
 		@GetMapping("/buscarUno/{idMesa}")
 		 public Mesa buscarUnEmpleado(@PathVariable int idMesa) {
