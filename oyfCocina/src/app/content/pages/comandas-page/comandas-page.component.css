@@ -18,10 +18,9 @@ table{
     top: 400px;
     left: 168px;
     border-collapse: collapse;
-    font-family:'Roboto ';
+    font-family: var(--textos-texto-descripcion), sans-serif;
     font-size: 16px;
-    color:000000;
-
+    color: #000;
 
 }
 tbody{

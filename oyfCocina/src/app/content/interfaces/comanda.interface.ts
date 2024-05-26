@@ -7,5 +7,10 @@ export interface Comanda{
   producto: Product;
   pedido: Pedido;
   mesa: Mesa;
-  servido: string;
+  servido: Servido;
  }
+
+ export enum Servido {
+  Si = "si",
+  No = "no"
+}

@@ -9,9 +9,9 @@ body {
 :root {
 
   /* fonts */
-  --textos-texto-descripcin: Roboto;
+  --textos-texto-descripcin: Roboto, sans-serif;
   --ttulos-hero: 'Roboto Condensed';
-  --textos-texto-tarjeta: Roboto;
+  --textos-texto-tarjeta: Roboto, sans-serif;
 
 
 

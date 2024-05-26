@@ -1,1 +1,22 @@
-<p>mesas-page works!</p>
+<section>
+  <div id ="comandas">
+    <p>Mesas</p>
+  </div>
+  <table>
+
+      <thead>
+          <tr>
+              <th>Mesa</th>
+              <th>Área</th>
+          </tr>
+      </thead>
+
+      <tbody>
+          <tr *ngFor="let mesa of mesas">
+              <td>{{mesa.idMesa}}</td>
+              <td>{{mesa.area}}</td>
+          </tr>
+      </tbody>
+  </table>
+</section>
+
