@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 import { Comanda } from '../interfaces/comanda.interface';
+import { ComandaDto } from '../interfaces/comandaDto.interface';
 
 /*
 Decorador @Injectable: Este decorador se utiliza para proporcionar metadatos que Angular
@@ -45,6 +46,14 @@ export class ComandaService {
       );
   }
 
+  updateComanda(comandaDto: ComandaDto): Observable<String>{
+
+    return this.httpClient.put<ComandaDto>(`${ this.backendURL }/modificarServidoSi`, comandaDto)
+      .pipe(
+
+        map(resp=> "realizado")
+      );
+  }
   
 
 }

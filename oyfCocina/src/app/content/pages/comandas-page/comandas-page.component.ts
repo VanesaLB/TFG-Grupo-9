@@ -10,6 +10,23 @@ import { PedidoService } from '../../services/pedido.service';
 })
 export class ComandasPageComponent implements OnInit{
 
+
+  /*public productoForm = new FormGroup({
+    id: new FormControl<string>(''),
+    ingredientes: new FormControl<string>(''),
+    descripcion: new FormControl<string>(''),
+    tipo: new FormControl<Tipo>( Tipo.Entrante ),
+    vegano: new FormControl<Vegano>( Vegano.No ),
+    gluten: new FormControl<Gluten>( Gluten.No ),
+    precio: new FormControl<number>(0)
+  });
+*/
+
+  public servidos = [
+    { id: 'si', desc: 'si'},
+    { id: 'no', desc: 'no'},
+  ];
+
   @Input()
   public comanda!: Comanda;
 
@@ -35,4 +52,19 @@ export class ComandasPageComponent implements OnInit{
       );
   }
 
-}
+  //modificarServido(comandaDto: ComandaDto): void {
+    
+    /*if( producto && producto.idProducto ){
+      this.productService.deleteProduct( producto.idProducto )
+      .subscribe(() => {
+        this.products = this.products.filter(p => p.idProducto !== producto.idProducto);
+
+      })
+    } else {
+      console.error('El producto es nulo o no tiene una propiedad idProducto definida.');
+
+    }*/
+
+  }
+
+//}

@@ -45,4 +45,20 @@ public class ComandaServiceImplMy8 implements ComandaService{
 				return null;
 	}
 
+	@Override
+	public List<Comanda> buscarComandasServidoNo(String servido) {
+		
+		return comandaRepository.buscarComandasServidoNoRepoQuery(servido);
+	}
+
+	@Override
+	public String modificarServidoSi(Comanda comanda) {
+		if (buscarUno(comanda.getIdComanda())!= null) {
+			comandaRepository.save(comanda);
+			return "Comanda modificada correctamente";
+		}
+		else
+				return null;
+	}
+
 }

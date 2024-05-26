@@ -9,7 +9,8 @@
                 <th>Comanda</th>
                 <th>Pedido</th>
                 <th class="plato">Plato</th>
-                <th>Estado</th>
+                <th>Servido</th>
+                <th>Cambiar Estado</th>
                 <!-- <th>Servido</th>
                 <th>Eliminar</th> -->
 
@@ -21,9 +22,14 @@
                 <td>{{comanda.idComanda}}</td>
                 <td>{{comanda.pedido.idPedido}}</td>
                 <td>{{comanda.producto.descripcion}}</td>
-                <td>{{comanda.servido}}</td>
-                <!-- <td  class ="enlace" onclick="Servido()">Marcar servido</td>
-                <td  class ="enlace" onclick="Eliminar()">Eliminar</td> -->
+                <td><select>
+                    <option *ngFor="let servido of servidos"
+                            [value]="servido.id">
+                            {{ servido.desc }}
+                    </option>
+                  </select></td>
+                <!-- <td>  <button (click)="modificarServido(comanda.idComanda)">SERVIR</button></td>-->
+                <!-- <td  class ="enlace" onclick="Eliminar()">Eliminar</td> -->
 
             </tr>
         </tbody>
