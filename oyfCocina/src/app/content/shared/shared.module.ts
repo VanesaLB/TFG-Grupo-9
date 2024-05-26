@@ -4,6 +4,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { ContentRoutingModule } from '../content-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,8 @@ import { ContentRoutingModule } from '../content-routing.module';
   imports: [
     CommonModule,
     RouterModule,
-    ContentRoutingModule
+    ContentRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [
     FooterComponent,

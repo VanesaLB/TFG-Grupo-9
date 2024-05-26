@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable, catchError, map, of, tap } from 'rxjs';
 import { Product } from '../interfaces/product.interface';
 
 /*
@@ -73,11 +73,34 @@ export class ProductService {
       .pipe(
         tap(products => this.products = products)
     );
-    
+
   }
 
-  
+  getProductById( id: string ): Observable<Product|undefined> {
+    return this.httpClient.get<Product>(`${ this.backendURL }/buscarUno/${ id }`)
+    //Si no lo encuentra devolvería un Observable que es undefined
+      .pipe(
+        catchError( error => of(undefined))
+      );
+  }
 
-  
+  addProduct( product: Product): Observable<Product>{
+    //La data la pasamos como segundo argumento
+    return this.httpClient.post<Product>(`${ this.backendURL }/alta`, product);
+  }
+
+  //Este endpoint no existe
+  updateProduct( product: Product): Observable<Product>{
+    return this.httpClient.post<Product>(`${ this.backendURL }/modificar`, product);
+  }
+
+  deleteProduct( id: number): Observable<boolean> {
+    return this.httpClient.delete(`${ this.backendURL }/eliminar/${ id }`)
+      .pipe(
+        map( resp => true ), //transformamos la respuesta
+        catchError( err => of(false) ), //Manda un error si no se borra
+      )
+  }
+
 
 }

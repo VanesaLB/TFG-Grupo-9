@@ -9,7 +9,7 @@ import { Product } from '../../interfaces/product.interface';
 })
 export class ProductosPageComponent implements OnInit{
 
-  @Input()
+  //@Input()
   public product!: Product;
 
   public products: Product[] = [];
@@ -44,5 +44,18 @@ export class ProductosPageComponent implements OnInit{
       });
     }
 
+    eliminarProducto(producto: Product): void {
+      if( producto && producto.idProducto ){
+        this.productService.deleteProduct( producto.idProducto )
+        .subscribe(() => {
+          this.products = this.products.filter(p => p.idProducto !== producto.idProducto);
+
+        })
+      } else {
+        console.error('El producto es nulo o no tiene una propiedad idProducto definida.');
+
+      }
+
+    }
 
 }

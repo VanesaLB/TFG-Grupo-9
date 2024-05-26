@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './content/shared/shared.module';
 import { ContentModule } from './content/content.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ContentModule } from './content/content.module';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    ContentModule
+    ContentModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

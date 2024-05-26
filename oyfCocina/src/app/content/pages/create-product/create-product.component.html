@@ -1,0 +1,39 @@
+<form [formGroup]="productoForm" (ngSubmit)="crearProducto()">
+
+    <label for="ingredientes">Ingredientes:</label>
+    <input type="text" id="ingredientes" formControlName="ingredientes">
+
+    <label for="descripcion">Descripción:</label>
+    <input type="text" id="descripcion" formControlName="descripcion">
+
+
+    <label for="tipo">Tipo:</label>
+    <select>
+      <option *ngFor="let tipo of tipos"
+              [value]="tipo.id">
+              {{ tipo.desc }}
+      </option>
+    </select>
+
+    <label for="vegano">Vegano:</label>
+    <select>
+      <option *ngFor="let vegano of veganos"
+              [value]="vegano.id">
+              {{ vegano.desc }}
+      </option>
+    </select>
+
+    <label for="gluten">Gluten:</label>
+    <select>
+      <option *ngFor="let gluten of glutens"
+              [value]="gluten.id">
+              {{ gluten.desc }}
+      </option>
+    </select>
+
+    <label for="precio">Precio:</label>
+    <input type="number" id="precio" formControlName="precio" min="0">
+
+</form>
+
+<button (click)="crearProducto()">Crear Producto</button>

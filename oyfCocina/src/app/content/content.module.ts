@@ -7,6 +7,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProductosPageComponent } from './pages/productos-page/productos-page.component';
 import { ContentRoutingModule } from './content-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateProductComponent } from './pages/create-product/create-product.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -16,15 +18,17 @@ import { HttpClientModule } from '@angular/common/http';
     MesasPageComponent,
     ComandasPageComponent,
     HomePageComponent,
-    ProductosPageComponent
+    ProductosPageComponent,
+    CreateProductComponent
   ],
   imports: [
     CommonModule,
     ContentRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   exports: [
-
+    CreateProductComponent
   ]
 })
 export class ContentModule { }
