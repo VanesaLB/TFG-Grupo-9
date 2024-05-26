@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.restaurante.modelo.dto.ComandaDto;
+import com.api.restaurante.modelo.dto.ComandaServidoSiDto;
 import com.api.restaurante.modelo.dto.PedidoDto;
 import com.api.restaurante.modelo.entities.Comanda;
 import com.api.restaurante.modelo.entities.Mesa;
@@ -27,6 +29,8 @@ import com.api.restaurante.service.ComandaService;
 import com.api.restaurante.service.MesaService;
 import com.api.restaurante.service.PedidoService;
 import com.api.restaurante.service.ProductoService;
+
+
 
 
 @RestController
@@ -57,7 +61,23 @@ public class ComandaRestController {
 		 return comandaService.buscarUno(idComanda);
 	 }
 	
+	@GetMapping("/comandasServidoNo/{servido}")
+	public List<Comanda> buscarEmpleamosDelMismoProyecto (@PathVariable String servido) {
+		return comandaService.buscarComandasServidoNo(servido);
+	}
 	
+	//Este método recibe un JSON con idEntrada y diasPrevistos, y devuelve el objeto completo modificado
+		@PutMapping("/modificarServidoSi")
+		public String modificarDiasPrevistoEnEmpleadoEnProyecto(@RequestBody ComandaServidoSiDto 
+				comandaServidoSiDto
+				) {
+			Comanda comanda = comandaService.buscarUno(comandaServidoSiDto.getIdComanda());
+			comanda.setServido(comandaServidoSiDto.getServido());
+			return comandaService.modificarServidoSi(comanda);
+			
+		}
+		
+		
 	@PostMapping("/alta")
 	   
     
