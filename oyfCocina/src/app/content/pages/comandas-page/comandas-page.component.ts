@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Comanda } from '../../interfaces/comanda.interface';
+import { Comanda, Servido } from '../../interfaces/comanda.interface';
 import { ComandaService } from '../../services/comanda.service';
 import { PedidoService } from '../../services/pedido.service';
+import { ComandaDto } from '../../interfaces/comandaDto.interface';
 
 @Component({
   selector: 'app-comandas-page',
@@ -10,18 +11,6 @@ import { PedidoService } from '../../services/pedido.service';
 })
 export class ComandasPageComponent implements OnInit{
 
-
-  /*public productoForm = new FormGroup({
-    id: new FormControl<string>(''),
-    ingredientes: new FormControl<string>(''),
-    descripcion: new FormControl<string>(''),
-    tipo: new FormControl<Tipo>( Tipo.Entrante ),
-    vegano: new FormControl<Vegano>( Vegano.No ),
-    gluten: new FormControl<Gluten>( Gluten.No ),
-    precio: new FormControl<number>(0)
-  });
-*/
-
   public servidos = [
     { id: 'si', desc: 'si'},
     { id: 'no', desc: 'no'},
@@ -29,6 +18,7 @@ export class ComandasPageComponent implements OnInit{
 
   @Input()
   public comanda!: Comanda;
+  public comandaDto!: ComandaDto;
 
   public comandas: Comanda[] = [];
 
@@ -36,15 +26,21 @@ export class ComandasPageComponent implements OnInit{
   constructor( private comandaService: ComandaService, private pedidoService: PedidoService ){ }
 
   ngOnInit(): void {
+    this.loadComandasNoServidas();
+  }
 
-    this.comandaService.getComandas()
+  private loadComandasNoServidas(): void {
+    this.comandaService.getComandas('no')
       .subscribe(
         comandas => {
-          console.log('Comandas recibidas:', comandas);
-          //this.comandas = comandas;
-          // Filtrar comandas inválidas si es necesario
-          this.comandas = comandas.filter(comanda => comanda.producto && comanda.pedido);
-          console.log('Comandas filtradas:', this.comandas);
+          //console.log('Comandas recibidas:', comandas);
+
+          // Filtrar comandas inválidas
+          this.comandas = comandas.filter(comanda =>
+            comanda && comanda.idComanda !== undefined && comanda.producto && comanda.pedido
+          );
+
+          //console.log('Comandas filtradas:', this.comandas);
         },
         error => {
           console.error('Error al cargar las comandas:', error);
@@ -52,19 +48,22 @@ export class ComandasPageComponent implements OnInit{
       );
   }
 
-  //modificarServido(comandaDto: ComandaDto): void {
-    
-    /*if( producto && producto.idProducto ){
-      this.productService.deleteProduct( producto.idProducto )
-      .subscribe(() => {
-        this.products = this.products.filter(p => p.idProducto !== producto.idProducto);
-
-      })
-    } else {
-      console.error('El producto es nulo o no tiene una propiedad idProducto definida.');
-
-    }*/
-
+  modificarServido(comanda: Comanda, nuevoServido: Servido): void {
+    comanda.servido = nuevoServido;
+    this.comandaService.updateComanda(comanda).subscribe(
+      response => {
+        console.log('Comanda actualizada:', response);
+        this.loadComandasNoServidas(); // Refrescar la lista de comandas
+      },
+      error => {
+        console.error('Error al actualizar la comanda:', error);
+      }
+    );
   }
 
-//}
+  // getServidoDesc(servidoId: string): string {
+  //   const servido = this.servidos.find(s => s.id === servidoId);
+  //   return servido ? servido.desc : 'Desconocido';
+  // }
+
+}

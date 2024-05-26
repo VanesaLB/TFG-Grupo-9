@@ -1,8 +1,7 @@
+import { Comanda } from './../interfaces/comanda.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map, tap } from 'rxjs';
-import { Comanda } from '../interfaces/comanda.interface';
-import { ComandaDto } from '../interfaces/comandaDto.interface';
 
 /*
 Decorador @Injectable: Este decorador se utiliza para proporcionar metadatos que Angular
@@ -23,7 +22,7 @@ export class ComandaService {
   //Inicializa el servicio con el cliente HTTP (httpClient), que se utilizará para realizar solicitudes HTTP al backend y obtener los datos de los productos.
   constructor(
     //HttpClient para proporcionar métodos que reciben datos del backend
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
     ) {}
 
 
@@ -38,22 +37,37 @@ export class ComandaService {
    Esto significa que el observable puede ser observado y, cuando se suscribe a él, puede manejar los valores
    emitidos a lo largo del tiempo. Se obtiene de la fuente asíncrona, la solicitud HTTP.
    */
-  public getComandas(): Observable<Comanda[]> {
-    return this.httpClient.get<Comanda[]>(`${this.backendURL}/buscarTodos`)
+  public getComandas(servido: string): Observable<Comanda[]> {
+    return this.httpClient.get<Comanda[]>(`${this.backendURL}/comandasServidoNo/${servido}`)
       .pipe(
-        //Utiliza el operador tap para asignar los productos obtenidos a la propiedad products
+        // Utiliza el operador tap para asignar las comandas obtenidas a la propiedad comandas
         tap(comandas => this.comandas = comandas)
       );
   }
 
-  updateComanda(comandaDto: ComandaDto): Observable<String>{
+  // getComandasNoServidas(): Observable<ComandaDto[]> {
+  //   return this.httpClient.get<ComandaDto[]>(`${this.backendURL}/comandasServidoNo/no`);
+  // }
 
-    return this.httpClient.put<ComandaDto>(`${ this.backendURL }/modificarServidoSi`, comandaDto)
-      .pipe(
-
-        map(resp=> "realizado")
-      );
+  updateComanda(comanda: Comanda): Observable<Comanda> {
+    return this.httpClient.put<Comanda>(`${this.backendURL}/modificarServidoSi/${comanda.idComanda}`, comanda)
+      // .pipe(
+      //   map(resp => "realizado")
+      // );
   }
-  
+
+  // updateComanda(comandaDto: ComandaDto): Observable<String>{
+
+  //   return this.httpClient.put<ComandaDto>(`${ this.backendURL }/modificarServidoSi/${comandaDto.idComanda}`, comandaDto)
+  //     .pipe(
+
+  //       map(resp=> "realizado")
+  //     );
+  // }
+
+  // updateComanda(comanda: Comanda): Observable<Comanda> {
+  //   return this.httpClient.put<Comanda>(`${this.backendURL}/modificarServidoSi/${comanda.idComanda}`, comanda);
+  // }
+
 
 }

@@ -67,8 +67,8 @@ public class ComandaRestController {
 	}
 	
 	//Este método recibe un JSON con idEntrada y diasPrevistos, y devuelve el objeto completo modificado
-		@PutMapping("/modificarServidoSi")
-		public String modificarDiasPrevistoEnEmpleadoEnProyecto(@RequestBody ComandaServidoSiDto 
+		@PutMapping("/modificarServidoSi/{id}")
+		public Comanda modificarDiasPrevistoEnEmpleadoEnProyecto(@RequestBody ComandaServidoSiDto 
 				comandaServidoSiDto
 				) {
 			Comanda comanda = comandaService.buscarUno(comandaServidoSiDto.getIdComanda());

@@ -8,7 +8,7 @@ import { ProductosPageComponent } from './pages/productos-page/productos-page.co
 import { ContentRoutingModule } from './content-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateProductComponent } from './pages/create-product/create-product.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -25,7 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ContentRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     CreateProductComponent

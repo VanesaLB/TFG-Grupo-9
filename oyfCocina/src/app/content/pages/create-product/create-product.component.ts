@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './create-product.component.html',
   styleUrl: './create-product.component.css'
 })
-export class CreateProductComponent implements OnInit{
+export class CreateProductComponent{
 
   public productoForm = new FormGroup({
     id: new FormControl<string>(''),
@@ -43,10 +43,6 @@ export class CreateProductComponent implements OnInit{
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-
   //Para que cargue en el formulario el producto actual para editarlo
   get currentProduct(): Product {
     const product = this.productoForm.value as Product;
@@ -70,6 +66,6 @@ export class CreateProductComponent implements OnInit{
       })
   }
 
-  
+
 
 }

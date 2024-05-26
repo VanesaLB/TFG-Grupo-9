@@ -14,7 +14,7 @@ public interface ComandaService {
 	List<Comanda> buscarTodos();
 	List<Comanda> altaMuchos(List<Comanda> comandasAlta);
 	Comanda altaUno(Comanda comanda);
-	String modificarServidoSi(Comanda comanda);
+	Comanda modificarServidoSi(Comanda comanda);
 	List<Comanda> buscarComandasServidoNo(String servido);
 	
 }

@@ -22,13 +22,23 @@
                 <td>{{comanda.idComanda}}</td>
                 <td>{{comanda.pedido.idPedido}}</td>
                 <td>{{comanda.producto.descripcion}}</td>
-                <td><select>
+                <td>
+                  <!-- <select>
                     <option *ngFor="let servido of servidos"
                             [value]="servido.id">
                             {{ servido.desc }}
                     </option>
-                  </select></td>
-                <!-- <td>  <button (click)="modificarServido(comanda.idComanda)">SERVIR</button></td>-->
+                  </select> -->
+                  <select [(ngModel)]="comanda.servido">
+                    <option *ngFor="let servido of servidos" [value]="servido.id">
+                      {{ servido.desc }}
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <!-- <button (click)="modificarServido(comanda, comanda.servido)">SERVIR</button> -->
+                  <button (click)="modificarServido(comanda, comanda.servido)">Servir</button>
+                </td>
                 <!-- <td  class ="enlace" onclick="Eliminar()">Eliminar</td> -->
 
             </tr>

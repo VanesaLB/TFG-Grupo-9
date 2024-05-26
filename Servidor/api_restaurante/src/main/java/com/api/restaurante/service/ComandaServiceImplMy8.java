@@ -52,10 +52,10 @@ public class ComandaServiceImplMy8 implements ComandaService{
 	}
 
 	@Override
-	public String modificarServidoSi(Comanda comanda) {
+	public Comanda modificarServidoSi(Comanda comanda) {
 		if (buscarUno(comanda.getIdComanda())!= null) {
 			comandaRepository.save(comanda);
-			return "Comanda modificada correctamente";
+			return comanda;
 		}
 		else
 				return null;
