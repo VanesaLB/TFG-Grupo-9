@@ -8,15 +8,15 @@
 .experiencia-inolvidable-con {
     width: 656px;
     position: relative;
-    font-size: var(--ttulos-hero-size);
+    font-size: 58px;
     line-height: 140%;
     display: flex;
-    font-family: var(--ttulos-hero);
+    font-family:  'Roboto Condensed';
     align-items: center;
     height: 151px;
     flex-shrink: 0;
     z-index: 0;
-    color:var(--base-colors-white);
+    color:white;
 }
 .en-nuestra-carta {
     width: 656px;
@@ -26,7 +26,7 @@
     height: 224px;
     flex-shrink: 0;
     z-index: 1;
-    color:var(--base-colors-white);
+    color:white;;
 }
 .button a{
     position: relative;
@@ -77,9 +77,9 @@
     justify-content: flex-start;
     gap: 10px;
     text-align: right;
-    font-size: var(--textos-texto-descripcin-size);
+    font-size: 20px;
     color: var(--brand-colors-beige);
-    font-family: var(--textos-texto-descripcin);
+    font-family:  'Roboto';   /*hasta aqui cambiado tipografia a mano*/
 }
 .fondo-bienvenido-child {
     position: absolute;
@@ -304,7 +304,9 @@
 }
 .contenedor-principal {
     position: relative;
-    margin-bottom: 680px;
+    height: auto;
+    margin-bottom: 680px; /*para colocar el footer abajo*/
+    box-sizing: border-box; /* que tenga en cuanta los bodes*/
 }
 /*hero responsive*/
 /* para tablet*/
@@ -469,10 +471,15 @@
         margin-left: 6px;
     }
 
-    .en-nuestro-restaurante-container, .image-sobre-nosotros-icon {
-        max-width: 100%;
-        font-size: 12px;
+    .en-nuestro-restaurante-container {
+        max-width: 80%;
+        font-size: 16px;
         margin-left: 6px;
+    }
+    .image-sobre-nosotros-icon{
+        max-width: 60%;
+        margin-left: -46px;
+
     }
 
     .texto-imagen {
@@ -488,11 +495,10 @@
     .car-nuestros-platos {
         flex-direction: row;
         position: relative;
-       /* flex-wrap: wrap;*/
         gap: 40px;
         
         
-        /* Ajuste del espacio entre tarjetas */
+       
     }
     .principal-chuletonpiedra-1-icon{
         width: 160px;
@@ -568,49 +574,51 @@
 @media screen and (max-width: 992px) {
     .mapa-direccion-horario {
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; 
+        align-items: center; /*centro parrafos*/
         text-align: center;
         margin-left: 0;
-        width: 100%;
+        width: 90%;/*reduzco el ancho*/
+        
     }
 
     .direccin-1-icon {
-        width: 80%;
-        max-width: 300px;
-        width: 260px;
+       
+        width: 260px;/* reduzco ancho y alto de imagen mapa */
         height: 260px;
-        margin-right:-480px;
+        margin-right:-500px; /* la coloco a la derecha del texto*/
     }
 
     .dnde-encontrarnos{
         width: 400px;
-        display: flex;
-        text-align: center;
-        font-size: 24px;
-        margin-left:-260px;
+        font-size: 24px; /* reduzco  tamaño*/
+        margin-left:-260px; /* lo coloco a la izquierda de la imagen*/
+        
        
         
 
     }
     .calle-la-cruz-container {
-        width: 400px;
+        width: 400px; /*reduzco su ancho*/
         display: flex;
         text-align: center;
-        font-size: 24px;
-        margin-left:-260px;
-        font-size: 16px;
+        font-size: 16px; /*reduzco tamaño fuente*/
+        margin-left:-160px;
+      
+        
     }
     
     .contenedor-principal{
         
-        height:auto;
+        max-height:200px;
+        
 
 
     }
     .flor-limonero{
         height: 400px;
         width: 100%;
+        
     }
     .dnde-encontrarnos-parent{
         margin-top: -320px;
@@ -624,23 +632,34 @@
         align-items: center;
         text-align: center;
         margin-left: 0;
-        width: 100%;
-        margin-top: 40px; /* Reduce the top margin for smaller screens */
+        width: 40%;/*reduzco ancho*/
+        margin-top: 160px; /*Aumento el margen para que coja todo*/
     }
 
     .direccin-1-icon {
-        width: 100%;
-        max-width: 200px; /* Further reduce the maximum width */
+        width: 160px;/*reduzco tamaño de mapa*/
+        height: 160px;
+        
+    }
+    .dnde-encontrarnos-parent{
+        margin-left: 20px;
     }
 
-    .dnde-encontrarnos,
+    .dnde-encontrarnos{
+       font-size: 24px;
+       text-align: center;
+       width: 100%;
+
+    }
     .calle-la-cruz-container {
         width: 100%;
+        font-size: 16px;
         text-align: center;
+        
     }
 
     .contenedor-principal {
-        margin-bottom: 340px; /* Adjust the bottom margin for smaller screens */
+        margin-bottom: 680px; 
     }
 }
 

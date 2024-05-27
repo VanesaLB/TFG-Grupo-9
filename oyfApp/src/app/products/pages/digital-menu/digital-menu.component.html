@@ -8,8 +8,9 @@
     <div id="contenedor_tarjetas" >
 
       <!--ENTRANTES-->
+      
       <div *ngFor="let product of products">
-      <!-- <div *ngFor="let product of products; let i = index"> -->
+        <!-- <div *ngFor="let product of products; let i = index"> -->
         <div class="tarjeta" *ngIf="product.tipo === 'ENTRANTE'">
           <img class="principal-chuletonpiedra-1-icon" [alt]="product.idProducto" [src]="'assets/images_web/platos/' + product.idProducto + '.png'">
           <div class="chuletn-del-bierzo-container">
