@@ -50,7 +50,7 @@ export class PedidoService {
 
   public crearPedido(pedidoDto: PedidoDto): Observable<number> {
     return this.httpClient.post<number>(`${ this.backendURL }/altaPedidoId`, pedidoDto)
-      
+
 }
 
 }

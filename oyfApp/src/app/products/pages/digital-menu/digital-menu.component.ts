@@ -216,7 +216,7 @@ export class DigitalMenuComponent implements OnInit{
         this.isQuantityMap[productId] = savedQuantity ? parseInt(savedQuantity) : 0;
       }
   }
-  
+
 
   public updateLocalStorageWithNewData(): void {
     // Obtén los datos actuales del local storage
@@ -241,7 +241,7 @@ export class DigitalMenuComponent implements OnInit{
     // localStorage.setItem('keyForStoredData', JSON.stringify(data)); // Cambia 'keyForStoredData' por la clave correcta
 
     // Opcional: Recargar el estado desde el local storage para reflejar los cambios en la aplicación
-    
+
  }
 
 
@@ -296,26 +296,31 @@ export class DigitalMenuComponent implements OnInit{
   return total;
 
   }
+  resetMiPedido(): void {
+    localStorage.clear();
+    this.productsMiPedido = [];
+    location.reload();
+  }
 
   enviarMiPedido(): void {
 
 
     /*
-    
+
 Depende del flujo de tu aplicación y de la lógica específica que necesites. Aquí hay algunas consideraciones:
 
 Ejecutar Más Peticiones a Backend:
 Dentro de subscribe:
 
-Si necesitas realizar más peticiones al backend después de que la primera petición haya tenido éxito, 
-es posible hacerlo dentro de la función que maneja el éxito (subscribe). 
-Esto garantiza que las peticiones adicionales se ejecuten secuencialmente 
+Si necesitas realizar más peticiones al backend después de que la primera petición haya tenido éxito,
+es posible hacerlo dentro de la función que maneja el éxito (subscribe).
+Esto garantiza que las peticiones adicionales se ejecuten secuencialmente
 después de que la primera haya finalizado correctamente.
 
 Fuera de subscribe:
-Si las peticiones adicionales no dependen del resultado de la primera petición, 
-o si necesitas ejecutarlas en paralelo, puedes hacerlo fuera de subscribe. 
-En este caso, puedes simplemente agregar más llamadas a métodos que manejen 
+Si las peticiones adicionales no dependen del resultado de la primera petición,
+o si necesitas ejecutarlas en paralelo, puedes hacerlo fuera de subscribe.
+En este caso, puedes simplemente agregar más llamadas a métodos que manejen
 las peticiones adicionales.
 
     */
@@ -352,84 +357,84 @@ las peticiones adicionales.
       })
   ).subscribe(
       () => {
-          
+
         //for (let p of this.productsMiPedido ) {
 
           //localStorage.setItem((`quantityState-${p}`), "0"); // Cambia 'keyForStoredData' por la clave correcta
           //let data = "0";
           // localStorage.removeItem(p);
         //}
-    
+
 
         let comandasParaBack = [];
 
         //let miproductoaux: Product
         for (let p in this.productsLocalStNo) {
-    
+
           const numeroCantidad = localStorage.getItem((`quantityState-${p}`)); // Cambia 'keyForStoredData' por la clave correcta
-        
+
           if (numeroCantidad !== null) {
             // Usar `find` para obtener el primer producto que cumple la condición
             //let miproductoaux = this.productsTodos.find(pr => pr.idProducto === parseInt(p) && this.productsLocalStNo[pr.idProducto] > 0);
-          
+
             for (let i = 0; i < parseInt(numeroCantidad!); i++) {
-              
+
               let comanda = {
                 idProducto: parseInt(p),
                 idPedido: this.idDelPedido,
                 idMesa: 1,
                 servido: "no",
               }
-            
+
               comandasParaBack.push(comanda)
             }
-            
+
             }
         }
-       
+
         this.comandaService.crearComandas(comandasParaBack).subscribe(
-          () => {  
+          () => {
 
           },
-                
-               
+
+
           (error) => {
               console.error('Error al crear la comanda:', error);
           }
-        );   
+        );
         // Una vez enviado el pedido, limpia el local storage
-          
+
         this.updateLocalStorageWithNewData();
         // this.loadQuantityStateFromLocalStorage();
         //localStorage.clear();
         location.reload();
         window.alert("El pedido con sus comandas se ha dado de alta correctamente! Espere sentado mientras le traemos la comida :)");
-        
+
       },
-      
+
       (error) => {
           console.error('Error al crear el pedido:', error);
       }
-  );  
+  );
  }
 }
-          
-  
 
-    
-        
-        
-        
-       
-        
-        
-        
 
-        
-        
-        
-        
-        
-        
-       
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

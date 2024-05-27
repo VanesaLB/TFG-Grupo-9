@@ -4,14 +4,26 @@
    background-image: url("/assets/images_web/image_carta_contacta.jpg");
    /*background-image:url("../../../../../assets/images_web/image_carta_contacta.jpg");*/
    display: flex;
-   background-size: cover; /*Ajusta el tamaño de la imagen para cubrir todo el contenedor */
+   background-size: cover;
+  background-size: contain; /*Ajusta el tamaño de la imagen para cubrir todo el contenedor */
    background-position: center;
+   background-size: 100%;
+   background-attachment: fixed;
    padding: 10px;
    z-index: 3;
    min-height: 1300px;
    flex-direction: row;
    position: relative;
 
+}
+h1{
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+}
+.textoProducto{
+  border: 1px solid #fff;
+  height: 200px;
 }
 #botones{
    position: absolute;
@@ -47,14 +59,14 @@ button{
    border-radius: 32px;
    box-shadow: var(--sombras-botones);
    margin: 0 5px; /* espacio entre los botones */
-   
+
 }
 #contenedor_tarjetas{
    /*border: solid yellow;*/
    display:flex;
    flex-direction: row;
    flex-wrap: wrap;
-   width: 40%;
+   width: 60%;
    /*margin: 0 auto;*/
    margin: 180px auto 30px auto;
    /*row-gap: 100px;*/
@@ -69,7 +81,6 @@ button{
 
 }
 .tarjeta{
-   
    width: 260px;
    height: 440px;
    display: flex;
@@ -82,7 +93,7 @@ button{
    color:beige;
    margin-bottom: 30px;
 }
-.principal-chuletonpiedra-1-icon {
+.imgProducto {
    width: 100%;
    position: relative;
   /* margin-left: 30px;*/
@@ -159,4 +170,3 @@ button{
            color: black;
            font-weight: bold;
        }
-       
