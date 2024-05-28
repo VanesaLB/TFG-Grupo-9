@@ -9,10 +9,11 @@
 .ajos-1-icon {
     position: absolute;
     top: 0px;
-    left: 877px;
+    left: 640px;
     width: 675px;
     height: 689px;
     object-fit: cover;
+    
 }
 .fondo-historia {
     width: 100%;
@@ -36,10 +37,10 @@
 .en-nuestro-restaurante-container {
     width: 544px;
     position: relative;
-    font-size: var(--textos-texto-descripcin-size);
+    font-size: 20px;
     line-height: 140%;
-    font-family: var(--textos-texto-descripcin);
-    color: var(--brand-colors-brown-dark);
+    font-family: 'Roboto';
+    color: #423f3f;
     display: inline-block;
 }
 .conoce-nuestra-historia-parent {
@@ -72,9 +73,9 @@
     align-items: center;
     justify-content: flex-start;
     text-align: left;
-    font-size: var(--ttulos-ttulo-size);
-    color: var(--brand-colors-chocolate);
-    font-family: var(--ttulos-ttulo);
+    font-size: 48px;
+    color: #6b5b5b;
+    font-family: 'Roboto';
    
 }
 -------------------------------------------------------------------
@@ -89,7 +90,7 @@
 .person-holding-green-heart-gra-icon {
     width: 208px;
     position: relative;
-    border-radius: var(--br-7xs);
+    border-radius: 6px;
     height: 208px;
     object-fit: cover;
 }
@@ -102,9 +103,9 @@
 .agricultura-sostenible-e {
     width: 208px;
     position: relative;
-    font-size: var(--textos-texto-tarjeta-size);
+    font-size: 16px;
     line-height: 140%;
-    font-family: var(--textos-texto-tarjeta);
+    font-family:'Roboto';
     display: inline-block;
 }
 .card-plato {
@@ -120,7 +121,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     gap: 240px;
-    font-size: var(--ttulos-ttulo-de-tarjeta-size);
+    font-size: 24px;
 }
 .nuestros-valores {
     position: relative;
@@ -131,9 +132,9 @@
     justify-content: flex-start;
     gap: 32px;
     text-align: center;
-    font-size: var(--ttulos-ttulo-size);
+    font-size: 48px;
     color: var(--brand-colors-beige);
-    font-family: var(--ttulos-ttulo-de-tarjeta);
+    font-family: 'Roboto Condensed';
     margin-top: 4px;
     color:beige;
     
@@ -218,8 +219,156 @@
     align-items: center;
     justify-content: flex-start;
     text-align: left;
-    font-size: var(--ttulos-ttulo-size);
-    color: var(--brand-colors-chocolate);
+    font-size: 48px;
+    color:  #6b5b5b;
     font-family: var(--ttulos-ttulo);
+}
+/*responsive tableta*/
+@media screen and (max-width: 992px) {
+    /*Nuestra historia*/
+    .fondo-historia {
+      margin-left: 20px; /* Reducción del margen izquierdo para tabletas */
+      height: 860px;/*la altura se adapte al contenido*/
+    }
+    .fondo-historia-child{
+        max-width: 90%;
+        
+       
+        
+       
+    }
+    .conoce-nuestra-historia-parent{
+        
+        margin-left: -100px;/* acerco el texto a la izquierda*/
+    }
+    .historia{
+        font-size: 24px;/*reduzco tamaño de letra*/
+        font-family: 'Roboto';
+
+    }
+    .ajos-1-icon {
+        max-width: 40%; /* Ajusto el máximo que quiero que tenga de ancho*/
+        max-height: auto;
+        margin-left: -200px;/* Ajusto margen para colocar fondo en posición deseada*/
+    }
+    .texto-imagen {
+        display: flex;
+        flex-direction: column; /* Coloco  los elementos verticalmente */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+        justify-content: flex-start; /* Justifica los elementos arriba */
+        gap: 20px; /* Espacio entre los elementos */
+    }
+    
+    .female-baker-shop-with-tablet-icon {
+        max-width: 260px; /* Ajusta el tamaño máximo de la imagen */
+        height: 260px; 
+        margin-left: 160px;/* Coloco la imagen a la derecha */
+    }   
+    /*valores*/
+    
+    .cards-nuestros-platos {
+      flex-direction: column; /* Cambio a disposición de columna para las tarjetas */
+      align-items: center; /* Centra las tarjetas verticalmente */
+      gap: 40px; /* Espacio entre tarjetas para tabletas */
+    }
+  
+   
+
+    
+    .carta-contacta{
+        margin-top: 20px;
+        height: 100%;/*Hago que el fondo se adapte al contenido*/
+    }
+   .nuestros-valores{
+    font-size: 48px;
+   }
+   .cards-nuestros-platos{
+    margin-bottom: 40px;/*Dejo espacio entre las tarjetas y la siguiente seccion*/
+   }
+   /*mision*/
+   .flor-limonero-1-icon{
+    width: 70%;/*Modifico el tamaño de la imagen de fondo*/
+    height: 90%;
+    margin-left: 300px;/*la muevo hacia la derecha*/
+   }
+
+   .nuestra-misin-imagen-icon {
+    margin-left: 20px; /*Pongo margen izquierdo*/
+    margin-bottom: 20px; /* Agrega espacio inferior para la imagen de misión */
+    width: 40%;/*reduzco la imagen*/
+    
+    margin-top: 40px;/*Añado margen arriba*/
+  }
+  .fondo-mision{
+    height: 100%;/*Hago que el fondo se adapte al contenido*/
+  }
+  .tenemos-una-misin{
+    font-size: 24px;
+    margin-left: -100px;
+    
+  }
+}
+/* móviles  */
+@media screen and (max-width: 575px) {
+    /*Nuestra historia*/
+
+    .fondo-historia {
+      margin-left: 10px; /* Reducción adicional del margen izquierdo para móviles */
+      height: 760px;/*la altura se adapte al contenido*/
+      
+    }
+    .conoce-nuestra-historia-parent{
+        
+        margin-left: -160px;/* acerco el texto a la izquierda*/
+    }
+    .historia{
+        font-size: 24px;/*reduzco tamaño de letra de título*/
+        font-family: 'Roboto';
+
+    }
+    .en-nuestro-restaurante-container{
+        font-size: 16px;/*reduzco tamaño de letra del párrafo*/
+        width: 70%;/*reduzco el ancho del contenedor del texto*/
+    }
+    .female-baker-shop-with-tablet-icon {
+        max-width: 200px; /* Ajusta el tamaño máximo de la imagen */
+        height: 200px; 
+        margin-left: 90px;/*coloco la imagen a la derecha*/
+    }   
+    .ajos-1-icon {
+        max-width: 60%; /* Ajusto el máximo que quiero que tenga de ancho*/
+        max-height: auto;
+        margin-left: -480px;/* Ajusto margen para colocar fondo en posición deseada*/
+    }
+    /*valores*/
+    .cards-nuestros-platos {
+      gap: 20px; /* Espacio más reducido entre tarjetas para móviles */
+    }
+    .estos-son-algunos{
+        font-size: 24px;/*reduzco tamaño letra título*/
+    }
+    /*misión*/
+    .nuestra-misin {
+      flex-direction: column; /* Cambio a disposición de columna para la sección de misión */
+      align-items: center; /* Centra los elementos verticalmente */
+      text-align: center; /* Centra el texto en dispositivos móviles */
+    }
+  
+    .nuestra-misin-imagen-icon {
+      width: 40%; /* Ancho reducido*/
+      height: 80%;
+      margin-bottom: 20px; /* Agrega espacio inferior para la imagen de misión */
+      margin-left: -280px;
+    }
+  
+    .texto-consultas {
+      margin-left: 200px; /*Modifico margen para colocar texto*/
+      
+    }
+    .flor-limonero-1-icon{
+        width: 70%;/*Modifico el tamaño de la imagen de fondo*/
+        height: 90%;
+        margin-left: 140px;/*la muevo hacia la derecha*/
+       }
 }
 

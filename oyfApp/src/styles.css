@@ -6,11 +6,12 @@
 body {
   margin: 0;
   line-height: normal;
+  overflow-x: hidden; /*Consigo que no se desborde ninguna página*/
 }
 
 
 :root {
-
+   /*enlace a estilos tipogafía*/
   /* fonts */
   --textos-texto-descripcin: Roboto;
   --ttulos-hero: 'Roboto Condensed';
@@ -29,7 +30,6 @@ body {
   --contrast-colors-bronce: #b38f48;
   --base-colors-white: #fff;
   --brand-colors-chocolate: #6b5b5b;
-/*  --brand-colors-beige: #f2eeee;*/
 
   /* Gaps */
   --gap-3xs: 10px;

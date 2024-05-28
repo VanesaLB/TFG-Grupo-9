@@ -118,7 +118,7 @@ color: #B38F48;
   gap: 465px;
   z-index: 1;
 }
-.header {
+header {
   position: relative;
   box-sizing: border-box;
   width: 100%;
