@@ -128,6 +128,7 @@
     height: 439px;
    
 }
+/*contenedor principal de contacto*/
 .contacta {
     position: relative;
     width: 100%;
@@ -136,51 +137,47 @@
     align-items: flex-start;
     justify-content: flex-start;
     gap: 10px;
-    text-align: right;
+    text-align: right;/*alineo el texto a la derecha*/
     font-size:20px;
-    color: var(--brand-colors-beige);
+    color: #F2EEEE;
     font-family:'Roboto';
 }
+/*imagen fondo*/
 .image-fondo {
     width: 100%;
     position: relative;
-    min-height: 100vh;
+    min-height: 100%;
     object-fit: cover;
-    z-index: -1;
+    z-index: -1;/*queremos que este por debajo*/
     height: 1252px;
 }
 
 /*--------------------------*/
-
+/*Título formulario*/
 .tu-opinin-nos {
     font-size: 48px;
     font-family: 'Roboto';
     color: beige;
     margin: -20px;
-    line-height: 1.2;
+    line-height: 1.2;/*altura de línea*/
+    
 }
 
 
-
+/*subtítulo formulario*/
 .queremos-mejorar-vuestra {
     font-size: 20px;
     font-family: 'Roboto';
     color: beige;
     margin-top: 5px;
+
 }
 
-.tu-opinin-nos-importa-parent {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 8px;
-}
-
+/*botón enviar*/
 .botones-enviar {
     width: 96px;
     margin: 0 !important;
-    position: absolute;
+    position: absolute;/*posición manual*/
     top: 250px;
     left: 336px;
     box-shadow: var(--sombras-botones);
@@ -189,14 +186,16 @@
     height: 32px;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: center;/*Texto centrado */
     justify-content: center;
     padding: 8px var(--padding-base);
-    box-sizing: border-box;
-    z-index: 4;
+    box-sizing: border-box;/*Así width y height incluyen su padding y el border*/
+    z-index: 4;/*asegurarme que este encima*/
     font-size: 20px;
     color: var(--base-colors-white);
+    
 }
+/*formulario*/
 form {
     display: flex;
     flex-direction: column;
@@ -204,10 +203,12 @@ form {
     justify-content: flex-start;
     position: relative;
     gap:10px;
+    align-items: center;
    
 }
+/*Contenedor del formulario*/
 .formulario1 {
-    position: absolute;
+    position: absolute;/*posición manual*/
     top: 64px;
     left: 112px;
     display: flex;
@@ -219,16 +220,18 @@ form {
     color: #D9D7D5;
     font-family: 'Roboto';
 }
-
+/*marco del formulario*/
 fieldset {
-    border: none;
+    border:none;/*que no se vea el borde*/
     padding: 20px;
     margin: 0;
     padding-top: 40px; /* Ajusta el relleno superior */
     position: relative;
     width: 100%;
     box-sizing: border-box;
+    
 }
+/*contenedor de título y subtítulo de formulario*/
 legend {
     font-size: 48px;
     font-family: 'Roboto';
@@ -237,8 +240,12 @@ legend {
     margin: 0;
     padding: 0;
     padding-bottom: 20px; /* Ajusta el relleno inferior */
-}
+    margin-left: 20px;
+    
 
+    
+}
+/*contenedor principal*/
 .formulario {
     width: 656px;
     position: absolute;
@@ -248,7 +255,6 @@ legend {
     border: 2px solid #b38f48;
     box-sizing: border-box;
     height: 598px;
-    overflow: hidden;
     text-align: left;
     font-size: 48px;
     color:#F2EEEE;
@@ -257,22 +263,25 @@ legend {
 }
 
 
-
+/*colocar texto dentro de los input*/
 .input-field::placeholder {
-    color: var(--contrast-colors-bronce); /*  color del placeholder */
+    color: #b38f48; /*  color del placeholder */
     opacity: 1; /* Para asegurarme de que el color aplicado se vea correctamente */
 
 }
+/*input opinion*/
 #opinion{
     width: 432px;
     height: 84px;
 
 }
+/*tamaño del resto de input*/
 .input-group {
     width: 432px;
     border-radius: 8px;
     
 }
+/*tamaño de inputs*/
 #telefono,
 #email,
 #nombre {

@@ -1,39 +1,44 @@
-.fondo-historia-child {
-    position: absolute;
+.fondo-historia-child { /*Contenedor de texto e imagen*/
+    position: absolute; /*posición manual*/
     top: 85px;
     left: 0px;
-    background-color: var(--brand-colors-beige);
     width: 1440px;
     height: 587px;
 }
+/*imagen de fondo*/
 .ajos-1-icon {
     position: absolute;
     top: 0px;
     left: 640px;
     width: 675px;
     height: 689px;
-    object-fit: cover;
+    object-fit: cover;/*para que la image sea escalable*/
     
 }
+/*contenedor principal*/
 .fondo-historia {
-    width: 100%;
+    width: 100%;/*ocupe todo el ancho de pantalla*/
     position: relative;
     height: 689px;
     margin-left: 150px;
 }
+/*título*/
 .conoce-nuestra-historia {
     width: 543px;
     position: relative;
-    line-height: 140%;
+    line-height: 140%;/*alto de línea*/
     display: inline-block;
 }
+/*parrafo primero*/
 .en-nuestro-restaurante {
     margin: 0;
 }
+/*párrafo egundo*/
 .nuestra-innovadora-forma {
     margin: 0;
-    white-space: pre-wrap;
+    white-space: pre-wrap;/*preserva espacios en blanco y saltos de línea y se ajusta al contenedor*/
 }
+/*contenedor de párrafos*/
 .en-nuestro-restaurante-container {
     width: 544px;
     position: relative;
@@ -43,6 +48,7 @@
     color: #423f3f;
     display: inline-block;
 }
+/*contenedor de párrafos y título*/
 .conoce-nuestra-historia-parent {
     display: flex;
     flex-direction: column;
@@ -50,19 +56,21 @@
     justify-content: flex-start;
     gap: var(--gap-base);
 }
+/*foto*/
 .female-baker-shop-with-tablet-icon {
     width: 543px;
     position: relative;
     height: 332px;
-    object-fit: cover;
+    object-fit: cover;/*la foto es escalable cubre todo el contenedor*/
 }
+/*contenedor de texto e imagen*/
 .texto-imagen {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     gap: var(--gap-base);
-    margin-top: 99px;
+    margin-top: 99px;/*los coloco */
     margin-left: 168px;
 }
 .historia {
@@ -78,15 +86,17 @@
     font-family: 'Roboto';
    
 }
--------------------------------------------------------------------
+/*nuestros valores*/
+/*párrafo*/
 .estos-son-algunos {
-    width: 1440px;
+    
     position: relative;
-    line-height: 140%;
+    line-height: 140%;/*alto de línea*/
     display: inline-block;
     margin-top: 50px;
    
 }
+/*imagen sostenibilidad*/
 .person-holding-green-heart-gra-icon {
     width: 208px;
     position: relative;
@@ -94,12 +104,14 @@
     height: 208px;
     object-fit: cover;
 }
+/*Título sostenibilidad*/
 .sostenibilidad {
     width: 208px;
     position: relative;
     line-height: 140%;
     display: inline-block;
 }
+/*párrafo sostenibilidad*/
 .agricultura-sostenible-e {
     width: 208px;
     position: relative;
@@ -108,6 +120,7 @@
     font-family:'Roboto';
     display: inline-block;
 }
+/*tarjeta*/
 .card-plato {
     display: flex;
     flex-direction: column;
@@ -115,17 +128,19 @@
     justify-content: flex-start;
     gap: var(--gap-5xs);
 }
+/*div contenedor de tarjetas*/
 .cards-nuestros-platos {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 240px;
+    gap: 240px;/*separación entre cada tarjeta*/
     font-size: 24px;
 }
+/*contenedor principal*/
 .nuestros-valores {
     position: relative;
-    width: 100%;
+    width: 100%;/*adapta al ancho de pantalla*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -139,31 +154,24 @@
     color:beige;
     
 }
-
+/*imagen de fondo*/
 .carta-contacta {
     width: 100%;
-    position: absolute;
+    position: absolute;/*posición manual*/
     max-width: 100%;
-    overflow: hidden;
+    overflow: hidden;/*si se desborda no lo muestra*/
     height: 481.4px;
     object-fit: cover;
-    z-index: -1;
-    object-fit: cover;
+    z-index: -1;/*para que este debajo de las tarjetas*/
+    
 }
 .nuestros-valores::before {
     content: ""; /* Contenido del pseudo-elemento  con before nos referimos a el fondo que esta antes */
     display: block; /* Hacer que el pseudo-elemento sea un bloque */
     height: 10px; /* Altura del espacio deseado entre el título y el borde superior */
 }
--------------------------------------------------------
-.fondo-mision-child {
-    position: absolute;
-    top: 0px;
-    left: 52px;
-    background-color: var(--brand-colors-beige);
-    width: 1440px;
-    height: 544px;
-}
+/*mision*/
+/*imagen fonfo*/
 .flor-limonero-1-icon {
     position: absolute;
     top: 28px;
@@ -172,6 +180,7 @@
     height: 786px;
     object-fit: cover;
 }
+/*contenedor principal*/
 .fondo-mision {
     width: 100%;
     position: relative;
@@ -179,6 +188,7 @@
     display: flex;
     align-items: center;
 }
+/*imagen*/
 .nuestra-misin-imagen-icon {
     width: 544px;
     position: relative;
@@ -186,6 +196,7 @@
     object-fit: cover;
     margin-left: 220px;
 }
+/*texto*/
 .tenemos-una-misin {
    
     width: 544px;
@@ -198,44 +209,33 @@
    
     display: flex;
     flex-direction: column;
-   /* align-items: flex-end;*/
     justify-content: center;
     gap: 6px;
     margin-left: 128px;
+    font-family: 'Roboto Condensed';
+    font-size: 48px;
 }
-.nuestra-misin-conteniso {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 128px;
-}
+/*Contenedor de texto y foto*/
 .nuestra-misin {
     flex: 1;
-   /* position: relative;
-    width: 100%;*/
     display: flex;
-   /* flex-direction: column;*/
     align-items: center;
     justify-content: flex-start;
     text-align: left;
     font-size: 48px;
     color:  #6b5b5b;
-    font-family: var(--ttulos-ttulo);
+    font-family: 'Roboto Condensed';
 }
 /*responsive tableta*/
 @media screen and (max-width: 992px) {
     /*Nuestra historia*/
     .fondo-historia {
       margin-left: 20px; /* Reducción del margen izquierdo para tabletas */
-      height: 860px;/*la altura se adapte al contenido*/
+      height: 860px;/* para que la altura se adapte al contenido*/
     }
     .fondo-historia-child{
         max-width: 90%;
-        
-       
-        
-       
+          
     }
     .conoce-nuestra-historia-parent{
         

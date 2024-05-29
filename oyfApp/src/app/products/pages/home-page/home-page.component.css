@@ -1,10 +1,12 @@
+/*imagen fondo del hero*/
 .image-hero-icon {
     width: 100%;
     position: relative;
     height: 605px;
-    object-fit: cover;
+    object-fit: cover;/*adapta al contenedor*/
     z-index: 0;
 }
+/*Título*/
 .experiencia-inolvidable-con {
     width: 656px;
     position: relative;
@@ -15,36 +17,38 @@
     align-items: center;
     height: 151px;
     flex-shrink: 0;
-    z-index: 0;
     color:white;
 }
+/*Div de Párrafo*/
 .en-nuestra-carta {
     width: 656px;
     position: relative;
     line-height: 140%;
     display: inline-block;
     height: 224px;
-    flex-shrink: 0;
+    flex-shrink: 0;/*Para que no encoja el párrafo*/
     z-index: 1;
     color:white;;
 }
+/*botón y enlace*/
 .button a{
     position: relative;
     line-height: 140%;
-    font-size:var( --textos-texto-descripcin-size);
-    color:var(--base-colors-white);
-    text-decoration: none;
+    font-size:20px;
+    color:white;
+    text-decoration: none;/*Para que no aparezca la raya abajo del enlace*/
 
 }
+/*Div del botón*/
 .botones-primarios {
     width: 208px;
-    margin: 0 !important;
+    margin: 0 !important;/*elimina culaquier margen alrededor del elemento*/
     position: absolute;
     top: 296px;
     left: 448px;
     box-shadow: var(--sombras-botones);
     border-radius: 32px;
-    background-color: var(--contrast-colors-bronce);
+    background-color:  #b38f48;
     height: 48px;
     display: flex;
     flex-direction: row;
@@ -52,10 +56,11 @@
     justify-content: center;
     padding: 8px 16px;
     box-sizing: border-box;
-    z-index: 2;
+    z-index: 2;/*asegurarme que se coloca encima del fondo*/
     text-align: left;
-    color: var(--base-colors-white);
+    color: white;
 }
+/*Contenedor texto y botón*/
 .texto-hero {
     margin: 0 !important;
     position: absolute;
@@ -66,8 +71,9 @@
     align-items: flex-start;
     justify-content: flex-start;
     gap: 1px;
-    z-index: 1;
+    z-index: 1;/*Asegurar que queda encima del fondo*/
 }
+/*Contenedor principal*/
 .hero {
     position: relative;
     width: 100%;
@@ -78,56 +84,63 @@
     gap: 10px;
     text-align: right;
     font-size: 20px;
-    color: var(--brand-colors-beige);
-    font-family:  'Roboto';   /*hasta aqui cambiado tipografia a mano*/
+    color: #F2EEEE;
+    font-family:  'Roboto';  
 }
+/*Contenedor texto e imagen*/
 .fondo-bienvenido-child {
     position: absolute;
     top: 85px;
     left: 0px;
-    background-color: var(--brand-colors-beige);
-    width: 1440px;
+    width: 100%;
     height: 587px;
-    overflow: hidden;
+    overflow: hidden;/*si algo se desborda lo oculta*/
     
 }
+/*imagen de fonfo*/
 .ajos-1-icon {
-    position: absolute;
+    position: absolute;/*posicion manual*/
     top: 0px;
     left: 877px;
     width: 675px;
     height: 689px;
     object-fit: cover;
-    z-index: -1;
+    z-index: -1;/*aseguro que queda debajo de texto e imagen*/
 }
+/*Contenedor principal*/
 .fondo-bienvenido {
     width: 100%;
     position: relative;
     height: 689px;
     overflow: hidden;
 }
+/*Título*/
 .bienvenido-a-nuestro {
     width: 543px;
     position: relative;
     display: inline-block;
 }
+/*Párrafo primero*/
 .en-nuestro-restaurante {
     margin: 0;
 }
+/*Párrafo segundo*/
 .nuestra-innovadora-forma {
     margin: 0;
-    white-space: pre-wrap;
+    white-space: pre-wrap;/*Se ajusta el texto para evitar desbordamiento*/
 }
+/*Contenedor de los dos párrafos*/
 .en-nuestro-restaurante-container {
     width: 544px;
     position: relative;
-    font-size: var(--textos-texto-descripcin-size);
+    font-size: 20px;
    
     line-height: 140%;
-    font-family: var(--textos-texto-descripcin);
-    color: var(--brand-colors-brown-dark);
-    display: inline-block;
+    font-family: 'Roboto';
+    color: #423f3f;
+    display: inline-block;/* en linea con comportamiento de bloque*/
 }
+/*Contenedor de Título y párrafos*/
 .bienvenido-a-nuestro-restauran-parent {
     display: flex;
     flex-direction: column;
@@ -135,88 +148,100 @@
     justify-content: flex-start;
     gap: var(--gap-base);
 }
+/*imagen*/
 .image-sobre-nosotros-icon {
     width: 544px;
     position: relative;
     height: 335px;
     object-fit: cover;
 }
+
+/*Contenedor de texto e imagen*/
 .texto-imagen {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    gap: var(--gap-base);
-    color: var(--brand-colors-chocolate);
+    gap: 6px;
+    color: #6b5b5b;
 }
+/*Contenedor principal texto e imagen*/
 .bienvenido {
    
     
-        margin-left: 168px; 
-        margin-top: 123px;/* Esto centrará horizontalmente el contenedor */
-        position: relative; /* Añadido para otros estilos */
+        margin-left: 168px; /* Esto centrará horizontalmente el contenedor */
+        margin-top: 123px;
+        position: relative; 
         width: 100%; /* Ajusta el ancho si es necesario */
-        display: flex; /* Añadido para otros estilos */
-        flex-direction: row; /* Añadido para otros estilos */
-        align-items: center; /* Alinea el contenido verticalmente */
+        display: flex; 
+        flex-direction: row; 
+        align-items: center; 
         justify-content: flex-start; /* Ajusta la alineación horizontal */
         text-align: left; /* Ajusta el texto a la izquierda */
-        font-size: 40px; /* Ajusta el tamaño de fuente */
-        color: var(--brand-colors-chocolate); /* Ajusta el color del texto */
-        font-family: var(--font-inter); /* Ajusta la fuente */
+        font-size: 40px; 
+        color: #6b5b5b; /* Ajusta el color del texto */
+        font-family: 'Roboto Condensed';
        
     
     
 }
-
+/*nuestros platos*/
+/*Título*/
 .nuestros-platos1 {
-    width: 1440px;
+    width: 100%;
     position: relative;
     line-height: 140%;
     display: inline-block;
 }
+/*imagen taejeta 1*/
 .principal-chuletonpiedra-1-icon {
     width: 208px;
     position: relative;
     height: 208px;
     object-fit: cover;
 }
+/*párrafos*/
 .chuletn-del-bierzo {
     margin: 0;
 }
+/*Contenedor de párrafos*/
 .chuletn-del-bierzo-container {
     position: relative;
     line-height: 140%;
 }
+/*tarjetas*/
 .card-plato {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;/*items uno debajo de otro*/
     align-items: flex-start;
     justify-content: flex-start;
-    gap: var(--gap-5xs);
+    gap: 8px;
 }
+/*imagen tarjeta 2*/
 .principal-salmon-1-icon {
     width: 208px;
     position: relative;
     height: 207px;
     object-fit: cover;
 }
+/*Contenedor de tarjetas*/
 .car-nuestros-platos {
     display: flex;
     position: relative;
     z-index: 1;
-    flex-direction: row;
+    flex-direction: row;/*Una al lado de  otra*/
     align-items: center;
     justify-content: center;
     margin-top: 102px;
     gap: 180px;
     text-align: left;
-    font-size: var(--textos-texto-tarjeta-size);
-    font-family: var(--textos-texto-tarjeta);
+    font-size: 16px;
+    font-family: 'Roboto';
     color:beige;
     margin-top: 32px;
     
 }
+/*Contenedor principal*/
 .nuestros-platos {
     width: 100%;
     position: relative;
@@ -227,13 +252,13 @@
     justify-content: flex-start;
     gap: 32px;
     text-align: center;
-    font-size: var(--ttulos-ttulo-size);
-    color: var(--brand-colors-beige);
-    font-family: var(--ttulos-ttulo);
+    font-size: 48px;
+    color: #F2EEEE;
+    font-family: 'Roboto Condensed';
     color:beige;
     margin-top: 64px;
 }
-
+/*fondo de tarjetas*/
 .carta-contacta {
     width: 100%;
     position: absolute;
@@ -241,15 +266,18 @@
     overflow: hidden;
     height: 481.4px;
     object-fit: cover;
-    z-index: -1;
+    z-index: -1;/*aseguro que esta debajo de las tarjetas*/
     object-fit: cover;
 }
+/*Dónde encontrarnos*/
+/*mapa*/
 .direccin-1-icon {
     width: 544px;
     position: relative;
     height: 368px;
     object-fit: cover;
 }
+/*Título*/
 .dnde-encontrarnos {
     width: 544px;
     position: relative;
@@ -257,22 +285,25 @@
     display: flex;
     align-items: center;
 }
+/*Párrafos*/
 .calle-la-cruz {
     margin: 0;
 }
+/*Contenedor de donde encontrarnos y nuestro horario*/
 .calle-la-cruz-container {
     width: 542px;
     position: relative;
-    font-size: var(--textos-texto-descripcin-size);
+    font-size: 20px;
     line-height: 140%;
-    font-family: var(--textos-texto-descripcin);
-    color: var(--brand-colors-brown-dark);
+    font-family: 'Roboto';
+    color:#423f3f;
     display: inline-block;
 }
 .de-martes-a {
     margin: 0;
-    white-space: pre-wrap;
+   
 }
+/*Contenedor de todo el texto*/
 .dnde-encontrarnos-parent {
     display: flex;
     flex-direction: column;
@@ -280,6 +311,7 @@
     justify-content: flex-start;
     gap: 6px;
 }
+/*Contenedor de mapa y texto*/
 .mapa-direccion-horario {
     position: absolute;
     margin-top: 80px;
@@ -292,16 +324,18 @@
     justify-content: flex-start;
     gap: 16px;
     text-align: left;
-    font-size: var(--ttulos-ttulo-size);
-    color: var(--brand-colors-chocolate);
-    font-family: var(--ttulos-ttulo);
+    font-size: 48px;
+    color:  #6b5b5b;
+    font-family:'Roboto Condensed';
     
 }
+/*fondo */
 .flor-limonero {
     position: absolute; 
     z-index: 1; 
 
 }
+/*Contenedor principal*/
 .contenedor-principal {
     position: relative;
     height: auto;
@@ -311,74 +345,74 @@
 /*hero responsive*/
 /* para tablet*/
 @media screen and (max-width: 992px) {
-    .experiencia-inolvidable-con, .en-nuestra-carta {
+    .experiencia-inolvidable-con  {
         width: 90%;
-        font-size:var(--textos-texto-descripcin-size);
-       
-        
-
+        font-size:24px;
+    }
+    .en-nuestra-carta{
+        width: 90%;
+        font-size:20px;
     }
     .botones-primarios{
        
-        margin-top: 800px;
+        margin-top: 980px;
         margin-right: 200px;
-        transform: translateX(-80%);
+        transform: translateX(-80%);/*se desplaza a la izquierda un 80% de su ancho*/
     }
     .button {
         width: 180px;
         top: 350px;
-        left: 50%;
         margin-left: 30px;
-        
-       
-       
+    
     }
 
     .texto-hero {
-        top: 50px;
+        top: 50px;/*lo centro*/
         left: 50px;
-        font-size:var(--textos-texto-tarjeta-size);
-        font-family: var(--textos-texto-tarjeta);
+      
     }
     .button a{
-        font-size: 12px;
+        font-size: 16px;
+        margin-left: -10px;/*ajusto el texto*/
     }
 
     .hero {
         text-align: left;
     }
-    .texto-hero {
-        top: 50px;
-        left: 50px;
-    }
+    
 
 }
 
 /* hero para móvil */
 @media screen and (max-width: 575px) {
     .image-hero-icon {
-        height: 400px;
+        height: 400px;/*reduzco tamaño*/
     }
 
-    .experiencia-inolvidable-con, .en-nuestra-carta {
+    .experiencia-inolvidable-con {
         width: 100%;
-        font-size: var(--textos-texto-tarjeta-size) ;
-        text-align: center;
+        font-size: 20px ; /*reduzco tamaño*/
+        text-align: center;/*alineo al centro*/
     }
+    .en-nuestra-carta{
+        width: 100%;
+        font-size: 16px ;/*reduzco tamaño*/
+        text-align: left;/*alineo a la izquierda*/
 
+
+    }
     .button {
-        width: 150px;
-        top: 300px;
+        width: 150px;/*reduzco tamaño*/
+        top: 300px;/*lo coloco*/
         left: 50%;
-        margin-left: 40px;
+        
     }
 
     .texto-hero {
-        top: 20px;
+        top: 20px;/*Lo coloco y alineo al centro*/
         left: 20px;
         align-items: center;
-        font-size:var(--textos-texto-tarjeta-size);
-        font-family: var(--textos-texto-tarjeta);
+        
     }
 
     .hero {
@@ -389,7 +423,7 @@
        
         margin-top: 800px;
         margin-right: 200px;
-        transform: translateX(-160%);
+        transform: translateX(-160%);/*se desplaza a la izquierda*/
     }  
 }
 
@@ -399,22 +433,24 @@
 @media screen and (max-width: 992px) {
     .fondo-bienvenido-child {
         top: 50px;
-        height: auto;
+        height: auto;/*altura automática*/
         padding: 15px;
-        font-size:12px;
+        
     }
 
     .ajos-1-icon {
-        width: 40%;
-        max-width: none;
+        width: 40%; /*reduzco su tamaño*/
+        max-width: none;/*sin máximo de ancho*/
         height: auto;
     }
 
     .bienvenido {
+        
         margin-left: 0;
         margin-top: 80px;
         font-size: 24px;
         margin-left: 20px;
+        
         
 
     }
@@ -422,13 +458,18 @@
     .bienvenido-a-nuestro {
         max-width: 90%;
         margin-left: 20px;
+        font-size: 48px;/*tamaño del título*/
         
     }
 
-    .en-nuestro-restaurante-container, .image-sobre-nosotros-icon {
-        max-width: 90%;
-        font-size: 16px;
-        margin-left: 20px;
+    .en-nuestro-restaurante-container {
+        max-width: 90%;/*reduzco en contenedor de los párrafos*/
+        margin-left: 16px;/*lo coloco*/
+        font-size: 16px;/*reduzco tamaño de fuente*/
+    }
+    .image-sobre-nosotros-icon{
+        max-width: 80%;/*reduzco el ancho de la foto*/
+        margin-left: 12px;/*la coloco*/
     }
 
     .texto-imagen {
@@ -446,13 +487,12 @@
         top: 30px;
         height: auto;
         padding: 10px;
-        font-size:12px;
+        font-size:16px;
         
     }
 
     .ajos-1-icon {
         width: 100%;
-       /* max-width: none;*/
         height: auto;
         position: relative;
         top: auto;
@@ -463,7 +503,7 @@
     .bienvenido {
         margin-left: 0;
         margin-top: 40px;
-        font-size: 1.2em;
+        
     }
 
     .bienvenido-a-nuestro {
@@ -477,8 +517,8 @@
         margin-left: 6px;
     }
     .image-sobre-nosotros-icon{
-        max-width: 60%;
-        margin-left: -46px;
+        max-width: 60%;/*reduzco la imagen*/
+        margin-left: -46px;/*la situo*/
 
     }
 
@@ -486,45 +526,45 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-       /* text-align: center;*/
+       
     }
 }
 
 /* Estilos para tablet nuestros platos*/
 @media screen and (max-width: 992px ) {
     .car-nuestros-platos {
-        flex-direction: row;
+        flex-direction: row;/*una al lado de la otra*/
         position: relative;
-        gap: 40px;
+        gap: 40px;/*reduzco el espacio entre las tarjetas*/
         
         
        
     }
     .principal-chuletonpiedra-1-icon{
-        width: 160px;
+        width: 160px;/*reduzco su tamaño*/
         height: 160px;
 
     }
     .principal-salmon-1-icon{
-        width: 160px;
+        width: 160px;/*reduzco su tamaño*/
         height: 160px;
-        margin-top: 60px;
+        margin-top: 60px;/* la situo*/
 
     }
 
     .card-plato {
-        width:160px;/* Dos tarjetas por fila */
+        width:160px;
         
         margin-top: 10px;
     }
 
     .nuestros-platos1 {
         font-size: 24px;
-         /* Ajusta el tamaño de fuente */
+         /* Ajusto el tamaño de fuente */
     }
 
     .chuletn-del-bierzo {
-        font-size: 16px; /* Ajusta el tamaño de fuente */
+        font-size: 16px; /* Ajusto el tamaño de fuente */
     }
 
 }
@@ -532,8 +572,8 @@
 /* Estilos para móvil nuestros platos*/
 @media screen and (max-width: 575px) {
     .car-nuestros-platos {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column;/*una debajo de la otra*/
+        align-items: center;/*centradas*/
         gap: 20px; /* Ajuste del espacio entre tarjetas */
     }
 
@@ -543,11 +583,11 @@
     }
 
     .nuestros-platos1 {
-        font-size: 24px; /* Ajusta el tamaño de fuente */
+        font-size: 48px; 
     }
 
     .chuletn-del-bierzo {
-        font-size: 0.8em; /* Ajusta el tamaño de fuente */
+        font-size: 12px; /*Reduzco su tamaño  */
     }
     .nuestros-platos{
         height: 900px;
@@ -559,14 +599,14 @@
         
     }
     .principal-chuletonpiedra-1-icon{
-        width: 120px;
+        width: 120px;/*reduzco tamaño*/
         height: 120px;
 
     }
     .principal-salmon-1-icon{
         width: 120px;
         height: 120px;
-        margin-top: 40px;
+        margin-top: 30px;/*ajunto su márgen*/
 
     }
 }
@@ -584,14 +624,14 @@
 
     .direccin-1-icon {
        
-        width: 260px;/* reduzco ancho y alto de imagen mapa */
-        height: 260px;
+        width: 280px;/* reduzco ancho y alto de imagen mapa */
+        height: 280px;
         margin-right:-500px; /* la coloco a la derecha del texto*/
     }
 
     .dnde-encontrarnos{
         width: 400px;
-        font-size: 24px; /* reduzco  tamaño*/
+        font-size: 48px; /* reduzco  tamaño*/
         margin-left:-260px; /* lo coloco a la izquierda de la imagen*/
         
        
@@ -603,25 +643,26 @@
         display: flex;
         text-align: center;
         font-size: 16px; /*reduzco tamaño fuente*/
-        margin-left:-160px;
+        margin-left:-160px;/*lo situo*/
+        display: inline-block;/*en linea como un bloque*/
       
         
     }
     
     .contenedor-principal{
         
-        max-height:200px;
+        max-height:200px;/*reduzco el tamaño*/
         
 
 
     }
     .flor-limonero{
-        height: 400px;
+        height: 400px;/*reduzco tamaño*/
         width: 100%;
         
     }
     .dnde-encontrarnos-parent{
-        margin-top: -320px;
+        margin-top: -320px;/*lo situo*/
     }
 }
 
@@ -659,7 +700,7 @@
     }
 
     .contenedor-principal {
-        margin-bottom: 680px; 
+        margin-bottom: 680px; /*lo situo*/
     }
 }
 
