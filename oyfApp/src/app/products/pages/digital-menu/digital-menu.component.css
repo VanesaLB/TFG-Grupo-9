@@ -161,3 +161,67 @@ caption{
   font-weight: bold;
 }
 
+#contenedor_pedido button{
+  background: var(--Contrast-Colors-Bronce, #B38F48);
+  color: #FFF;
+}
+
+#contenedor_pedido button:hover{
+  background: var(--Brand-Colors-Chocolate, #6B5B5B);
+}
+
+#contenedor_pedido button:active{
+box-shadow: 3px 3px 4px 0px rgba(93, 92, 92, 0);
+}
+
+@media screen and (max-width: 992px) {
+  #botones{
+    height: 50px;
+    padding: 20px 20%;
+  }
+  section{
+    height: 14200px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  section{
+    height: 1000px;
+  }
+
+  #contenedor_tarjetas{
+    clear: both;
+    width: auto;
+    padding-left: 25%;
+    padding-bottom: 30px;
+    background-image: url("../../../../assets/images_web/image_carta_contacta.jpg");
+    background-size: cover;
+    background-size: contain;
+    background-size: 100%;
+    background-attachment: fixed;
+  }
+
+  #contenedor_pedido{
+    clear: both;
+    width: 100%;
+    align-items: center; /* Centrar los elementos dentro del contenedor */
+    background-position: center;
+    padding: 20px;
+    z-index: 3;
+    height: auto;
+    margin-left: 30%;/* Ajustar el margen izquierdo */
+    margin-top: 0px;
+    position: relative;
+    overflow: auto;
+  }
+
+  #contenedor_pedido button{
+    margin-left: 50px;
+    margin-right: -30px;
+  }
+
+  table {
+    border-spacing: 8px; /* Establecer el espacio entre las celdas */
+    margin-left: 20px;
+  }
+}
