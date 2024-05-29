@@ -1,4 +1,4 @@
-<div id="contenedor">
+<section>
   <div id="botones">
     <button (click)="mostrarTodos()">Todos</button>
     <button (click)="filtrarPorSinGluten()">Sin Gluten</button>
@@ -7,82 +7,88 @@
 
   <div id="contenedor_tarjetas">
     <h1>Entrantes</h1>
-    <div *ngFor="let product of products">
-      <div class="tarjeta" *ngIf="product.tipo === 'ENTRANTE'">
-        <img class="imgProducto" [alt]="product.idProducto" [src]="'assets/images_web/platos/' + product.idProducto + '.png'">
-        <div class="textoProducto">
-          <h2>{{ product.descripcion | titlecase }}</h2>
-          <p>{{ product.ingredientes }}</p>
-          <p>{{ product.precio | currency: 'EUR' }}</p>
-        </div>
+    <div class="tipo_tarjetas">
+      <ng-container *ngFor="let product of products">
+        <div *ngIf="product.tipo === 'ENTRANTE'" class="tarjeta">
+          <img class="imgProducto" [alt]="product.idProducto" [src]="'assets/images_web/platos/' + product.idProducto + '.png'">
+          <div class="textoProducto">
+            <h2>{{ product.descripcion | titlecase }}</h2>
+            <p>{{ product.ingredientes }}</p>
+            <p>{{ product.precio | currency: 'EUR' }}</p>
+          </div>
           <input type="number"
             name="product{{product.idProducto}}"
             min="0"
             value="{{ isQuantityMap[product.idProducto] }}"
             step="1"
             (change)="saveCheckQuantityLocalStorage($event, product.idProducto)">
-      </div>
+        </div>
+      </ng-container>
     </div>
 
     <h1>Principales</h1>
-    <div *ngFor="let product of products">
-      <div class="tarjeta" *ngIf="product.tipo === 'PRINCIPAL'">
-        <img class="imgProducto" [alt]="product.idProducto" [src]="'assets/images_web/platos/' + product.idProducto + '.png'">
-        <div class="textoProducto" class="card-body">
-          <h2>{{ product.descripcion | titlecase }}</h2>
-          <p>{{ product.ingredientes }}</p>
-          <p>{{ product.precio | currency: 'EUR' }}</p>
-        </div>
+    <div class="tipo_tarjetas">
+      <ng-container *ngFor="let product of products">
+        <div *ngIf="product.tipo === 'PRINCIPAL'" class="tarjeta">
+          <img class="imgProducto" [alt]="product.idProducto" [src]="'assets/images_web/platos/' + product.idProducto + '.png'">
+          <div class="textoProducto">
+            <h2>{{ product.descripcion | titlecase }}</h2>
+            <p>{{ product.ingredientes }}</p>
+            <p>{{ product.precio | currency: 'EUR' }}</p>
+          </div>
           <input type="number"
             name="product{{product.idProducto}}"
             min="0"
             value="{{ isQuantityMap[product.idProducto] }}"
             step="1"
             (change)="saveCheckQuantityLocalStorage($event, product.idProducto)">
-      </div>
+        </div>
+      </ng-container>
     </div>
 
     <h1>Postres</h1>
-    <div *ngFor="let product of products">
-      <div class="tarjeta" *ngIf="product.tipo === 'POSTRES'">
-        <img class="imgProducto" [alt]="product.idProducto" [src]="'assets/images_web/platos/' + product.idProducto + '.png'">
-        <div class="textoProducto" class="card-body">
-          <h2>{{ product.descripcion | titlecase }}</h2>
-          <p>{{ product.ingredientes }}</p>
-          <p>{{ product.precio | currency: 'EUR' }}</p>
-        </div>
+    <div class="tipo_tarjetas">
+      <ng-container *ngFor="let product of products">
+        <div *ngIf="product.tipo === 'POSTRES'" class="tarjeta">
+          <img class="imgProducto" [alt]="product.idProducto" [src]="'assets/images_web/platos/' + product.idProducto + '.png'">
+          <div class="textoProducto">
+            <h2>{{ product.descripcion | titlecase }}</h2>
+            <p>{{ product.ingredientes }}</p>
+            <p>{{ product.precio | currency: 'EUR' }}</p>
+          </div>
           <input type="number"
             name="product{{product.idProducto}}"
             min="0"
             value="{{ isQuantityMap[product.idProducto] }}"
             step="1"
             (change)="saveCheckQuantityLocalStorage($event, product.idProducto)">
-      </div>
+        </div>
+      </ng-container>
     </div>
 
     <h1>Bebidas</h1>
-    <div *ngFor="let product of products">
-      <div class="tarjeta" *ngIf="product.tipo === 'BEBIDAS'">
-        <img class="imgProducto" [alt]="product.idProducto" [src]="'assets/images_web/platos/' + product.idProducto + '.png'">
-        <div class="textoProducto" class="card-body">
-          <h2>{{ product.descripcion | titlecase }}</h2>
-          <p>{{ product.ingredientes }}</p>
-          <p>{{ product.precio | currency: 'EUR' }}</p>
-        </div>
+    <div class="tipo_tarjetas">
+      <ng-container *ngFor="let product of products">
+        <div *ngIf="product.tipo ==='BEBIDAS'" class="tarjeta">
+          <img class="imgProducto" [alt]="product.idProducto" [src]="'assets/images_web/platos/' + product.idProducto + '.png'">
+          <div class="textoProducto">
+            <h2>{{ product.descripcion | titlecase }}</h2>
+            <p>{{ product.ingredientes }}</p>
+            <p>{{ product.precio | currency: 'EUR' }}</p>
+          </div>
           <input type="number"
             name="product{{product.idProducto}}"
             min="0"
             value="{{ isQuantityMap[product.idProducto] }}"
             step="1"
             (change)="saveCheckQuantityLocalStorage($event, product.idProducto)">
-      </div>
+        </div>
+      </ng-container>
     </div>
-
-
   </div>
 
-<div id="contenedor_pedido">
-  <table>
+  <div id="contenedor_pedido">
+    <table>
     <caption>Mi pedido</caption>
       <thead>
         <tr>
@@ -109,4 +115,6 @@
     <button type="submit" (click)="enviarMiPedido()">Enviar</button>
     <button type="submit" (click)="resetMiPedido()">Borrar</button>
   </div>
-</div>
+</section>
+
+
