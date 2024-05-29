@@ -299,7 +299,10 @@ export class DigitalMenuComponent implements OnInit{
   resetMiPedido(): void {
     localStorage.clear();
     this.productsMiPedido = [];
+    // this.isQuantityMap = {};
+    // this.mostrarMiPedido();
     location.reload();
+
   }
 
   enviarMiPedido(): void {
