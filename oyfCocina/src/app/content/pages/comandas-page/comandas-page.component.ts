@@ -33,14 +33,10 @@ export class ComandasPageComponent implements OnInit{
     this.comandaService.getComandas('no')
       .subscribe(
         comandas => {
-          //console.log('Comandas recibidas:', comandas);
-
           // Filtrar comandas inválidas
           this.comandas = comandas.filter(comanda =>
             comanda && comanda.idComanda !== undefined && comanda.producto && comanda.pedido
           );
-
-          //console.log('Comandas filtradas:', this.comandas);
         },
         error => {
           console.error('Error al cargar las comandas:', error);
@@ -60,10 +56,4 @@ export class ComandasPageComponent implements OnInit{
       }
     );
   }
-
-  // getServidoDesc(servidoId: string): string {
-  //   const servido = this.servidos.find(s => s.id === servidoId);
-  //   return servido ? servido.desc : 'Desconocido';
-  // }
-
 }

@@ -37,7 +37,6 @@
     font-size:20px;
     color:white;
     text-decoration: none;/*Para que no aparezca la raya abajo del enlace*/
-
 }
 /*Div del botón*/
 .botones-primarios {
@@ -85,7 +84,7 @@
     text-align: right;
     font-size: 20px;
     color: #F2EEEE;
-    font-family:  'Roboto';  
+    font-family:  'Roboto';
 }
 /*Contenedor texto e imagen*/
 .fondo-bienvenido-child {
@@ -95,7 +94,7 @@
     width: 100%;
     height: 587px;
     overflow: hidden;/*si algo se desborda lo oculta*/
-    
+
 }
 /*imagen de fonfo*/
 .ajos-1-icon {
@@ -134,7 +133,7 @@
     width: 544px;
     position: relative;
     font-size: 20px;
-   
+
     line-height: 140%;
     font-family: 'Roboto';
     color: #423f3f;
@@ -167,23 +166,23 @@
 }
 /*Contenedor principal texto e imagen*/
 .bienvenido {
-   
-    
+
+
         margin-left: 168px; /* Esto centrará horizontalmente el contenedor */
         margin-top: 123px;
-        position: relative; 
+        position: relative;
         width: 100%; /* Ajusta el ancho si es necesario */
-        display: flex; 
-        flex-direction: row; 
-        align-items: center; 
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         justify-content: flex-start; /* Ajusta la alineación horizontal */
         text-align: left; /* Ajusta el texto a la izquierda */
-        font-size: 40px; 
+        font-size: 40px;
         color: #6b5b5b; /* Ajusta el color del texto */
         font-family: 'Roboto Condensed';
-       
-    
-    
+
+
+
 }
 /*nuestros platos*/
 /*Título*/
@@ -239,7 +238,7 @@
     font-family: 'Roboto';
     color:beige;
     margin-top: 32px;
-    
+
 }
 /*Contenedor principal*/
 .nuestros-platos {
@@ -301,7 +300,7 @@
 }
 .de-martes-a {
     margin: 0;
-   
+
 }
 /*Contenedor de todo el texto*/
 .dnde-encontrarnos-parent {
@@ -327,12 +326,12 @@
     font-size: 48px;
     color:  #6b5b5b;
     font-family:'Roboto Condensed';
-    
+
 }
 /*fondo */
 .flor-limonero {
-    position: absolute; 
-    z-index: 1; 
+    position: absolute;
+    z-index: 1;
 
 }
 /*Contenedor principal*/
@@ -354,7 +353,7 @@
         font-size:20px;
     }
     .botones-primarios{
-       
+
         margin-top: 980px;
         margin-right: 200px;
         transform: translateX(-80%);/*se desplaza a la izquierda un 80% de su ancho*/
@@ -363,13 +362,13 @@
         width: 180px;
         top: 350px;
         margin-left: 30px;
-    
+
     }
 
     .texto-hero {
         top: 50px;/*lo centro*/
         left: 50px;
-      
+
     }
     .button a{
         font-size: 16px;
@@ -379,7 +378,7 @@
     .hero {
         text-align: left;
     }
-    
+
 
 }
 
@@ -405,14 +404,14 @@
         width: 150px;/*reduzco tamaño*/
         top: 300px;/*lo coloco*/
         left: 50%;
-        
+
     }
 
     .texto-hero {
         top: 20px;/*Lo coloco y alineo al centro*/
         left: 20px;
         align-items: center;
-        
+
     }
 
     .hero {
@@ -420,11 +419,11 @@
         align-items: center;
     }
     .botones-primarios{
-       
+
         margin-top: 800px;
         margin-right: 200px;
         transform: translateX(-160%);/*se desplaza a la izquierda*/
-    }  
+    }
 }
 
 /*Bienvenido resposive*/
@@ -435,7 +434,7 @@
         top: 50px;
         height: auto;/*altura automática*/
         padding: 15px;
-        
+
     }
 
     .ajos-1-icon {
@@ -445,13 +444,13 @@
     }
 
     .bienvenido {
-        
+
         margin-left: 0;
         margin-top: 80px;
         font-size: 24px;
         margin-left: 20px;
-        
-        
+
+
 
     }
 
@@ -459,7 +458,7 @@
         max-width: 90%;
         margin-left: 20px;
         font-size: 48px;/*tamaño del título*/
-        
+
     }
 
     .en-nuestro-restaurante-container {
@@ -476,9 +475,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        
+
     }
-   
+
 }
 
 /* Estilos para móvil bienvenido */
@@ -488,7 +487,7 @@
         height: auto;
         padding: 10px;
         font-size:16px;
-        
+
     }
 
     .ajos-1-icon {
@@ -503,7 +502,7 @@
     .bienvenido {
         margin-left: 0;
         margin-top: 40px;
-        
+
     }
 
     .bienvenido-a-nuestro {
@@ -526,7 +525,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-       
+
     }
 }
 
@@ -536,9 +535,9 @@
         flex-direction: row;/*una al lado de la otra*/
         position: relative;
         gap: 40px;/*reduzco el espacio entre las tarjetas*/
-        
-        
-       
+
+
+
     }
     .principal-chuletonpiedra-1-icon{
         width: 160px;/*reduzco su tamaño*/
@@ -554,7 +553,7 @@
 
     .card-plato {
         width:160px;
-        
+
         margin-top: 10px;
     }
 
@@ -583,7 +582,7 @@
     }
 
     .nuestros-platos1 {
-        font-size: 48px; 
+        font-size: 48px;
     }
 
     .chuletn-del-bierzo {
@@ -595,8 +594,8 @@
     .carta-contacta{
         display: flex;
         height: 900px;
-        
-        
+
+
     }
     .principal-chuletonpiedra-1-icon{
         width: 120px;/*reduzco tamaño*/
@@ -614,16 +613,16 @@
 @media screen and (max-width: 992px) {
     .mapa-direccion-horario {
         display: flex;
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center; /*centro parrafos*/
         text-align: center;
         margin-left: 0;
         width: 90%;/*reduzco el ancho*/
-        
+
     }
 
     .direccin-1-icon {
-       
+
         width: 280px;/* reduzco ancho y alto de imagen mapa */
         height: 280px;
         margin-right:-500px; /* la coloco a la derecha del texto*/
@@ -633,9 +632,9 @@
         width: 400px;
         font-size: 48px; /* reduzco  tamaño*/
         margin-left:-260px; /* lo coloco a la izquierda de la imagen*/
-        
-       
-        
+
+
+
 
     }
     .calle-la-cruz-container {
@@ -645,21 +644,21 @@
         font-size: 16px; /*reduzco tamaño fuente*/
         margin-left:-160px;/*lo situo*/
         display: inline-block;/*en linea como un bloque*/
-      
-        
+
+
     }
-    
+
     .contenedor-principal{
-        
+
         max-height:200px;/*reduzco el tamaño*/
-        
+
 
 
     }
     .flor-limonero{
         height: 400px;/*reduzco tamaño*/
         width: 100%;
-        
+
     }
     .dnde-encontrarnos-parent{
         margin-top: -320px;/*lo situo*/
@@ -680,7 +679,7 @@
     .direccin-1-icon {
         width: 160px;/*reduzco tamaño de mapa*/
         height: 160px;
-        
+
     }
     .dnde-encontrarnos-parent{
         margin-left: 20px;
@@ -696,7 +695,7 @@
         width: 100%;
         font-size: 16px;
         text-align: center;
-        
+
     }
 
     .contenedor-principal {
@@ -705,6 +704,6 @@
 }
 
 
-    
+
 
 

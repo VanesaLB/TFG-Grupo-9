@@ -9,23 +9,18 @@ import { Product } from '../../interfaces/product.interface';
 })
 export class ProductosPageComponent implements OnInit{
 
-  //@Input()
   public product!: Product;
 
   public products: Product[] = [];
 
-  //Inyectamos el ProductService que hemos importado en el constructor del componente
+  //Se inyecta el ProductService que hemos importado en el constructor del componente
   constructor( private productService: ProductService ){ }
 
   ngOnInit(): void {
-
     this.productService.getProducts()
       .subscribe(
         products => {
           this.products = products;
-          //this.loadQuantityStateFromLocalStorage();
-          //this.mostrarMiPedido();
-          //this.mostrarTotal();
         },
         error => {
           console.error('Error al cargar los productos:', error);
@@ -33,16 +28,14 @@ export class ProductosPageComponent implements OnInit{
       );
   }
 
-    /**
-   * Este método se llama cuando se hace clic en el botón "Todos".
-   * Obtiene todos los productos del servicio y actualiza el estado de los checkboxes después de obtener la respuesta.
+  /**
+   * 
    */
-    mostrarTodos(): void {
-      this.productService.getProducts().subscribe(products => {
-        this.products = products;
-        //this.loadQuantityStateFromLocalStorage();
-      });
-    }
+  mostrarTodos(): void {
+    this.productService.getProducts().subscribe(products => {
+      this.products = products;
+    });
+  }
 
     eliminarProducto(producto: Product): void {
       if( producto && producto.idProducto ){

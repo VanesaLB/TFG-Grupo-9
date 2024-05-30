@@ -5,7 +5,6 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { DigitalMenuComponent } from './pages/digital-menu/digital-menu.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
-import { ProductPageComponent } from './pages/product-page/product-page.component';
 
 const routes: Routes = [
   {
@@ -23,10 +22,6 @@ const routes: Routes = [
   {
     path: 'history',
     component: HistoryPageComponent
-  },
-  {
-    path: 'product/:id',
-    component: ProductPageComponent
   },
 ];
 
