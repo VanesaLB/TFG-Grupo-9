@@ -2,6 +2,8 @@
     <div id="comandas">
       <p>Productos</p>
     </div>
+     <!--He tenido que poner la barra delante pero en otros no lo lleva-->
+     <div class="crear"><a [routerLink]="['/crear']">Añadir producto</a></div>
     <table>
 
         <thead>
@@ -14,10 +16,7 @@
                 <th>Gluten</th>
                 <th>Precio</th>
                 <th>Eliminar</th>
-               <!-- <th>Modificar</th>
-
-                <th>Alta</th>
-                -->
+               
 
             </tr>
         </thead>
@@ -32,30 +31,18 @@
                 <td>{{ product.gluten }}</td>
                 <td>{{ product.precio | currency: 'EUR' }}</td>
                 <td>
-                  <button
-                  (click)="eliminarProducto(product)">Eliminar
-                  </button>
+                  
+                  <button (click)="eliminarProducto(product)">Eliminar</button>
+                 
                 </td>
 
-                <!-- <td class ="enlace">Modificar</td>
-                <td class ="enlace">Eliminar</td>
-                <td class ="enlace">Alta</td> -->
-                <!--<td>Modificar</td>
-                <td>Eliminar</td>
-                <td>Alta</td>-->
+                
 
 
             </tr>
         </tbody>
     </table>
 
-    <!--He tenido que poner la barra delante pero en otros no lo lleva-->
-    <div><a [routerLink]="['/crear']">ADD</a></div>
-    <!--
-    <div class="botones">
-        <button (click)="Modificar()">Modificar</button>
-        <button (click)="Eliminar()">Eliminar</button>
-        <button (click)="Alta()">Alta</button>
-    </div>
-    -->
+   
+    
 </section>

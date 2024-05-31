@@ -1,0 +1,60 @@
+form{
+    min-height: 700px;
+    margin-top: 100px;
+    margin-left: 40px;
+    font-family: 'Roboto';
+    font-size:20px ;
+    display: flex;
+    flex-direction: column;
+    
+}
+label{
+    margin-right: 4px;
+
+}
+#ingredientes ,
+#descripcion   {
+    width: 600px;
+}
+select{
+    width: 100px;
+
+}
+input{
+    width: 100px;
+}
+button{
+    position: relative;
+    box-shadow: 3px 3px 4px 0px rgba(93, 92, 92, 0.75);
+    border-radius: 32px;
+    background-color: #B38F48;
+    width: 180px;
+    height: 44px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 20px;
+    color: #FDFDFD;
+    font-family:'Roboto';
+    border: none;/*me aseguro que no le aplique el borde*/
+    margin-top: 20px;
+}
+/*tablet*/
+@media screen and (max-width: 992px) {
+#ingredientes ,
+#descripcion   {
+    width: 400px;
+}
+}
+@media screen and (max-width: 575px) {
+
+  /*  #ingredientes ,
+    #descripcion   {
+        width: 300px;
+    }*/
+    
+}

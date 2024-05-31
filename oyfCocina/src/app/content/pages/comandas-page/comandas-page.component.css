@@ -1,26 +1,26 @@
 #comandas {
     position: absolute;
     display: flex;
-    top: 268px;
-    left: 168px;
+    top: 168px;
+    left: 518px;
     font-size: 58px;
     line-height: 140%;
     display: inline-block;
     font-family:'Roboto Condensed';
-    color: #6b5b5b;/*no se aplican los colores por que falta globas.css*/
+    color: #6b5b5b;
     text-align: left;
     width: 300px;
 
-    }
+}
 table{
     border:solid black 2px;
-    position: absolute;
     top: 400px;
     left: 168px;
     border-collapse: collapse;
-    font-family: var(--textos-texto-descripcion), sans-serif;
+    font-family:'Roboto';
     font-size: 16px;
     color: #000;
+    margin-top: 160px;
 
 }
 tbody{
@@ -43,8 +43,28 @@ td{
 
 }
 section{
+    display: flex;/*hago que se adapte al contenido*/
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    height: 700px;
+    margin-bottom: 40px;/*siempre dejando un margen con el footer*/
+}
+button{
+    position: relative;
+    box-shadow: 3px 3px 4px 0px rgba(93, 92, 92, 0.75);
+    border-radius: 32px;
+    background-color: #B38F48;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 20px;
+    color: #FDFDFD;
+    font-family:'Roboto';
 }
 /*Media query tablet comandas*/
 @media screen and (max-width: 992px) {
@@ -53,6 +73,7 @@ section{
         left: 20px;
         position: static;
         margin-top: 20px;
+        margin-left: 20px;
     }
 
     table {

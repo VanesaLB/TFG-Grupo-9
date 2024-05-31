@@ -116,9 +116,9 @@
     justify-content: flex-start;
     gap: var(--gap-3xs);
     text-align: left;
-    font-size: var(--textos-texto-descripcin-size);
-    color: var(--brand-colors-brown-dark);
-    font-family: var(--textos-texto-descripcin);
+    font-size:20px;
+    color: #423F3F;
+    font-family:'Roboto';
 }
 a {
     font-size: var(--textos-texto-descripcin-size) 20px;

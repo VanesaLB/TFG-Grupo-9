@@ -1,0 +1,47 @@
+#comandas {
+    position: absolute;
+    display: flex;
+    top: 268px;
+    left: 168px;
+    font-size: 58px;
+    line-height: 140%;
+    display: inline-block;
+    font-family:'Roboto Condensed';
+    color: #6b5b5b;
+    text-align: left;
+    width: 300px;
+
+}
+table{
+    border:solid black 2px;
+    position: absolute;
+    top: 400px;
+    left: 168px;
+    border-collapse: collapse;
+    font-family:'Roboto';
+    font-size: 16px;
+    color: #000;
+
+}
+tbody{
+    border:solid black 2px;
+    border-collapse: separate;
+
+}
+thead{
+    border:solid black 2px;
+    border-collapse: separate;
+    background-color:#BBA7A7;
+}
+.enlace:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+td{
+    padding: 10px;
+    border: 1px solid black;
+
+}
+section{
+    min-height: 800px;
+}
