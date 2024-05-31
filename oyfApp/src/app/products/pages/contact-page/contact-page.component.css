@@ -4,8 +4,9 @@
     height: 368px;
     object-fit: cover;/*cubro el contenedor manteniendo la proporción*/
     margin-left: 127px;
-   
+
 }
+
 .estamos-encantados-de {
     width: auto;
     font-family: 'Roboto';
@@ -13,6 +14,7 @@
    line-height: 80%;/*altura de línea*/
    text-align: left;
 }
+
 /*icono teléfono*/
 .telefono-icon {
     width: 24px;
@@ -31,7 +33,7 @@
     font-family: 'Roboto';
     color: var(--brand-colors-beige);
     font-size: 20px;
-    
+
 }
 /*contenedor del teléfono*/
 .telefono {
@@ -95,8 +97,8 @@
     font-size: 20px;
     font-family: 'Roboto';
     line-height: 16%;
-   
-    
+
+
 }
 /*Contenedor principal de bloque de atención al cliente*/
 .estamos-encantados-de-atendert-parent {
@@ -126,7 +128,7 @@
     z-index: 1;/*indice de apilamiento*/
     width: 1103px;
     height: 439px;
-   
+
 }
 /*contenedor principal de contacto*/
 .contacta {
@@ -160,9 +162,8 @@
     color: beige;
     margin: -20px;
     line-height: 1.2;/*altura de línea*/
-    
-}
 
+}
 
 /*subtítulo formulario*/
 .queremos-mejorar-vuestra {
@@ -170,31 +171,43 @@
     font-family: 'Roboto';
     color: beige;
     margin-top: 5px;
-
 }
 
 /*botón enviar*/
 .botones-enviar {
     width: 96px;
-    margin: 0 !important;
+    /* margin: 0 !important; */
     position: absolute;/*posición manual*/
     top: 250px;
     left: 336px;
-    box-shadow: var(--sombras-botones);
     border-radius: 32px;
     background-color: #b38f48;
+    color: #FFF;
+    box-shadow: 3px 3px 4px 0px rgba(93, 92, 92, 0.75);
     height: 32px;
+    text-align:center;
+    padding: 8px 16px;
+    justify-content: center;
     display: flex;
     flex-direction: row;
     align-items: center;/*Texto centrado */
     justify-content: center;
-    padding: 8px var(--padding-base);
-    box-sizing: border-box;/*Así width y height incluyen su padding y el border*/
     z-index: 4;/*asegurarme que este encima*/
     font-size: 20px;
-    color: var(--base-colors-white);
-    
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
 }
+
+.botones-enviar:hover{
+  cursor: pointer;
+  background-color: #6B5B5B;
+}
+
+.botones-enviar:active{
+  box-shadow: 3px 3px 4px 0px rgba(93, 92, 92, 0);
+}
+
 /*formulario*/
 form {
     display: flex;
@@ -204,7 +217,7 @@ form {
     position: relative;
     gap:10px;
     align-items: center;
-   
+
 }
 /*Contenedor del formulario*/
 .formulario1 {
@@ -229,7 +242,7 @@ fieldset {
     position: relative;
     width: 100%;
     box-sizing: border-box;
-    
+
 }
 /*contenedor de título y subtítulo de formulario*/
 legend {
@@ -241,9 +254,9 @@ legend {
     padding: 0;
     padding-bottom: 20px; /* Ajusta el relleno inferior */
     margin-left: 20px;
-    
 
-    
+
+
 }
 /*contenedor principal*/
 .formulario {
@@ -279,7 +292,7 @@ legend {
 .input-group {
     width: 432px;
     border-radius: 8px;
-    
+
 }
 /*tamaño de inputs*/
 #telefono,
@@ -298,7 +311,7 @@ legend {
 
     .image-fondo {
         height: 1300px; /* Ajustar la altura de la imagen de fondo para tabletas */
-        
+
     }
 
     .direccin-1-parent {
@@ -316,11 +329,11 @@ legend {
         gap: 20px; /* Aumentar el espacio entre elementos en la sección de atención */
         margin-top:-340px;/*Subo el texto*/
         margin-left: -500px;/*lo coloco a la derecha de la imagen*/
-    
+
     }
 
     .formulario{
-     
+
         width: 90%; /* Reducir el ancho del formulario para que se ajuste mejor */
         max-width: 500px; /* Ancho máximo del formulario en tabletas */
         padding: 15px; /* Ajustar el padding del formulario */
@@ -329,7 +342,7 @@ legend {
     .formulario1{
         width: 90%; /* Reducir el ancho del formulario para que se ajuste mejor */
         max-width: 500px; /* Ancho máximo del formulario en tabletas */
-        padding: 15px; 
+        padding: 15px;
         margin-left: -100px;
 
     }
@@ -342,8 +355,8 @@ legend {
         width: 80%;
         font-size: 24px;
     }
-   
-    
+
+
 }
 /*responsive movil*/
 /* Media query para dispositivos con ancho máximo de 575px (smartphones en modo vertical) */
@@ -352,7 +365,7 @@ legend {
         height: 1400px; /* Ajustar la altura de la imagen de fondo para smartphones */
     }
     .contacta {
-       
+
         margin-top: -10px;/*Reduzco el espacio con el header*/
     }
 
@@ -360,7 +373,7 @@ legend {
         flex-direction: column; /* Cambiar a disposición vertical para la sección de dirección */
         align-items: center; /* Centrar elementos en la sección de dirección */
         padding: 20px; /* Añadir padding para separar la sección de dirección */
-       
+
     }
 
     .direccin-1-icon {
@@ -387,13 +400,13 @@ legend {
         max-width: 100%; /* Asegurar que no excedan el ancho del contenedor */
     }
 
-    
+
     .estamos-encantados-de-atendert-parent {
         gap: 20px; /* Aumentar el espacio entre elementos en la sección de atención */
         margin-top:-90px;/*bajo el texto*/
         margin-left: -1100px;/*lo coloco debajo de la imagen*/
         width: 30%;
-    
+
     }
     .estamos-encantados-de{
         font-size: 24px;/*Reduzco tamaño de funete*/
@@ -426,22 +439,22 @@ legend {
     .formulario{
         margin-top: 80px;/*reduzco el tamaño del contenedor del formulario*/
         margin-left: -370px;/*lo centro*/
-        
+
         width: 80%;
         height: 698px;
-      
-        
-       
+
+
+
     }
     .formulario1{
         width: 80%;
-       
-        
+
+
     }
     .input-group {
         width: 232px;/*reduzco el tamaño de los input*/
         border-radius: 8px;
-        
+
     }
     #telefono,
     #email,
@@ -452,18 +465,18 @@ legend {
     #opinion{
         width: 232px;
         height: 84px;
-    
+
     }
     .botones-enviar{
         margin: 20px 0 0 0; /* Añadir margen superior */
         box-sizing: border-box; /* Incluir padding y border en el ancho y alto total */
-        position: relative; 
-        
+        position: relative;
+
         z-index: 1;
         position: relative;
         top: 25px;/*modifico la posición del botón enviar*/
         left: 33px;
-        
+
     }
     fieldset {
         border: none;
@@ -475,7 +488,7 @@ legend {
         height: 700px;
         box-sizing: border-box;
     }
-   
+
 
 }
 

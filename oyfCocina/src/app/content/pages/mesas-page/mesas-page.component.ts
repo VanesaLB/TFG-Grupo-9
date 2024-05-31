@@ -14,7 +14,7 @@ export class MesasPageComponent implements OnInit{
 
   public mesas: Mesa[] = [];
 
-  //Inyectamos el ComandaService que hemos importado en el constructor del componente
+  //Se inyecta el ComandaService que hemos importado en el constructor del componente
   constructor( private mesaService: MesaService ){ }
 
   ngOnInit(): void {
@@ -23,7 +23,6 @@ export class MesasPageComponent implements OnInit{
       .subscribe(
         mesas => {
           console.log('Mesas recibidas:', mesas);
-          //this.comandas = comandas;
           // Filtrar comandas inválidas si es necesario
           this.mesas = mesas.filter(mesa => mesa.idMesa);
           console.log('Mesas filtradas:', this.mesas);

@@ -1,14 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-
-
-
-
 body {
   margin: 0;
   line-height: normal;
   overflow-x: hidden; /*Consigo que no se desborde ninguna página*/
 }
-
 
 :root {
    /*enlace a estilos tipogafía*/
@@ -17,14 +12,12 @@ body {
   --ttulos-hero: 'Roboto Condensed';
   --textos-texto-tarjeta: Roboto;
 
-
-
-
   /* font sizes */
   --textos-texto-descripcin-size: 20px;
   --ttulos-hero-size: 58px;
   --textos-texto-tarjeta-size: 16px;
   --ttulos-ttulo-size: 48px;
+
   /* Colors */
   --brand-colors-brown-dark: #423f3f;
   --contrast-colors-bronce: #b38f48;
@@ -33,5 +26,4 @@ body {
 
   /* Gaps */
   --gap-3xs: 10px;
-
 }
