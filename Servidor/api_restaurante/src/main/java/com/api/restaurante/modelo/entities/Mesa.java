@@ -12,16 +12,26 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-
+/**
+ * Representa una entidad de mesa en la base de datos.
+ */
 @Entity
 @Table(name="mesas")
 public class Mesa {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_mesa")
-	private int idMesa;
-	private String area;
+	 /**
+     * El identificador único de la mesa.
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_mesa")
+    private int idMesa;
+
+    /**
+     * El área en la que se encuentra la mesa.
+     */
+    
+    private String area;
 	
 	public Mesa() {
 		super();

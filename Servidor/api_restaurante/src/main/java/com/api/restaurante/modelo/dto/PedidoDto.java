@@ -6,15 +6,35 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * DTO (Data Transfer Object) que representa un pedido.
+ * Contiene los datos necesarios para transferir información sobre un pedido.
+ */
+
 @NoArgsConstructor
 @AllArgsConstructor	
 @Data
 public class PedidoDto {
 
-	private int idMesa;
-	private int cantidadProductos;
-	private double precioTotal;
-	private Date fecha;
+	/**
+     * El identificador de la mesa asociada con el pedido.
+     */
+    private int idMesa;
+
+    /**
+     * La cantidad de productos en el pedido.
+     */
+    private int cantidadProductos;
+
+    /**
+     * El precio total del pedido.
+     */
+    private double precioTotal;
+
+    /**
+     * La fecha del pedido.
+     */
+    private Date fecha;
 	
 	public int getIdMesa() {
 		return idMesa;

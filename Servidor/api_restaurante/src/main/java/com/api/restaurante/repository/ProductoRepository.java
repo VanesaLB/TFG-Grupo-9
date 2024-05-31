@@ -13,4 +13,3 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer> {
 	}
 
 
-//@Query("select p from Producto p where p.color = ?1 AND p.marca = ?2")

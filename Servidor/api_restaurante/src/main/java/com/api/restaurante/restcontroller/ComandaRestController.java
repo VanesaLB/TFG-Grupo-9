@@ -32,6 +32,10 @@ import com.api.restaurante.service.ProductoService;
 
 
 
+/**
+ * Controlador REST para la gestión de comandas.
+ * Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre las comandas.
+ */
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -50,23 +54,45 @@ public class ComandaRestController {
     @Autowired
     private MesaService mesaService; // Servicio para gestionar mesas
 
+    /**
+     * Obtiene todas las comandas.
+     *
+     * @return Una lista de todas las comandas disponibles.
+     */
     @GetMapping("/buscarTodos")
 	 public List<Comanda> buscarTodosLasComandas() {
 		 return comandaService.buscarTodos();
 	 }
 	
-	
+    /**
+     * Obtiene una comanda específica por su ID.
+     *
+     * @param idComanda El ID de la comanda que se desea obtener.
+     * @return La comanda correspondiente al ID especificado.
+     */
 	@GetMapping("/buscarUno/{idComanda}")
 	 public Comanda buscarUnaComanda(@PathVariable int idComanda) {
 		 return comandaService.buscarUno(idComanda);
 	 }
-	
+
+	   /**
+     * Obtiene las comandas que no han sido servidas.
+     *
+     * @param servido El estado de servicio de las comandas que se desea obtener ("si" o "no").
+     * @return Una lista de comandas que no han sido servidas.
+     */
 	@GetMapping("/comandasServidoNo/{servido}")
 	public List<Comanda> buscarEmpleamosDelMismoProyecto (@PathVariable String servido) {
 		return comandaService.buscarComandasServidoNo(servido);
 	}
 	
-	//Este método recibe un JSON con idEntrada y diasPrevistos, y devuelve el objeto completo modificado
+
+    /**
+     * Modifica el estado de servicio de una comanda a "servido" si cumple con ciertas condiciones.
+     *
+     * @param comandaServidoSiDto La información de la comanda y su nuevo estado de servicio.
+     * @return La comanda modificada.
+     */
 		@PutMapping("/modificarServidoSi/{id}")
 		public Comanda modificarDiasPrevistoEnEmpleadoEnProyecto(@RequestBody ComandaServidoSiDto 
 				comandaServidoSiDto
@@ -77,7 +103,12 @@ public class ComandaRestController {
 			
 		}
 		
-		
+		   /**
+	     * Crea una nueva comanda.
+	     *
+	     * @param comandadto Los datos de la comanda que se desea crear.
+	     * @return La comanda añadida al sistema.
+	     */
 	@PostMapping("/alta")
 	   
     
@@ -110,7 +141,13 @@ public class ComandaRestController {
 	    }
 
 	
-	
+
+    /**
+     * Da de alta varias comandas.
+     *
+     * @param comandasDto La lista de comandas que se desea dar de alta.
+     * @return Una lista que contiene las comandas añadidas al sistema.
+     */
 	@PostMapping("/altaMuchos")
 	 public List<Comanda> darDeAltaMuchos(@RequestBody List<ComandaDto> comandasDto) {
 	 		

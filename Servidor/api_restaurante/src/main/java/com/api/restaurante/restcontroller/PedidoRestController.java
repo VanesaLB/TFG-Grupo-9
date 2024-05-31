@@ -23,6 +23,10 @@ import com.api.restaurante.service.PedidoService;
 import com.api.restaurante.service.ProductoService;
 
 
+/**
+ * Controlador REST para la gestión de pedidos.
+ * Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre los pedidos.
+ */
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -37,17 +41,32 @@ public class PedidoRestController {
 	private MesaService mesaService;
 	@Autowired
 	private ModelMapper modelMapper;
-	
+	 
+	/**
+     * Obtiene todos los pedidos.
+     *
+     * @return Una lista de todos los pedidos disponibles.
+     */
 	@GetMapping("/buscarTodos")
 	 public List<Pedido> buscarTodosLosPedidos() {
 		 return pedidoService.buscarTodos();
 	 }
-	
+	 /**
+     * Obtiene un pedido específico por su ID.
+     *
+     * @param idPedido El ID del pedido que se desea obtener.
+     * @return El pedido correspondiente al ID especificado.
+     */
 	@GetMapping("/buscarUno/{idPedido}")
 	 public Pedido buscarUnEmpleado(@PathVariable int idPedido) {
 		 return pedidoService.buscarUno(idPedido);
 	 }
-	
+	  /**
+     * Elimina un pedido existente.
+     *
+     * @param idPedido El ID del pedido que se desea eliminar.
+     * @return Un mensaje indicando el resultado de la operación de eliminación.
+     */
 	@DeleteMapping("/eliminar/{idPedido}")
 	public String eliminarElProyecto(@PathVariable int idPedido) {
 	
@@ -62,13 +81,23 @@ public class PedidoRestController {
 		}
 		
 	}
-	
+	/**
+     * Da de alta un nuevo pedido.
+     *
+     * @param pedido El pedido que se desea dar de alta.
+     * @return El pedido añadido al sistema.
+     */
 	@PostMapping("/alta")
 	public Pedido altaDelPedido(@RequestBody Pedido pedido) {
 		
 		return pedidoService.altaUno(pedido);
 		}
-	
+	 /**
+     * Da de alta un nuevo pedido y devuelve su ID.
+     *
+     * @param pedidoDto Los datos del pedido que se desea dar de alta.
+     * @return El ID del pedido añadido al sistema.
+     */
 	@PostMapping("/altaPedidoId")
 	public int altaDelPedidoId(@RequestBody PedidoDto pedidoDto) {
 		
@@ -81,6 +110,12 @@ public class PedidoRestController {
 		
 		return pedidoService.altaPedidoId(pedidoAux);
 		}
+	/**
+     * Da de alta varios pedidos.
+     *
+     * @param pedidosDto La lista de pedidos que se desea dar de alta.
+     * @return Una lista que contiene los pedidos añadidos al sistema.
+     */
 	@PostMapping("/altaMuchos")
 	 public List<Pedido> darDeAltaMuchos(@RequestBody List<PedidoDto> pedidosDto) {
 	 		
@@ -108,34 +143,5 @@ public class PedidoRestController {
 	 	}
 	 		return pedidoService.altaMuchos(pedidos); 
 	 }
-	 	/*
-	 	 * PARA POSTMAN:
-	 	 * [
-
-	 {
-	     "idProyecto": 1,
-	     "idEmpleado": 1,
-	     "diasPrevistos": 21,
-	     "fechaIncorporacion": "2024-10-08T22:00:00.000+00:00"
-	 },
-
-	 {
-	     "idProyecto": 1,
-	     "idEmpleado": 1,
-	     "diasPrevistos": 31,
-	     "fechaIncorporacion": "2024-10-08T22:00:00.000+00:00"
-	 },
-
-	 {
-	     "idProyecto": 1,
-	     "idEmpleado": 1,
-	     "diasPrevistos": 41,
-	     "fechaIncorporacion": "2024-10-08T22:00:00.000+00:00"
-	 }
-	 ]
-	 	 */
-	
-	
-	
 	
 }

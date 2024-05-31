@@ -19,16 +19,43 @@ import lombok.NoArgsConstructor;
 @Table(name="productos")
 public class Producto {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_producto")
-	private int idProducto;
-	private String ingredientes;
-	private String descripcion;
-	private String tipo;
-	private String vegano;
-	private String gluten;
-	private double precio;
+	/**
+     * El identificador único del producto.
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_producto")
+    private int idProducto;
+
+    /**
+     * Los ingredientes del producto.
+     */
+    private String ingredientes;
+
+    /**
+     * La descripción del producto.
+     */
+    private String descripcion;
+
+    /**
+     * El tipo del producto.
+     */
+    private String tipo;
+
+    /**
+     * Indica si el producto es vegano.
+     */
+    private String vegano;
+
+    /**
+     * Indica si el producto es libre de gluten.
+     */
+    private String gluten;
+
+    /**
+     * El precio del producto.
+     */
+    private double precio;
 	
 	public Producto() {
 		super();

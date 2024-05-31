@@ -5,16 +5,32 @@ import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ * DTO (Data Transfer Object) que representa una comanda.
+ * Contiene los datos necesarios para transferir información sobre una comanda.
+ */
 @Data
-
 @AllArgsConstructor	
 public class ComandaDto {
-	private int idProducto;
-	private int idPedido;
+	/**
+     * El identificador del producto asociado con la comanda.
+     */
+    private int idProducto;
+
+    /**
+     * El identificador del pedido asociado con la comanda.
+     */
+    private int idPedido;
+
+    /**
+     * El identificador de la mesa asociada con la comanda.
+     */
     private int idMesa;
+
+    /**
+     * Indica si la comanda ha sido servida.
+     */
     private String servido;
-    
     
 	public ComandaDto() {
 		super();

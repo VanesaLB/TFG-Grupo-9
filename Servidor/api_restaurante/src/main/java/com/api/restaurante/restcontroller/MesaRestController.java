@@ -19,6 +19,12 @@ import com.api.restaurante.service.MesaService;
 import com.api.restaurante.service.PedidoService;
 import com.api.restaurante.service.ProductoService;
 
+
+/**
+ * Controlador REST para la gestión de mesas.
+ * Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre las mesas.
+ */
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/mesa")
@@ -35,17 +41,33 @@ public class MesaRestController {
 		private MesaService mesaService;
 		@Autowired
 		private ModelMapper modelMapper;
+		 
+		/**
+	     * Obtiene todas las mesas.
+	     *
+	     * @return Una lista de todas las mesas disponibles.
+	     */
 		
 		@GetMapping("/buscarTodos")
 		 public List<Mesa> buscarTodasLasMesas() {
 			 return mesaService.buscarTodos();
 		 }
-		
+		/**
+	     * Obtiene una mesa específica por su ID.
+	     *
+	     * @param idMesa El ID de la mesa que se desea obtener.
+	     * @return La mesa correspondiente al ID especificado.
+	     */
 		@GetMapping("/buscarUno/{idMesa}")
 		 public Mesa buscarUnaMesa(@PathVariable int idMesa) {
 			 return mesaService.buscarUna(idMesa);
 		 }
-		
+		 /**
+	     * Elimina una mesa existente.
+	     *
+	     * @param idMesa El ID de la mesa que se desea eliminar.
+	     * @return Un mensaje indicando el resultado de la operación de eliminación.
+	     */
 		@DeleteMapping("/eliminar/{idMesa}")
 		public String eliminarMesa(@PathVariable int idMesa) {
 		
@@ -60,7 +82,12 @@ public class MesaRestController {
 			}
 			
 		}
-		
+		  /**
+	     * Da de alta una nueva mesa.
+	     *
+	     * @param mesa La mesa que se desea dar de alta.
+	     * @return La mesa añadida al sistema.
+	     */
 		@PostMapping("/altaMesa")
 		public Mesa altaDelPedido(@RequestBody Mesa mesa) {
 			

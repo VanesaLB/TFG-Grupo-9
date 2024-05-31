@@ -11,24 +11,48 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+
+/**
+ * Representa una entidad de comanda en la base de datos.
+ */
+
 @Entity
 @Table(name="comandas")
 public class Comanda {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_comanda")
-	private int idComanda;
-	@ManyToOne
-	@JoinColumn(name="id_producto")
-	private Producto producto;
-	@ManyToOne
-	@JoinColumn(name="id_pedido")
-	private Pedido pedido;
-	@ManyToOne
-	@JoinColumn(name="id_mesa")
-	private Mesa mesa;
-	private String servido;
+	
+	 /**
+     * El identificador único de la comanda.
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_comanda")
+    private int idComanda;
 
+    /**
+     * El producto asociado con la comanda.
+     */
+    @ManyToOne
+    @JoinColumn(name="id_producto")
+    private Producto producto;
+
+    /**
+     * El pedido asociado con la comanda.
+     */
+    @ManyToOne
+    @JoinColumn(name="id_pedido")
+    private Pedido pedido;
+
+    /**
+     * La mesa asociada con la comanda.
+     */
+    @ManyToOne
+    @JoinColumn(name="id_mesa")
+    private Mesa mesa;
+
+    /**
+     * Indica si la comanda ha sido servida.
+     */
+    private String servido;
 	
 	public Comanda() {
 		super();

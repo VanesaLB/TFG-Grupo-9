@@ -11,6 +11,7 @@ import org.modelmapper.ModelMapper;
 @Configuration
 public class BeanConfiguracion {
 
+//Aquí declaramos el ModelMapper que usaremos posteriormente en otras clases.
 	@Bean
 	public ModelMapper modelMapper() {
 		 

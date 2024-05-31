@@ -19,23 +19,44 @@ import lombok.NoArgsConstructor;
 
 
 
-
+/**
+ * Representa una entidad de pedido de la base de datos.
+ */
 @Entity
 @Table(name="pedidos")
 public class Pedido {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_pedido")
-	private int idPedido;
-	@Column(name="precio_total")
-	private double precioTotal;
-	@ManyToOne
-	@JoinColumn(name="id_mesa")
-	private Mesa mesa;
-	@Column(name="cantidad_productos")
-	private int cantidadProductos;
-	@Temporal(TemporalType.DATE)
+	  /**
+     * El identificador único del pedido.
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_pedido")
+    private int idPedido;
+
+    /**
+     * El precio total del pedido.
+     */
+    @Column(name="precio_total")
+    private double precioTotal;
+
+    /**
+     * La mesa asociada con el pedido.
+     */
+    @ManyToOne
+    @JoinColumn(name="id_mesa")
+    private Mesa mesa;
+
+    /**
+     * La cantidad de productos en el pedido.
+     */
+    @Column(name="cantidad_productos")
+    private int cantidadProductos;
+
+    /**
+     * La fecha del pedido.
+     */
+    @Temporal(TemporalType.DATE)
     @Column(name="fecha")
     private Date fecha;
 	

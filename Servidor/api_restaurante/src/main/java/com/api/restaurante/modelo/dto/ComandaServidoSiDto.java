@@ -1,12 +1,23 @@
 package com.api.restaurante.modelo.dto;
 
 import java.util.Objects;
+/**
+ * DTO (Data Transfer Object) que representa una comanda con el estado de servicio.
+ * Contiene los datos necesarios para transferir información sobre una comanda
+ * y su estado de servicio.
+ */
 
 public class ComandaServidoSiDto {
 
-	private int idComanda;
-	
-	private String servido;
+	/**
+     * El identificador único de la comanda.
+     */
+    private int idComanda;
+
+    /**
+     * Indica si la comanda ha sido servida.
+     */
+    private String servido;
 	
 	public ComandaServidoSiDto() {
 		super();
