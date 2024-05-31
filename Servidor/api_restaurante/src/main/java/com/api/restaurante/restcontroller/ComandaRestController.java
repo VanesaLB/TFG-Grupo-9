@@ -177,32 +177,6 @@ public class ComandaRestController {
 	 	}
 	 		return comandaService.altaMuchos(comandas); 
 	 }
-	 	/*
-	 	 * PARA POSTMAN:
-	 	 * [
-
-	 {
-	     "idProducto": 1,
-	     "idPedido": 1,
-	     "idMesa": 2,
-	     "servido": "si"
-	 },
-
-	 {
-	     "idProducto": 1,
-	     "idPedido": 1,
-	     "idMesa": 2,
-	     "servido": "si"
-	 },
-
-	 {
-	     "idProducto": 1,
-	     "idPedido": 1,
-	     "idMesa": 2,
-	     "servido": "si"
-	 }
-	 ]
-	 	 */
 	
 
 }
