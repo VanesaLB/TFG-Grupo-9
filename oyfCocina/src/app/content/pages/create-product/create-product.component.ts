@@ -50,22 +50,11 @@ export class CreateProductComponent{
   }
 
   crearProducto(): void{
-    if ( this.productoForm.invalid ) return;
-
-    if ( this.currentProduct.idProducto ) {
-      this.productService.updateProduct( this.currentProduct )
-        .subscribe( product => {
-          alert(`${ product.descripcion } modificado`);
-        })
-    }
-
-    this.productService.addProduct( this.currentProduct )
+      this.productService.addProduct( this.currentProduct )
       .subscribe( product => {
-        this.router.navigate(['/crear', product.idProducto ])
+        this.router.navigate(['/productos', product.idProducto ])
         alert(`${ product.descripcion } creado`);
       })
   }
-
-
 
 }

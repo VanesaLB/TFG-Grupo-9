@@ -28,27 +28,20 @@ export class ProductosPageComponent implements OnInit{
       );
   }
 
-  /**
-   * 
-   */
   mostrarTodos(): void {
     this.productService.getProducts().subscribe(products => {
       this.products = products;
     });
   }
 
-    eliminarProducto(producto: Product): void {
-      if( producto && producto.idProducto ){
-        this.productService.deleteProduct( producto.idProducto )
-        .subscribe(() => {
-          this.products = this.products.filter(p => p.idProducto !== producto.idProducto);
-
-        })
-      } else {
-        console.error('El producto es nulo o no tiene una propiedad idProducto definida.');
-
-      }
-
+  eliminarProducto(producto: Product): void {
+    if( producto && producto.idProducto ){
+      this.productService.deleteProduct( producto.idProducto )
+      .subscribe(() => {
+        this.products = this.products.filter(p => p.idProducto !== producto.idProducto);
+      })
+    } else {
+      console.error('El producto es nulo o no tiene una propiedad idProducto definida.');
     }
-
+  }
 }
