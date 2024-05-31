@@ -45,29 +45,7 @@ export class ComandaService {
       );
   }
 
-  // getComandasNoServidas(): Observable<ComandaDto[]> {
-  //   return this.httpClient.get<ComandaDto[]>(`${this.backendURL}/comandasServidoNo/no`);
-  // }
-
   updateComanda(comanda: Comanda): Observable<Comanda> {
     return this.httpClient.put<Comanda>(`${this.backendURL}/modificarServidoSi/${comanda.idComanda}`, comanda)
-      // .pipe(
-      //   map(resp => "realizado")
-      // );
   }
-
-  // updateComanda(comandaDto: ComandaDto): Observable<String>{
-
-  //   return this.httpClient.put<ComandaDto>(`${ this.backendURL }/modificarServidoSi/${comandaDto.idComanda}`, comandaDto)
-  //     .pipe(
-
-  //       map(resp=> "realizado")
-  //     );
-  // }
-
-  // updateComanda(comanda: Comanda): Observable<Comanda> {
-  //   return this.httpClient.put<Comanda>(`${this.backendURL}/modificarServidoSi/${comanda.idComanda}`, comanda);
-  // }
-
-
 }

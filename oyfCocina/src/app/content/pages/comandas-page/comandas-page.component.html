@@ -11,8 +11,6 @@
         <th class="plato">Plato</th>
         <th>Servido</th>
         <th>Cambiar Estado</th>
-                
-
       </tr>
     </thead>
 
@@ -22,12 +20,6 @@
            <td>{{comanda.pedido.idPedido}}</td>
            <td>{{comanda.producto.descripcion}}</td>
            <td>
-                  <!-- <select>
-                    <option *ngFor="let servido of servidos"
-                            [value]="servido.id">
-                            {{ servido.desc }}
-                    </option>
-                  </select> -->
              <select [(ngModel)]="comanda.servido">
                 <option *ngFor="let servido of servidos" [value]="servido.id">
                       {{ servido.desc }}
@@ -35,11 +27,8 @@
              </select>
             </td>
             <td>
-                  <!-- <button (click)="modificarServido(comanda, comanda.servido)">SERVIR</button> -->
               <button (click)="modificarServido(comanda, comanda.servido)">Servir</button>
             </td>
-                <!-- <td  class ="enlace" onclick="Eliminar()">Eliminar</td> -->
-
         </tr>
      </tbody>
   </table>

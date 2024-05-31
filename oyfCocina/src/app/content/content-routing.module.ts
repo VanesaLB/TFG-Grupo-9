@@ -27,10 +27,6 @@ const routes: Routes = [
     path: 'crear',
     component: CreateProductComponent
   },
-  // {
-  //   path: 'crear/:id',
-  //   component: CreateProductComponent
-  // },
   {
     path: '**',
     redirectTo: ''

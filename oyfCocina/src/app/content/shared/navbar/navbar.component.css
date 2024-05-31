@@ -9,6 +9,8 @@
     overflow: hidden;
     flex-shrink: 0;
     z-index: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
 }
 .logo-color-icon {
     width: 81px;
